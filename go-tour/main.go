@@ -1,6 +1,7 @@
 package main
 
 func main() {
-	PrintCorruptedNames()
-
+	ShowPic()
 }
+
+//TODO: https://go.dev/tour/moretypes/19
