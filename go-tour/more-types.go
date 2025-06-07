@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
+	"strings"
 
 	"golang.org/x/tour/pic"
+	"golang.org/x/tour/wc"
 )
 
 func ReadMemoryAddress() {
@@ -136,4 +139,81 @@ func Pic(dx, dy int) [][]uint8 {
 
 func ShowPic() {
 	pic.Show(Pic)
+}
+
+type Point struct {
+	Lat float64
+	Lng float64
+}
+
+func MakeMap() map[string]Point {
+	//? Map with string keys and Point values
+	m := make(map[string]Point)
+	m["Bell Labs"] = Point{40.68433, -74.39967}
+	m["Google"] = Point{37.42202, -122.08408}
+	return m
+}
+
+func CreateMap() map[string]Point {
+	//? Map literal
+	m := map[string]Point{
+		"Bell Labs": {40.68433, -74.39967},
+		"Google":    {37.42202, -122.08408},
+	}
+	return m
+}
+
+func DeleteFromMap(m map[string]Point, key string) {
+	//? Delete a key from a map
+	delete(m, key)
+}
+
+func GetElementFromMap(m map[string]Point, key string) (Point, bool) {
+	v, ok := m[key]
+	return v, ok
+}
+
+func WordCount(s string) map[string]int {
+	//? Fields separates a string with spaces
+	words := strings.Fields(s)
+	counts := make(map[string]int)
+
+	for _, word := range words {
+		counts[word]++
+	}
+
+	return counts
+}
+
+func TestWordCount() {
+	wc.Test(WordCount)
+}
+
+func Compute(a, b float64, fn func(float64, float64) float64) int {
+	return int(math.Floor(fn(a, b)))
+}
+
+func CreatePowFn() func(float64, float64) float64 {
+	return func(a, b float64) float64 {
+		return math.Pow(a, b)
+	}
+}
+
+func RecursiveFibonacci(n int) int {
+	if n <= 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	}
+	return RecursiveFibonacci(n-1) + RecursiveFibonacci(n-2)
+}
+
+func Fibonacci() func() int {
+	a, b := 0, 1
+
+	return func() int {
+		result := a
+		a, b = b, a+b
+		return result
+	}
 }
