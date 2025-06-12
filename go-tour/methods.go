@@ -2,7 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"math"
+	"strings"
+
+	"golang.org/x/tour/reader"
 )
 
 type Vertex struct {
@@ -111,3 +115,101 @@ func (v Vertex) String() string {
 	//? This is a Stringer method, which allows us to define how the Vertex type should be represented as a string.
 	return fmt.Sprintf("Vertex(X: %0.2f, Y: %0.2f)", v.X, v.Y)
 }
+
+type HttpError struct {
+	StatusCode int
+	Message    string
+}
+
+// ? Every error type implements the following interface
+// ? type error interface {
+// ?     Error() string
+// ? }
+
+func (e *HttpError) Error() string {
+	return fmt.Sprintf("HTTP %d: %s", e.StatusCode, e.Message)
+}
+
+func Err() error {
+	// ? since the method is defined on a pointer receiver, we will return the pointer
+	// ? The garbage collector will put the HttpError in the heap
+	return &HttpError{
+		StatusCode: 404,
+		Message:    "Not Found",
+	}
+}
+
+func PrintError() {
+	// ? This is good practice since after the if is executed, the variable will be garbage collected
+	if err := Err(); err != nil {
+		fmt.Println(err)
+	}
+}
+
+func IoReader() {
+	r := strings.NewReader("Hello, Reader!")
+
+	b := make([]byte, 8) //? with cap of 8
+	for {
+		n, err := r.Read(b) //? n is the number of bytes read
+		fmt.Printf("n = %v err = %v b = %v\n", n, err, b)
+		fmt.Printf("b[:n] = %q\n", b[:n]) //? it should be 8 and then 6
+		if err == io.EOF {
+			break
+		}
+	}
+}
+
+type IPAddress [4]byte
+
+func (ip IPAddress) String() string {
+	return fmt.Sprintf("%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3])
+}
+
+func PrintIPAddress() {
+	hosts := map[string]IPAddress{
+		"localhost": {127, 0, 0, 1},
+		"google":    {8, 8, 8, 8},
+	}
+	for name, ip := range hosts {
+		fmt.Printf("%s: %s\n", name, ip)
+	}
+}
+
+type ErrNegativeSqrt float64
+
+func (e ErrNegativeSqrt) Error() string {
+	return fmt.Sprintf("cannot Sqrt negative number: %f", e)
+}
+
+func SqrtWithError(x float64) (float64, error) {
+	if x < 0 {
+		return 0, ErrNegativeSqrt(x)
+	}
+	z := x
+	//? You can use for range to iterate a fixed number of times
+	//? can also do for i := range 10
+	for range 10 {
+		z = z - (z*z-x)/(2*z)
+	}
+	return z, nil
+}
+
+type MyReader struct{}
+
+func (r MyReader) Read(b []byte) (int, error) {
+	for i := range b {
+		b[i] = 'A'
+	}
+	return len(b), nil //? return the number of bytes read and no error
+}
+
+func ReaderExample() {
+	reader.Validate(MyReader{})
+}
+
+type Rot13Reader struct {
+	r io.Reader
+}
+
+func (r *Rot13Reader) Read(b []byte) (int, error) {}

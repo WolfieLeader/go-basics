@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	EmptyInterfaceTypeAssertion()
+	ReaderExample()
 }
 
-//TODO: https://go.dev/tour/methods/19
+//TODO: https://go.dev/tour/methods/24
