@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	ListExample()
+	GoRoutinesExample()
 }
 
 // TODO: https://go.dev/tour/concurrency/1
