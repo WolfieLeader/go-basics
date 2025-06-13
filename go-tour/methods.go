@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"image"
+	"image/color"
 	"io"
 	"math"
+	"os"
 	"strings"
 
+	"golang.org/x/tour/pic"
 	"golang.org/x/tour/reader"
 )
 
@@ -195,6 +199,10 @@ func SqrtWithError(x float64) (float64, error) {
 	return z, nil
 }
 
+// ? type Reader interface {
+// ?	Read(b []byte) (n int, err error)
+// ? }
+
 type MyReader struct{}
 
 func (r MyReader) Read(b []byte) (int, error) {
@@ -212,4 +220,62 @@ type Rot13Reader struct {
 	r io.Reader
 }
 
-func (r *Rot13Reader) Read(b []byte) (int, error) {}
+func (r *Rot13Reader) Read(b []byte) (int, error) {
+	n, err := r.r.Read(b)
+	if err != nil {
+		return 0, err
+	}
+
+	for i := range n {
+		char := b[i]
+		if char >= 'A' && char <= 'Z' {
+			b[i] = 'A' + (char-'A'+13)%26
+		}
+
+		if char >= 'a' && char <= 'z' {
+			b[i] = 'a' + (char-'a'+13)%26
+		}
+	}
+
+	return n, nil
+}
+
+func Rot13ReaderExample() {
+	s := strings.NewReader("Lbh penpxrq gur pbqr!")
+	r := Rot13Reader{s}
+	io.Copy(os.Stdout, &r)
+}
+
+// ? type Image interface {
+// ?    ColorModel() color.Model
+// ?    Bounds() Rectangle
+// ?    At(x, y int) color.Color
+// ? }
+
+func ImageExample() {
+	m := image.NewRGBA(image.Rect(0, 0, 100, 100))
+	fmt.Println(m.Bounds())
+	fmt.Println(m.At(0, 0).RGBA())
+}
+
+type Image struct {
+	Width, Height int
+}
+
+func (img *Image) ColorModel() color.Model {
+	return color.RGBAModel
+}
+
+func (img *Image) Bounds() image.Rectangle {
+	return image.Rect(0, 0, img.Width, img.Height)
+}
+
+func (img *Image) At(x, y int) color.Color {
+	v := uint8((x + y) % 256) //? Just a simple color based on x and y
+	return color.RGBA{v, v, 255, 255}
+}
+
+func AnotherImageExample() {
+	m := &Image{Width: 100, Height: 100}
+	pic.ShowImage(m)
+}

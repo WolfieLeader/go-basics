@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	ReaderExample()
+	ListExample()
 }
 
-//TODO: https://go.dev/tour/methods/24
+// TODO: https://go.dev/tour/concurrency/1
