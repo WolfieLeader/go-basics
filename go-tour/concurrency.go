@@ -357,3 +357,31 @@ func CrawlExample() {
 	Crawl("https://golang.org/", 4, fetcher, &wg)
 	wg.Wait()
 }
+
+func Worker(id int, wg *sync.WaitGroup) {
+	defer wg.Done()
+
+	fmt.Printf("Worker %d starting\n", id)
+	time.Sleep(100 * time.Millisecond) // Simulate work
+	fmt.Printf("Worker %d done\n", id)
+}
+
+func WorkerPoolExample() {
+	var wg sync.WaitGroup
+
+	wg.Add(3)
+	go Worker(900, &wg)
+	go Worker(800, &wg)
+	go Worker(700, &wg)
+	wg.Wait()
+
+	for i := range 3 {
+		wg.Add(1)
+		go Worker(i, &wg)
+	}
+
+	wg.Wait()
+	fmt.Println("All workers completed")
+}
+
+//TODO: Context

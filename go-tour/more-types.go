@@ -217,3 +217,5 @@ func Fibonacci() func() int {
 		return result
 	}
 }
+
+//TODO: JSON and Panic and Recover
