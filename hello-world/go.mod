@@ -1,6 +1,6 @@
 module hello-world
 
-go 1.24.3
+go 1.24.4
 
 require rsc.io/quote v1.5.2
 
