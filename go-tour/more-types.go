@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"math"
 	"math/rand"
@@ -218,4 +219,39 @@ func Fibonacci() func() int {
 	}
 }
 
-//TODO: JSON and Panic and Recover
+func PanicAndRecover() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered from panic:", r)
+		}
+	}()
+
+	panic("This is a panic example")
+}
+
+type User struct {
+	Name  string `json:"name"`
+	Age   int    `json:"age"`
+	Likes int    `json:"likes,omitempty"`
+	Admin bool   `json:"isAdmin,omitempty"`
+}
+
+func JsonExample() {
+	u1 := User{"John Doe", 30, 1, true}
+
+	j1, marshalErr := json.Marshal(u1)
+	if marshalErr != nil {
+		fmt.Println("Error marshalling JSON:", marshalErr)
+		return
+	}
+
+	fmt.Println("JSON:", string(j1))
+	j2 := `{"name":"Jane Doe","age":25}`
+	var u2 User
+	unmarshalErr := json.Unmarshal([]byte(j2), &u2)
+	if unmarshalErr != nil {
+		fmt.Println("Error unmarshalling JSON:", unmarshalErr)
+		return
+	}
+	fmt.Printf("Unmarshalled User: %+v\n", u2)
+}
