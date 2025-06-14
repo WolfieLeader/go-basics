@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func arrayExample() {
+func arrayExample1() {
 	fmt.Println("\nArray Example:")
 	// Fixed string array with length 3
 	strArr := [3]string{"Hello", "World", "!"}
@@ -14,6 +14,16 @@ func arrayExample() {
 	intArr[2] = 3     // [1 0 3 0 0]
 	intArr[4] = 5     // [1 0 3 0 5]
 	fmt.Println("Fixed integer array:", intArr)
+}
+
+func arrayExample2() {
+	fmt.Println("\nArray Example 2:")
+	intArr := [5]int{100, 200, 300, 400, 500}
+
+	// Going through the array using a for loop
+	for index, value := range intArr {
+		fmt.Printf("Index: %d, Value: %d\n", index, value)
+	}
 }
 
 func sliceExample1() {
@@ -29,6 +39,11 @@ func sliceExample1() {
 	// Capacity is the maximum number of elements the slice can hold without reallocating
 	// When appending, if the capacity is exceeded, a new underlying array is created with double the capacity
 	fmt.Printf("Slice: %v, Length: %d, Capacity: %d\n", floatSlice, len(floatSlice), cap(floatSlice))
+
+	// Going through the slice values using a for loop
+	for _, value := range floatSlice {
+		fmt.Printf("Value: %.1f\n", value)
+	}
 }
 
 func sliceExample2() {
@@ -52,7 +67,8 @@ func sliceExample2() {
 }
 
 func main() {
-	arrayExample()
+	arrayExample1()
+	arrayExample2()
 	sliceExample1()
 	sliceExample2()
 }
