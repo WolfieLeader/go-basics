@@ -1,19 +1,21 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"runtime"
 	"strconv"
 )
 
-func absolute(x float64) float64 {
-	if x < 0 {
-		return -x
+// Common pattern in Go is to return multiple values, often a value and an error.
+func divide(a, b int) (float64, error) {
+	// No parentheses are needed around the condition in an if statement.
+	if b == 0 {
+		return 0, errors.New("division by zero is not allowed")
 	}
-	return x
+	return float64(a) / float64(b), nil
 }
 
-// This is common return pattern in Go where you return a value and an error.
 func convertToInt(str string) (int, error) {
 	// In Go you can declare and initialize a var inside an if statement this is good for short-lived variables
 	if num, err := strconv.Atoi(str); err == nil {
@@ -35,4 +37,20 @@ func printOS() {
 	default: // Default case is executed if none of the above cases match
 		fmt.Println("You are running on an unknown OS: ", os)
 	}
+}
+
+func main() {
+	result, err := divide(10, 2)
+	if err != nil {
+		return
+	}
+	fmt.Printf("10 divided by 2 is: %.2f\n", result)
+
+	num, err := convertToInt("42")
+	if err != nil {
+		return
+	}
+	fmt.Printf("Converted string to int: %d\n", num)
+
+	printOS()
 }

@@ -37,6 +37,13 @@ func whileLoop(n int) {
 	}
 }
 
+func absolute(x float64) float64 {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
 // This is how you can implement a square root function using Newton's method
 func sqrt(x float64) float64 {
 	const THRESHOLD = 1e-10
@@ -54,4 +61,12 @@ func sqrt(x float64) float64 {
 	}
 	fmt.Printf("Sqrt converged after %d iterations\n", counter)
 	return z
+}
+
+func main() {
+	loopBackward(5)
+	loopForward(5)
+	printEvenNumbers(23)
+	whileLoop(5)
+	fmt.Printf("Square root of 11: %.2f\n", sqrt(11))
 }

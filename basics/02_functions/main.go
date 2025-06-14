@@ -22,6 +22,15 @@ func swap(a, b int) (int, int) {
 	return b, a
 }
 
+func deferredPrint() {
+	// The defer keyword defers the execution of a function until the surrounding function returns
+	defer fmt.Println("- fourth (deferred)")
+	// Bottom to top execution order for deferred functions
+	defer fmt.Println("- third (deferred)")
+	fmt.Println("- first")
+	fmt.Println("- second")
+}
+
 func main() {
 	a, b := 5, 2
 
@@ -34,4 +43,6 @@ func main() {
 	x, y := swap(a, b)
 	fmt.Printf("- Swapped from a=%d, b=%d to a=%d, b=%d\n", a, b, x, y)
 	fmt.Println("- Power of 2^3:", math.Pow(2, 3)) // Using math package to calculate power
+
+	deferredPrint()
 }
