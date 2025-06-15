@@ -7,7 +7,7 @@
    - Variable Declaration
    - Constants
    - Printing Variables
-3. Functions
+3. Basic Functions
    - Function Declaration
    - Parameters & Return Values
    - Naked Returns
@@ -23,22 +23,23 @@
    - "While" Loops
    - Infinite Loops
    - Break and Continue
-6. Strings Manipulation
+6. String Manipulation
    - String Functions
    - String Formatting
    - String Conversion
-   - Regular Expressions
+   - Regex
 7. Arrays and Slices
    - Arrays
    - Slices
    - Slice Literals
+   - Iteration
    - Copying / Appending
 8. Maps
    - Declaration & Initialization
    - Map Literals
    - Iteration
    - Deleting Keys
-9. Functions Values
+9. Functions as Variables
 10. Pointers
 11. Structs
 12. Interfaces
@@ -60,13 +61,13 @@
     - Mutexes & Race Conditions
     - `select` Statement
     - Context
-18. Input and Output
+18. Reflection
+19. Input and Output
     - Reading Input
     - Writing Output
     - File Handling
     - Command Line Arguments
-19. JSON Handling
-20. HTTP Servers
-21. Testing
-22. Cryptography
-23. Reflection
+20. JSON Handling
+21. HTTP Servers
+22. Testing
+23. Cryptography
