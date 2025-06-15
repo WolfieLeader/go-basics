@@ -39,6 +39,26 @@ func printOS() {
 	}
 }
 
+// switch without an expression is like a series of if statements.
+func levelByScore(x int) string {
+	switch {
+	case x <= 0:
+		return "New"
+	case x <= 100:
+		return "Bronze"
+	case x <= 500:
+		return "Silver"
+	case x <= 1000:
+		return "Gold"
+	case x <= 5000:
+		return "Platinum"
+	case x <= 10000:
+		return "Diamond"
+	default:
+		return "Master"
+	}
+}
+
 func main() {
 	result, err := divide(10, 2)
 	if err != nil {
@@ -53,4 +73,6 @@ func main() {
 	fmt.Printf("Converted string to int: %d\n", num)
 
 	printOS()
+	fmt.Println("Your level based on score 1500 is:", levelByScore(1500))
+	fmt.Println("Your level based on score 5000 is:", levelByScore(5000))
 }

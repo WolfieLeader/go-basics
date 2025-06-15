@@ -45,8 +45,7 @@ func main() {
 	isEmployed := true
 
 	// Print values
-	fmt.Println(firstVar)
-	fmt.Println("Name: ", name, " Age: ", age, " Employed: ", isEmployed)
+	fmt.Println("Name: "+name, " Age: ", age, " Employed: ", isEmployed)
 	fmt.Printf(
 		`Types:
     - String: %s
