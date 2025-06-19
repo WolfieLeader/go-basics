@@ -40,6 +40,11 @@
    - Iteration
    - Deleting Keys
 9. Functions as Variables
+   - Assigning Functions to Variables
+   - Passing Functions as Arguments
+   - Returning Functions from Functions
+   - Closures
+   - Anonymous Functions
 10. Pointers
 11. Structs
 12. Interfaces
@@ -71,3 +76,10 @@
 21. HTTP Servers
 22. Testing
 23. Cryptography
+
+- iota
+- new()
+- OuterLoop label break
+- [...]T
+- recursion
+- init() function

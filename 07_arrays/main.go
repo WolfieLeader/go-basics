@@ -80,7 +80,7 @@ func sliceCopyExample() {
 	nSmall := copy(smallDst, src) // Copy to smaller slice
 
 	// Modify target to show independence from source
-	dst[0] = "X"
+	dst[0] = "Y"
 
 	fmt.Printf("- Source slice: %v\n", src)
 	fmt.Printf("- Target slice (copied): %v\n", dst)
