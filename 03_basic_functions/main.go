@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// In go function that starts with a capital letter is exported, meaning it can be accessed from other packages.
+// Function with a capitalized name is exported and can be used in other packages
 func printHelloWorld() {
 	fmt.Println("Hello World!")
 }

@@ -7,9 +7,9 @@ import (
 	"strconv"
 )
 
-// Common pattern in Go is to return multiple values, often a value and an error.
+// Common pattern for error handling in Go
 func divide(a, b int) (float64, error) {
-	// No parentheses are needed around the condition in an if statement.
+	// No parentheses() are needed
 	if b == 0 {
 		return 0, errors.New("division by zero is not allowed")
 	}
@@ -17,7 +17,7 @@ func divide(a, b int) (float64, error) {
 }
 
 func convertToInt(str string) (int, error) {
-	// In Go you can declare and initialize a var inside an if statement this is good for short-lived variables
+	// You can declare and initialize a var inside an if statement, it's good for short-lived variables
 	if num, err := strconv.Atoi(str); err == nil {
 		return num, nil
 	} else {
@@ -26,7 +26,7 @@ func convertToInt(str string) (int, error) {
 }
 
 func printOS() {
-	// Switch statements are like if statements with multiple conditions.
+	// Switch statements are like if statements
 	switch os := runtime.GOOS; os {
 	case "darwin":
 		fmt.Println("You are running on macOS")
@@ -34,7 +34,7 @@ func printOS() {
 		fmt.Println("You are running on Linux")
 	case "windows":
 		fmt.Println("You are running on Windows")
-	default: // Default case is executed if none of the above cases match
+	default: // If no case matches, the default case is executed
 		fmt.Println("You are running on an unknown OS: ", os)
 	}
 }

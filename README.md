@@ -83,3 +83,4 @@
 - [...]T
 - recursion
 - init() function
+- fetch data

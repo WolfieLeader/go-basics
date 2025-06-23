@@ -30,7 +30,7 @@ func printEvenNumbers(n int) {
 func whileLoop(n int) {
 	fmt.Println("While loop:")
 	l := 0
-	// In Go, the for loop can also be used as a while loop
+	// for loop can also be used as a while loop
 	for l < n {
 		fmt.Printf("- l = %d\n", l)
 		l++
@@ -44,7 +44,6 @@ func absolute(x float64) float64 {
 	return x
 }
 
-// This is how you can implement a square root function using Newton's method
 func sqrt(x float64) float64 {
 	const THRESHOLD = 1e-10
 	z, counter := 1.0, 0
@@ -56,7 +55,7 @@ func sqrt(x float64) float64 {
 		z = z - (z*z-x)/(2*z) // Newton's method formula for square root
 
 		if absolute(z-prev) < THRESHOLD {
-			break // Exit the loop if the change is within the threshold
+			break // Exit loop
 		}
 	}
 	fmt.Printf("Sqrt converged after %d iterations\n", counter)

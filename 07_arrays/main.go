@@ -4,6 +4,7 @@ import "fmt"
 
 func arrayExample1() {
 	fmt.Println("\nArray Example:")
+
 	// Fixed string array with length 3
 	strArr := [3]string{"Hello", "World", "!"}
 	fmt.Println("- Fixed array:", strArr)
@@ -30,6 +31,7 @@ func arrayExample2() {
 
 func sliceExample1() {
 	fmt.Println("\nSlice Example 1:")
+
 	// Slice is a dynamically-sized array
 	floatSlice := []float64{1.1, 2.2}
 	floatSlice[0] = 0.1                       // Modify first element
@@ -58,7 +60,6 @@ func sliceExample2() {
 	strSlice1 := make([]string, 2)    // Create a slice with length 2 and capacity 2
 	strSlice2 := make([]string, 0, 2) // Create a slice with length 0 and capacity 2
 
-	// [init: end(exclusive)]
 	strSlice1 = namesArr[0:2] // Slice from array, includes elements 0 and 1
 	strSlice2 = namesArr[1:4] // Slice from array, includes elements 1, 2, and 3
 
