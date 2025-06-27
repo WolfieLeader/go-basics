@@ -46,6 +46,13 @@
    - Closures
    - Anonymous Functions
 10. Pointers
+    - Pointer Declaration (`*T`)
+    - Getting Address of a Variable (`&`)
+    - Dereferencing a Pointer (`*p`)
+    - Modifying Values via Pointers
+    - Passing Pointers to Functions
+    - Nil Pointers and Safety Checks
+    - Using `new()` to Allocate Memory
 11. Structs
 12. Interfaces
     - Interface Declaration
@@ -84,3 +91,5 @@
 - recursion
 - init() function
 - fetch data
+- C
+- Assembly

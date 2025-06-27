@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func pointExample() {
 	fmt.Println("\nPointers Example:")
@@ -27,8 +30,14 @@ func incorrectModify(x int) {
 	x = 100 // This only modifies the local copy of x
 }
 
-func correctModify(x *int) {
+func correctModify(x *int) error {
+	// The zero value of a pointer is nil, make sure to check for nil before doing anything with it!!!
+	if x == nil {
+		return errors.New("nil pointer dereference")
+	}
+
 	*x = 100 // This modifies the value at the address x points to
+	return nil
 }
 
 func modifyExample() {
@@ -44,7 +53,18 @@ func modifyExample() {
 	fmt.Println("After correctModify, value of a:", a)
 }
 
+func newExample() {
+	fmt.Println("\nNew Example:")
+
+	// `new(T)` allocates memory for a variable of type T and returns a pointer to it
+	p := new(string)     // Allocate memory for a string and get a pointer to it
+	*p = "Hello, World!" // Set the value at the address p points to
+
+	fmt.Println("Value at address p:", *p) // Print the value at the address p points to
+}
+
 func main() {
 	pointExample()
 	modifyExample()
+	newExample()
 }
