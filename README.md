@@ -50,24 +50,21 @@
     - Getting Address of a Variable (`&`)
     - Dereferencing a Pointer (`*p`)
     - Modifying Values via Pointers
-    - Passing Pointers to Functions
     - Nil Pointers and Safety Checks
     - Using `new()` to Allocate Memory
 11. Structs
-    - Declaring a Struct Type
-    - Creating Struct Instances
+    - Struct Types
     - Accessing and Modifying Fields
     - Struct Pointers and Field Access
     - Anonymous Structs
     - Nested Structs
     - Struct Methods (Receivers)
-    - Constructor Functions (Factory Pattern)
 12. Interfaces
     - Interface Declaration
-    - Implementation
-    - Empty Interfaces
+    - Implementation (Implicitly)
+    - Empty Interfaces (`interface{}`)
     - Type Switches
-    - `error` and `Stringer` Interfaces
+    - Built in `error` and `Stringer` Interfaces
 13. Packages
     - Creating Packages
     - Importing Packages
@@ -94,9 +91,10 @@
 
 - iota
 - OuterLoop label break
-- [...]T
+- [...]T, and ...T in function parameters
 - recursion
 - init() function
 - fetch data
 - C
 - Assembly
+- type alias
