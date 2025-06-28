@@ -54,6 +54,14 @@
     - Nil Pointers and Safety Checks
     - Using `new()` to Allocate Memory
 11. Structs
+    - Declaring a Struct Type
+    - Creating Struct Instances
+    - Accessing and Modifying Fields
+    - Struct Pointers and Field Access
+    - Anonymous Structs
+    - Nested Structs
+    - Struct Methods (Receivers)
+    - Constructor Functions (Factory Pattern)
 12. Interfaces
     - Interface Declaration
     - Implementation
@@ -85,7 +93,6 @@
 23. Cryptography
 
 - iota
-- new()
 - OuterLoop label break
 - [...]T
 - recursion
