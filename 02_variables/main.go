@@ -38,6 +38,26 @@ const (
 	minUint64 uint64 = 0
 )
 
+const (
+	// `iota` is a predeclared identifier that represents successive untyped integer constants
+	Sunday = iota + 1 // 1 (iota starts at 0, so we add 1)
+	Monday
+	Tuesday
+	Wednesday
+	Thursday
+	Friday
+	Saturday
+)
+
+const (
+	// `iota` can be used to create constants with a pattern
+	_ = iota // 0, ignored
+	KB = 1 << (10 * iota) // 1 << 10 = 1024
+	MB // 1 << 20 = 1048576
+	GB // 1 << 30 = 1073741824
+	TB // 1 << 40 = 1099511627776
+)
+
 func main() {
 	// Short declaration (inside functions only)
 	name := "John Doe"

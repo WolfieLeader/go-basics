@@ -7,6 +7,7 @@
    - Variable Declaration
    - Constants
    - Printing Variables
+   - `iota` and Enumerated Constants
 3. Basic Functions
    - Function Declaration
    - Parameters & Return Values
@@ -30,6 +31,7 @@
    - Regex
 7. Arrays and Slices
    - Arrays
+   - `[...]T` Size Inference
    - Slices
    - Slice Literals
    - Iteration
@@ -89,12 +91,11 @@
 22. Testing
 23. Cryptography
 
-- iota
 - OuterLoop label break
-- [...]T, and ...T in function parameters
+- ...T in function parameters
 - recursion
 - init() function
 - fetch data
 - C
 - Assembly
-- type alias
+- GRPC

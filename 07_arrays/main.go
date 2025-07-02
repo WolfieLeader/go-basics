@@ -19,7 +19,8 @@ func arrayExample1() {
 
 func arrayExample2() {
 	fmt.Println("\nArray Example 2:")
-	intArr := [5]int{100, 200, 300, 400, 500}
+	// `[...]T` is a shorthand for array with length inferred from the number of elements
+	intArr := [...]int{100, 200, 300, 400, 500}
 
 	// Going through the array using a for loop
 	var prt string
@@ -34,6 +35,7 @@ func sliceExample1() {
 
 	// Slice is a dynamically-sized array
 	floatSlice := []float64{1.1, 2.2}
+
 	floatSlice[0] = 0.1                       // Modify first element
 	floatSlice = append(floatSlice, 3.3)      // Append to slice
 	floatSlice = append(floatSlice, 4.4, 5.5) // Append multiple values
@@ -41,7 +43,8 @@ func sliceExample1() {
 
 	// Length is the current number of elements in the slice
 	// Capacity is the maximum number of elements the slice can hold without reallocating
-	// When appending, if the capacity is exceeded, a new underlying array is created with double the capacity
+
+	// If capacity is exceeded, a new underlying array is created with double the capacity
 	fmt.Printf("- Length: %d, Capacity: %d\n", len(floatSlice), cap(floatSlice))
 
 	// Going through the slice values using a for loop
@@ -56,7 +59,7 @@ func sliceExample2() {
 	fmt.Println("\nSlice Example 2:")
 	namesArr := [4]string{"John", "Paul", "George", "Ringo"}
 
-	// Rule on thumb: make keyword creates a dynamic type
+	// Rule on thumb: `make` keyword creates a dynamic type
 	strSlice1 := make([]string, 2)    // Create a slice with length 2 and capacity 2
 	strSlice2 := make([]string, 0, 2) // Create a slice with length 0 and capacity 2
 
