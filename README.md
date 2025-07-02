@@ -99,3 +99,4 @@
 - C
 - Assembly
 - GRPC
+- CLI Input - fmt.Scanln, bufio.NewReader, os.Args, flag package
