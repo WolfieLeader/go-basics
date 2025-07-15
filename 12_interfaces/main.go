@@ -10,6 +10,6 @@ func main() {
 	// error_and_stringer.go
 	errorAndStringerExample()
 
-	// interface_struct.go
-	interfaceStructExample()
+	// struct_with_interface.go
+	structWithInterfaceExample()
 }

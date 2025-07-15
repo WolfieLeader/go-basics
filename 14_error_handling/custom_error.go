@@ -10,7 +10,7 @@ type User struct {
 	Role string
 }
 
-var ErrNotFound = errors.New("User not found")
+var ErrNotFound = errors.New("not found")
 
 type UnauthorizedError struct {
 	Role string
@@ -31,7 +31,9 @@ func watchInfo(userName string) (string, error) {
 			return fmt.Sprintf("User %s has role %s", user.Name, user.Role), nil
 		}
 	}
-	return "", ErrNotFound
+	// Error wrapping example:
+	// Error wrapping is used to provide more context about the error without losing the original error
+	return "", fmt.Errorf("%s user is %w", userName, ErrNotFound)
 }
 
 func watchAdminInfo(userName string) (string, error) {
@@ -51,7 +53,8 @@ func customErrorExample() {
 	charlie, err := watchInfo("Charlie")
 	// errors.Is is used to check if the error is exactly ErrNotFound by value comparison
 	if errors.Is(err, ErrNotFound) {
-		fmt.Printf("Not found error: %s\n", err)
+		fmt.Printf("Not found wrapped error: %s\n", err)
+		fmt.Printf("Original not found error: %v\n", errors.Unwrap(err))
 	// Here we check if there is another type of error
 	} else if err != nil {
 		fmt.Println("Error occurred:", err)
