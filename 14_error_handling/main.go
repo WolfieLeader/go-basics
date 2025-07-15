@@ -1,8 +1,6 @@
 package main
 
 func main() {
-	// custom_error.go
+	basicErrorsExample()
 	customErrorExample()
-
-	deferCount()
 }

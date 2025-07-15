@@ -72,10 +72,10 @@
     - Importing Packages
 14. Error Handling
     - Returning Errors
-    - Error Wrapping (`%w`)
-    - Custom Error Types
-    - Panic, Recover, and Defer
     - Must Idiom
+    - Panic, Recover, and Defer
+    - Custom Error Types
+    - Error Wrapping (`%w`)
     - errors.Is and errors.As
 15. Generics
 16. Concurrency

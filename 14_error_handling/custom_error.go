@@ -50,7 +50,7 @@ func watchAdminInfo(userName string) (string, error) {
 
 func customErrorExample() {
 	fmt.Println("\nCustom Error Example:")
-	charlie, err := watchInfo("Charlie")
+	charlie, err := watchInfo("Ghost")
 	// errors.Is is used to check if the error is exactly ErrNotFound by value comparison
 	if errors.Is(err, ErrNotFound) {
 		fmt.Printf("Not found wrapped error: %s\n", err)
