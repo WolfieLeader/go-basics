@@ -71,25 +71,30 @@
     - Creating Packages
     - Importing Packages
 14. Error Handling
-15. Defer, Panic, and Recover
-16. Generics
-17. Concurrency
+    - Returning Errors
+    - Error Wrapping (`%w`)
+    - Custom Error Types
+    - Panic, Recover, and Defer
+    - Must Idiom
+    - errors.Is and errors.As
+15. Generics
+16. Concurrency
     - Goroutines
     - Channels
     - WaitGroups
     - Mutexes & Race Conditions
     - `select` Statement
     - Context
-18. Reflection
-19. Input and Output
+17. Reflection
+18. Input and Output
     - Reading Input
     - Writing Output
     - File Handling
     - Command Line Arguments
-20. JSON Handling
-21. HTTP Servers
-22. Testing
-23. Cryptography
+19. JSON Handling
+20. HTTP Servers
+21. Testing
+22. Cryptography
 
 - OuterLoop label break
 - ...T in function parameters
