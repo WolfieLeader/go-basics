@@ -92,12 +92,12 @@
     - Mutexes & Race Conditions
     - `select` Statement
     - Context
-17. Reflection
-18. Input and Output
+17. Input and Output
     - Reading Input
     - Writing Output
     - File Handling
     - Command Line Arguments
+18. Reflection
 19. JSON Handling
 20. HTTP Servers
 21. Testing
@@ -112,3 +112,4 @@
 - Assembly
 - GRPC
 - CLI Input - fmt.Scanln, bufio.NewReader, os.Args, flag package
+- HTMX
