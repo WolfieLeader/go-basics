@@ -22,8 +22,12 @@ type Rectangle struct{ Width, Height float64 }
 func (r *Rectangle) Area() float64          { return r.Width * r.Height }
 func (r *Rectangle) Circumference() float64 { return 2 * (r.Width + r.Height) }
 
-// Define a Line type as a type alias for float64
+// Define a Line type as a type alias for float6s
 type Line float64
+
+// If we would make a type alias like so:
+// type Line = float64
+// Then we could not implement methods on it, as type aliases do not allow method sets.
 
 // Implementing a method on Line type alias
 func (l Line) Area() float64          { return 0.0 }

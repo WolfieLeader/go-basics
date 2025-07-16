@@ -66,6 +66,7 @@
     - Implementation (Implicitly)
     - Empty Interfaces (`interface{}`)
     - Type Switches
+    - Type Aliases
     - Built in `error` and `Stringer` Interfaces
 13. Packages
     - Creating Packages
@@ -78,13 +79,13 @@
     - Error Wrapping (`%w`)
     - errors.Is and errors.As
 15. Generics
-    - Generics Syntax
-    - Type Aliases
-    - Custom Generic Types
-    - `any`, `comparable`, and `~T` (Type Sets)
-    - Union Types
-    - Using Generics with interfaces
-    - Constraints package
+    - Generic Function Syntax
+    - Custom Generic Types (Structs)
+    - Type Constraints: `any`, `comparable`, `~T`
+    - Union Types & Type Sets
+    - Using Generics with Interfaces
+    - `constraints` Package
+    - Type Aliases with Generics
 16. Concurrency
     - Goroutines
     - Channels
