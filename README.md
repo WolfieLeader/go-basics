@@ -78,6 +78,13 @@
     - Error Wrapping (`%w`)
     - errors.Is and errors.As
 15. Generics
+    - Generics Syntax
+    - Type Aliases
+    - Custom Generic Types
+    - `any`, `comparable`, and `~T` (Type Sets)
+    - Union Types
+    - Using Generics with interfaces
+    - Constraints package
 16. Concurrency
     - Goroutines
     - Channels
