@@ -31,7 +31,7 @@
    - Regex
 7. Arrays and Slices
    - Arrays
-   - `[...]T` Size Inference
+   - Size Inference ( `[...]T` )
    - Slices
    - Slice Literals
    - Iteration
@@ -41,12 +41,14 @@
    - Map Literals
    - Iteration
    - Deleting Keys
-9. Functions as Variables
+9. Advanced Functions
    - Assigning Functions to Variables
    - Passing Functions as Arguments
    - Returning Functions from Functions
    - Closures
    - Anonymous Functions
+   - Variadic Functions ( `...T` )
+   - Recursion
 10. Pointers
     - Pointer Declaration (`*T`)
     - Getting Address of a Variable (`&`)
@@ -68,6 +70,7 @@
     - Type Switches
     - Type Aliases
     - Built in `error` and `Stringer` Interfaces
+    - "Explicit" Interface Implementation
 13. Packages
     - Creating Packages
     - Importing Packages
@@ -105,8 +108,6 @@
 22. Cryptography
 
 - OuterLoop label break
-- ...T in function parameters
-- recursion
 - init() function
 - fetch data
 - C
