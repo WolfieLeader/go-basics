@@ -101,12 +101,13 @@
     - Writing Output
     - File Handling
     - Command Line Arguments
-18. Reflection
-19. JSON Handling
-20. HTTP Servers
-21. Testing
-22. Cryptography
+18. JSON Handling
+19. HTTP Servers
+20. Testing
+21. Cryptography
 
+- Reflection
+- Environment Variables
 - OuterLoop label break
 - init() function
 - fetch data
