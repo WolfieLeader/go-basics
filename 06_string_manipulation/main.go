@@ -16,8 +16,8 @@ func stringsExample() {
 	fmt.Printf("- Does it contain 'Gopher'? %t\n", strings.Contains(text, "Gopher"))
 	fmt.Printf("- Index of 'Gopher': %d\n", strings.Index(text, "Gopher"))
 	fmt.Printf("- Does it start with 'Hello'? %t\n", strings.HasPrefix(text, "Hello"))
-	fmt.Printf("- Does it end with '🚀 '? %t\n", strings.HasSuffix(text, "🚀"))
-	fmt.Printf("- Replace O's with 0's: %s\n", strings.ReplaceAll(text, "o", "0"))
+	fmt.Printf("- Does it end with '🚀'? %t\n", strings.HasSuffix(text, "🚀"))
+	fmt.Printf("- Replace O's with *'s: %s\n", strings.ReplaceAll(text, "o", "*"))
 	fmt.Printf("- Split by space: %v\n", strings.Split(text, " "))
 	fmt.Printf("- Join with hyphen: %s\n", strings.Join(strings.Split(text, " "), "-"))
 }
@@ -62,13 +62,32 @@ func regexExample() {
 	fmt.Printf("- Is '%s' a valid email? %t\n", email1, emailRegex.MatchString(email1))
 	fmt.Printf("- Is '%s' a valid email? %t\n", email2, emailRegex.MatchString(email2))
 	fmt.Printf("- Is '%s' a valid email? %t\n", notEmail, emailRegex.MatchString(notEmail))
-	fmt.Printf("- Extracted email indexes: %v\n", emailRegex.FindAllStringIndex(text, -1)) // -1 means find all matches not limited
-	fmt.Printf("- Extracted emails: %v\n", emailRegex.FindAllString(text, -1))             // -1 means find all matches not limited
+	// -1 means find all matches not limited
+	fmt.Printf("- Found emails: %v\n", emailRegex.FindAllString(text, -1))
+	// -1 means find all matches not limited
+	fmt.Printf("- Matched email positions: %v\n", emailRegex.FindAllStringIndex(text, -1))
 	fmt.Printf("- Replaced emails with '[EMAIL]': %s\n", emailRegex.ReplaceAllString(text, "[EMAIL]"))
+}
+
+func iterationExample() {
+	fmt.Println("\nByte and Rune Iteration Examples:")
+	str := "Go 🚀!"
+	
+	// Iterating over bytes not safe
+	for i := range len(str) {
+		fmt.Printf("Byte %d: %c, Unicode: %U\n", i, str[i], str[i])
+	}
+
+	// Iterating over runes is safe and handles multi-byte characters
+	for i, r := range str {
+		fmt.Printf("Rune %d: %c, Unicode: %U\n", i, r, r)
+	}
+
 }
 
 func main() {
 	stringsExample()
 	convertExample()
 	regexExample()
+	iterationExample()
 }

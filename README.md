@@ -29,6 +29,7 @@
    - String Formatting
    - String Conversion
    - Regex
+   - Iteration over Bytes and Runes
 7. Arrays and Slices
    - Arrays
    - `[...]T` Size Inference
@@ -84,7 +85,6 @@
     - Type Constraints: `any`, `comparable`, `~T`
     - Union Types & Type Sets
     - Using Generics with Interfaces
-    - `constraints` Package
     - Type Aliases with Generics
 16. Concurrency
     - Goroutines
