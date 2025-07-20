@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // Define an interface
 type Shape interface {
@@ -11,19 +14,28 @@ type Shape interface {
 // Define a Circle type
 type Circle struct{ Radius float64 }
 
+// Ensure Circle implements the Shape interface
+var _ Shape = Circle{}
+
 // Implement Shape interface for Circle
-func (c Circle) Area() float64          { return 3.14 * c.Radius * c.Radius }
-func (c Circle) Circumference() float64 { return 2 * 3.14 * c.Radius }
+func (c Circle) Area() float64          { return math.Pi * c.Radius * c.Radius }
+func (c Circle) Circumference() float64 { return 2 * math.Pi * c.Radius }
 
 // Define a Rectangle type
 type Rectangle struct{ Width, Height float64 }
+
+// Ensure Rectangle implements the Shape interface (Recommended way)
+var _ Shape = (*Rectangle)(nil)
 
 // Implement Shape interface for Rectangle Pointer
 func (r *Rectangle) Area() float64          { return r.Width * r.Height }
 func (r *Rectangle) Circumference() float64 { return 2 * (r.Width + r.Height) }
 
-// Define a Line type as a type alias for float6s
+// Define a Line type as a type alias for float64
 type Line float64
+
+// Ensure Line(which is a type alias) implements the Shape interface
+var _ Shape = Line(0)
 
 // If we would make a type alias like so:
 // type Line = float64
