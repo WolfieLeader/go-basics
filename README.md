@@ -74,6 +74,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Access and Modify Keys
 - Iterate Over Maps
 - Delete Keys from Map (`delete()` function)
+- Comma-ok Idiom
 
 ---
 
@@ -117,7 +118,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Declare Interfaces
 - Implicit Interface Implementation
 - Empty Interface (`interface{}`)
-- Type Assertions and Type Switches
+- Type Assertions, Type Switches, and Comma-ok Idiom
 - Type Aliases
 - Built-in Interfaces: `error`, `Stringer`, etc.
 - "Explicit" Interface Implementation
@@ -190,6 +191,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
     - Command Line Arguments
 18. HTTP Servers
     - JSON and XML Handling
+    - Data Fetching
     - HTTP Server
     - TCP Server
 19. Testing
@@ -200,8 +202,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Environment Variables
 - OuterLoop label break
 - init() function
-- fetch data
 - C
 - Assembly
-- GRPC
+- gRPC
 - HTMX
