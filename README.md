@@ -1,111 +1,201 @@
-# go-basics
+# Go Basics Guide 🏆
 
-1. Hello World
-   - Print "Hello World!"
-2. Variables
-   - Data Types
-   - Variable Declaration
-   - Constants
-   - Printing Variables
-   - `iota` and Enumerated Constants
-3. Basic Functions
-   - Function Declaration
-   - Parameters & Return Values
-   - Naked Returns
-   - Function Values (First-Class)
-   - Functions from Other Files
-4. Conditionals
-   - If / Else Statements
-   - Switch Statements
-   - Switch with Conditions (true)
-5. Loops
-   - For Loops
-   - Range Loops
-   - "While" Loops
-   - Infinite Loops
-   - Break and Continue
-6. String Manipulation
-   - String Functions
-   - String Formatting
-   - String Conversion
-   - Regex
-   - Iteration over Bytes and Runes
-7. Arrays and Slices
-   - Arrays
-   - Size Inference ( `[...]T` )
-   - Slices
-   - Slice Literals
-   - Iteration
-   - Copying / Appending
-8. Maps
-   - Declaration & Initialization
-   - Map Literals
-   - Iteration
-   - Deleting Keys
-9. Advanced Functions
-   - Assigning Functions to Variables
-   - Passing Functions as Arguments
-   - Returning Functions from Functions
-   - Closures
-   - Anonymous Functions
-   - Variadic Functions ( `...T` )
-   - Recursion
-10. Pointers
-    - Pointer Declaration (`*T`)
-    - Getting Address of a Variable (`&`)
-    - Dereferencing a Pointer (`*p`)
-    - Modifying Values via Pointers
-    - Nil Pointers and Safety Checks
-    - Using `new()` to Allocate Memory
-11. Structs
-    - Struct Types
-    - Accessing and Modifying Fields
-    - Struct Pointers and Field Access
-    - Anonymous Structs
-    - Nested Structs
-    - Struct Methods (Receivers)
-12. Interfaces
-    - Interface Declaration
-    - Implementation (Implicitly)
-    - Empty Interfaces (`interface{}`)
-    - Type Switches
-    - Type Aliases
-    - Built in `error` and `Stringer` Interfaces
-    - "Explicit" Interface Implementation
-13. Packages
-    - Creating Packages
-    - Importing Packages
-14. Error Handling
-    - Returning Errors
-    - Must Idiom
-    - Panic, Recover, and Defer
-    - Custom Error Types
-    - Error Wrapping (`%w`)
-    - errors.Is and errors.As
-15. Generics
-    - Generic Function Syntax
-    - Custom Generic Types (Structs)
-    - Type Constraints: `any`, `comparable`, `~T`
-    - Union Types & Type Sets
-    - Using Generics with Interfaces
-    - Type Aliases with Generics
-16. Concurrency
-    - Goroutines
-    - Channels
-    - WaitGroups
-    - Mutexes & Race Conditions
-    - `select` Statement
-    - Context
-17. Input and Output
+Practical Go programming guide covering the basics and some advanced topics. This guide is designed to help you quickly get started with Go and understand its core concepts.
+
+---
+
+### 1. Hello World
+
+- Print "Hello World!"
+
+---
+
+### 2. Variables
+
+- Declare and Initialize Variables
+- Data Types
+- Constants
+- Printing Variables
+- `iota` and Enumerated Constants
+
+---
+
+### 3. Basic Functions
+
+- Declare Functions
+- Function Parameters and Return Values
+- Naked Returns
+- Use Functions Across Files (Same Package)
+
+---
+
+### 4. Conditionals
+
+- `if` / `else` Statements
+- `switch` Statements
+- `switch true` Pattern (Conditional Cases)
+
+---
+
+### 5. Loops
+
+- Basic `for` Loops
+- Range Loops (`for range`)
+- Simulate `while` Loops
+- Infinite Loops
+- `break` and `continue`
+
+---
+
+### 6. String Manipulation
+
+- Common String Functions
+- String Formatting
+- Type Conversion (String ↔ Number)
+- Regular Expressions (`regexp`)
+- Iterating Over Bytes and Runes
+
+---
+
+### 7. Arrays and Slices
+
+- Arrays and Fixed-Length Arrays
+- Size Inference with `[...]T`
+- Slices and Slice Literals
+- Iteration with `range`
+- Copying and Appending Slices
+
+---
+
+### 8. Maps
+
+- Declare and Initialize Maps
+- Map Literals
+- Access and Modify Keys
+- Iterate Over Maps
+- Delete Keys from Map (`delete()` function)
+
+---
+
+### 9. Advanced Functions
+
+- Function Values (First-Class Functions)
+- Assign Functions to Variables
+- Pass Functions as Parameters
+- Return Functions from Functions
+- Anonymous Functions
+- Closures
+- Variadic Functions (`...T`)
+- Recursive Functions
+
+---
+
+### 10. Pointers
+
+- Declare and Use Pointers (`*T`)
+- Get the Address of a Variable (`&`)
+- Dereference a Pointer (`*p`)
+- Modify Values Through Pointers
+- Handle Nil Pointers Safely
+- Allocate Memory with `new()`
+
+---
+
+### 11. Structs
+
+- Declare Struct Types
+- Access and Modify Struct Fields
+- Use Pointers to Structs
+- Anonymous Structs
+- Nested Structs
+- Struct Methods with Receivers
+
+---
+
+### 12. Interfaces
+
+- Declare Interfaces
+- Implicit Interface Implementation
+- Empty Interface (`interface{}`)
+- Type Assertions and Type Switches
+- Type Aliases
+- Built-in Interfaces: `error`, `Stringer`, etc.
+- "Explicit" Interface Implementation
+
+---
+
+### 13. Packages
+
+- Create Custom Packages
+- Import Packages
+- Package Visibility and Capitalization Rules
+
+---
+
+### 14. Error Handling
+
+- Return and Handle `error` Values
+- Must Idiom (Short-Circuit Failures)
+- Use `panic`, `recover`, and `defer`
+- Define Custom Error Types
+- Wrap Errors with `%w` and `errors.New`
+- Use `errors.Is` and `errors.As`
+
+---
+
+### 15. Generics
+
+- Generic Function Syntax
+- Define Generic Struct Types
+- Type Constraints: `any`, `comparable`, `~T`
+- Union Types and Type Sets
+- Generics with Interfaces
+- Type Aliases with Generics
+
+---
+
+### 16. Concurrency
+
+- Goroutines, `go` Keyword
+- Channels
+  - Unbuffered Channels
+  - Buffered Channels
+  - Channel Operations (`close()`, `len()`, `cap()`)
+  - Iterating Over Channels
+  - Comma-ok Idiom
+- WaitGroups
+- Mutual Exclusion
+  - Mutexes
+  - RWMutexes (Read/Write Locks)
+- `select` Statement
+- Context
+  - Timeouts
+  - Cancellation
+  - Passing Values
+- Deadlocks and Race Conditions (`-race` flag)
+- Concurrency Patterns
+  - Fan-in
+  - Fan-out
+  - Worker Pools
+  - Pipeline
+
+---
+
+### TODO:
+
+17. Input and Output - fmt.Scanln, bufio.NewReader, os.Args, flag package
     - Reading Input
     - Writing Output
     - File Handling
     - Command Line Arguments
-18. JSON Handling
-19. HTTP Servers
-20. Testing
-21. Cryptography
+18. HTTP Servers
+    - JSON and XML Handling
+    - HTTP Server
+    - TCP Server
+19. Testing
+20. Cryptography
 
+- Bitwise Operations
 - Reflection
 - Environment Variables
 - OuterLoop label break
@@ -114,5 +204,4 @@
 - C
 - Assembly
 - GRPC
-- CLI Input - fmt.Scanln, bufio.NewReader, os.Args, flag package
 - HTMX
