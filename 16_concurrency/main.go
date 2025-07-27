@@ -19,6 +19,9 @@ func boring(msg string, limit int) <-chan string { // Returns receive-only chann
 }
 
 func main() {
-	goroutineExample()
-	ignoredGoroutineExample()
+	// goroutineExample()
+	// ignoredGoroutineExample()
+	// channelExample()
+	// channelIterationExample()
+	channelDirectionExample()
 }
