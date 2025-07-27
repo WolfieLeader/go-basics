@@ -51,11 +51,11 @@ const (
 
 const (
 	// `iota` can be used to create constants with a pattern
-	_ = iota // 0, ignored
+	_  = iota             // 0, ignored
 	KB = 1 << (10 * iota) // 1 << 10 = 1024
-	MB // 1 << 20 = 1048576
-	GB // 1 << 30 = 1073741824
-	TB // 1 << 40 = 1099511627776
+	MB                    // 1 << 20 = 1048576
+	GB                    // 1 << 30 = 1073741824
+	TB                    // 1 << 40 = 1099511627776
 )
 
 func main() {

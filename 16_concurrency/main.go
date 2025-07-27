@@ -19,9 +19,6 @@ func boring(msg string, limit int) <-chan string { // Returns receive-only chann
 }
 
 func main() {
-	ch := boring("boring -", 5) // Function returning a channel.
-	for v := range ch {
-		fmt.Println(v)
-	}
-	fmt.Println("You're boring; I'm leaving.")
+	goroutineExample()
+	ignoredGoroutineExample()
 }
