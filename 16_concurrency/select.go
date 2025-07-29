@@ -5,28 +5,26 @@ import (
 	"time"
 )
 
-func countTime(start time.Time) time.Duration { return time.Since(start).Round(time.Millisecond) }
-func wait(ms time.Duration)                   { time.Sleep(ms * time.Millisecond) }
-
 func selectExample() {
 	fmt.Println("\nSelect Example:")
 	tickChan, tackChan := make(chan time.Duration), make(chan time.Duration)
 
 	start := time.Now()
+	countTime := func() time.Duration { return time.Since(start).Round(time.Millisecond) }
 	end := time.After(time.Second)
 
 	go func() {
 		for range 8 {
-			wait(100)
-			tickChan <- countTime(start)
+			time.Sleep(100 * time.Millisecond)
+			tickChan <- countTime()
 		}
 		close(tickChan)
 	}()
 
 	go func() {
 		for range 4 {
-			wait(150)
-			tackChan <- countTime(start)
+			time.Sleep(150 * time.Millisecond)
+			tackChan <- countTime()
 		}
 		close(tackChan)
 	}()
@@ -51,11 +49,11 @@ func selectExample() {
 				tackChan = nil
 			}
 		case <-end:
-			fmt.Printf("- [%s]: BOOM!\n", countTime(start))
+			fmt.Printf("- [%s]: BOOM!\n", countTime())
 			return
 		default:
-			fmt.Printf("- [%s]: ...\n", countTime(start))
-			wait(50)
+			fmt.Printf("- [%s]: ...\n", countTime())
+			time.Sleep(50 * time.Millisecond)
 		}
 	}
 }
@@ -70,7 +68,7 @@ func selectSendExample() {
 	go func() {
 		for msg := range data {
 			fmt.Printf("- Received: %c\n", msg)
-			wait(150)
+			time.Sleep(150 * time.Millisecond)
 		}
 		close(done)
 	}()
