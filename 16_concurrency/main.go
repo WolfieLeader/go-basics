@@ -23,5 +23,6 @@ func main() {
 	// ignoredGoroutineExample()
 	// channelExample()
 	// channelIterationExample()
-	channelDirectionExample()
+	// channelDirectionExample()
+	selectExample()
 }

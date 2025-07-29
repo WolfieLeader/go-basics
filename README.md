@@ -165,18 +165,18 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
   - Iterating Over Channels
   - Comma-ok Idiom
   - Channel Direction Types: `chan T`, `chan<- T`, `<-chan T`
-- `select` Statement
+  - `select` Statement
 - `sync` Package
   - WaitGroups
   - Mutexes
   - RWMutexes (Read/Write Locks)
   - Once
   - Pool
+  - Atomic Operations (`sync/atomic` Package)
 - `context` Package
   - Timeouts
   - Cancellation
   - Passing Values
-- `sync/atomic` Package
 - Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
 - Concurrency Patterns
   - Fan-in
