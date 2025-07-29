@@ -8,10 +8,13 @@ import (
 func channelExample() {
 	fmt.Println("\nChannel Example:")
 	// To create a channel, use the `make` function with `chan` keyword.
+
 	// This is an unbuffered channel of type `int`.
+	// Unbuffered means that a send and a receive operation must happen simultaneously.
 	ch1 := make(chan int)
 
 	// This is a buffered channel of type `byte` with a capacity of 2.
+	// Buffered channels allow sending values without blocking until the buffer is full.
 	ch2 := make(chan byte, 2)
 
 	a1 := [5]int{1, 2, 3, 4, 5}
