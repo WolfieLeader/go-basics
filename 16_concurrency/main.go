@@ -24,5 +24,6 @@ func main() {
 	// channelExample()
 	// channelIterationExample()
 	// channelDirectionExample()
-	selectExample()
+	// selectExample()
+	selectSendExample()
 }

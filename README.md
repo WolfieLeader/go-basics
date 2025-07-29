@@ -157,15 +157,9 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### 16. Concurrency
 
-- Goroutines, `go` Keyword
-- Channels
-  - Unbuffered Channels
-  - Buffered Channels
-  - Channel Operations (`close()`, `len()`, `cap()`)
-  - Iterating Over Channels
-  - Comma-ok Idiom
-  - Channel Direction Types: `chan T`, `chan<- T`, `<-chan T`
-  - `select` Statement
+- Goroutines (`go` Keyword)
+- Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
+- `select` Statement
 - `sync` Package
   - WaitGroups
   - Mutexes
@@ -173,10 +167,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
   - Once
   - Pool
   - Atomic Operations (`sync/atomic` Package)
-- `context` Package
-  - Timeouts
-  - Cancellation
-  - Passing Values
+- `context` Package (Timeouts, Cancellation, Passing Values)
 - Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
 - Concurrency Patterns
   - Fan-in
