@@ -17,8 +17,8 @@ func loadPokemon(pokemon *string) {
 }
 
 func onceExample() {
-	// The `sync.Once` type ensures that a function is only executed once,
-	// even if called from multiple goroutines
+	// The `sync.Once` type ensures that a function is only executed once, even if called from multiple goroutines
+	// This is good for singleton patterns or one-time initialization tasks
 	var once sync.Once
 	var wg sync.WaitGroup
 	var pokemon string
