@@ -18,7 +18,7 @@ func waitGroupExample() {
 
 	// This is a counter that tracks how many goroutines are running.
 	// We add to the counter before starting each goroutine and decrement it when the goroutine
-	wg.Add(3)
+	wg.Add(2)
 
 	go func() {
 		// At the end of the goroutine, we call Done to decrement the counter
@@ -33,13 +33,6 @@ func waitGroupExample() {
 		fmt.Println("- Downloading Music...")
 		randomSleep()
 		fmt.Println("- Music downloaded!")
-	}()
-
-	go func() {
-		defer wg.Done()
-		fmt.Println("- Downloading Game...")
-		randomSleep()
-		fmt.Println("- Game downloaded!")
 	}()
 
 	// Wait for all goroutines to finish
@@ -66,4 +59,45 @@ func newWaitGroupExample() {
 	// Wait for all goroutines to finish
 	wg.Wait()
 	fmt.Println("All workers completed!")
+}
+
+var locations = map[string]string{
+	"New York": "USA",
+	"Paris":    "France",
+	"Tokyo":    "Japan",
+	"London":   "UK",
+}
+
+func dummyFetch(name string, ch chan<- string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Printf("- Fetching location for %s...\n", name)
+	randomSleep()
+	if loc, ok := locations[name]; ok {
+		ch <- fmt.Sprintf("%s is in %s", name, loc)
+	} else {
+		ch <- fmt.Sprintf("Location for %s not found", name)
+	}
+}
+
+func waitGroupFetchExample() {
+	ch := make(chan string)
+	var wg sync.WaitGroup
+	cities := []string{"New York", "Paris", "Tokyo", "London", "Berlin"}
+
+	// You could also use wg.Add(1) in the loop but here this is done all at once
+	wg.Add(len(cities))
+
+	for _, city := range cities {
+		go dummyFetch(city, ch, &wg)
+	}
+
+	go func() {
+		// Wait in a separate goroutine so main can receive from `ch` immediately.
+		wg.Wait()
+		close(ch)
+	}()
+
+	for loc := range ch {
+		fmt.Println("-", loc)
+	}
 }

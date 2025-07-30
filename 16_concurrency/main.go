@@ -9,5 +9,6 @@ func main() {
 	// selectExample()
 	// selectSendExample()
 	// waitGroupExample()
-	newWaitGroupExample()
+	// newWaitGroupExample()
+	waitGroupFetchExample()
 }
