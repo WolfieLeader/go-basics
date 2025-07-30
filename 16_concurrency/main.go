@@ -10,5 +10,7 @@ func main() {
 	// selectSendExample()
 	// waitGroupExample()
 	// newWaitGroupExample()
-	waitGroupFetchExample()
+	// waitGroupFetchExample()
+	// mutexExample()
+	// rwMutexExample()
 }
