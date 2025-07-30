@@ -13,4 +13,5 @@ func main() {
 	// waitGroupFetchExample()
 	// mutexExample()
 	// rwMutexExample()
+	onceExample()
 }
