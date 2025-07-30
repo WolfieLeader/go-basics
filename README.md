@@ -162,10 +162,10 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - `select` Statement
 - `sync` Package
   - WaitGroups
-  - Mutexes
-  - RWMutexes (Read/Write Locks)
+  - Mutual Exclusion (Mutexes, RWMutexes - Read/Write Locks)
   - Once
   - Pool
+  - Cond
   - Atomic Operations (`sync/atomic` Package)
 - `context` Package (Timeouts, Cancellation, Passing Values)
 - Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
