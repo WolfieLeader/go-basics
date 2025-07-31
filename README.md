@@ -170,10 +170,14 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - `context` Package (Timeouts, Cancellation, Passing Values)
 - Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
 - Concurrency Patterns
-  - Fan-in
-  - Fan-out
-  - Worker Pools
-  - Pipeline and Generator
+  - Fan-out, Fan-in
+  - Generator
+  - Pipeline
+  - Worker Pool
+  - Semaphore
+  - Pub/Sub
+  - Timeout and Cancellation
+  - Rate Limiting and Throttling
 
 ---
 
