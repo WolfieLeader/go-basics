@@ -21,14 +21,14 @@ func NewBankAccount() *BankAccount {
 func (a *BankAccount) Deposit(amount float64) {
 	// Lock the mutex to ensure exclusive access to the account's state
 	a.Lock()
-	// Ensure the mutex is unlocked even if an error or panic occurs
-	defer a.Unlock()
 	a.balance += amount * (1 - a.fee/100)
+	// Ensure the mutex is unlocked even if an error or panic occurs
+	a.Unlock()
 }
 
 func (a *BankAccount) Fee(feePercentage float64) {
 	a.Lock()
-	defer a.Unlock()
+	defer a.Unlock() // Use defer to ensure it is always unlocked
 
 	if feePercentage < 0 || feePercentage > 100 {
 		return
