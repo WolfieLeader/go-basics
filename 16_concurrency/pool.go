@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	workers        = 3
-	tasksPerWorker = 3
+	poolWorkers        = 3
+	tasksPerPoolWorker = 3
 )
 
 type User struct {
@@ -34,11 +34,11 @@ func poolExample() {
 		},
 	}
 
-	for i := range workers {
+	for i := range poolWorkers {
 		workerId := i + 1
 
 		wg.Go(func() {
-			for j := range tasksPerWorker {
+			for j := range tasksPerPoolWorker {
 				label := fmt.Sprintf("Worker %d%c", workerId, 'A'+byte(j))
 
 				// Get a User from the pool. If the pool is empty, it will call the New function.
