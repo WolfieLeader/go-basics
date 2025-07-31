@@ -13,7 +13,7 @@ func main() {
 	// waitGroupFetchExample()
 	// mutexExample()
 	// rwMutexExample()
-	onceExample()
+	// onceExample()
 	// poolExample()
-	// condExample()
+	condExample()
 }
