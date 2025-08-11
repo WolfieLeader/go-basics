@@ -2,32 +2,36 @@ package patterns_examples
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
-func doWork(id int, sem chan struct{}) {
-	sem <- struct{}{} // acquire
-
+func doWork(id int, sem <-chan struct{}, wg *sync.WaitGroup) {
 	defer func() {
-		<-sem
-	}() // release
+		<-sem     // release
+		wg.Done() // signal that the goroutine is done
+	}()
 
-	fmt.Printf("- task %d started\n", id)
-	time.Sleep(200 * time.Millisecond)
-	fmt.Printf("- task %d done\n", id)
+	fmt.Printf("- task %d\n", id)
+	time.Sleep(750 * time.Millisecond)
 }
 
 // SemaphoreExample demonstrates the use of a semaphore to limit concurrency.
 func SemaphoreExample() {
 	fmt.Println("\nSemaphore Example:")
 
-	const maxConcurrent = 2
-	const totalTasks = 5
+	var wg sync.WaitGroup
+	const maxConcurrent = 3
+	const totalTasks = 15
 	sem := make(chan struct{}, maxConcurrent) // capacity = permits
 
 	for i := range totalTasks {
-		go doWork(i, sem)
+		task := i + 1
+		wg.Add(1)
+
+		sem <- struct{}{} // acquire
+		go doWork(task, sem, &wg)
 	}
 
-	time.Sleep(time.Second)
+	wg.Wait()
 }
