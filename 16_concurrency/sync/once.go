@@ -1,4 +1,4 @@
-package main
+package sync_examples
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func configPokemon(pokemonPtr *string, pokemon string) {
 	fmt.Printf("Pokemon %q configured successfully!\n", pokemon)
 }
 
-func onceExample() {
+func OnceExample() {
 	pokemons := []string{"Pikachu", "Bulbasaur", "Charmander", "Squirtle", "Turtwig", "Chimchar", "Piplup"}
 	randPokemon := pokemons[rand.Intn(len(pokemons))]
 	var finalPokemon string

@@ -1,4 +1,4 @@
-package main
+package sync_examples
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ const (
 	tasksPerWorker = 1000
 )
 
-func atomicExample() {
+func AtomicExample() {
 	var totalTasks int64 // Shared atomic counter
 	var wg sync.WaitGroup
 	start := time.Now()

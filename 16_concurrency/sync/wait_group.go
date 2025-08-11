@@ -1,4 +1,4 @@
-package main
+package sync_examples
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ func randomSleep() {
 	time.Sleep(time.Duration(rand.Intn(2000)) * time.Millisecond)
 }
 
-func waitGroupExample() {
+func WaitGroupExample() {
 	fmt.Println("\nWaitGroup Example:")
 
 	var wg sync.WaitGroup
@@ -40,8 +40,8 @@ func waitGroupExample() {
 	fmt.Println("All downloads completed!")
 }
 
-func newWaitGroupExample() {
-	fmt.Println("\nNew WaitGroup Example:")
+func ModernWaitGroupExample() {
+	fmt.Println("\nModern WaitGroup Example:")
 
 	var wg sync.WaitGroup
 
@@ -79,7 +79,7 @@ func dummyFetch(name string, ch chan<- string, wg *sync.WaitGroup) {
 	}
 }
 
-func waitGroupFetchExample() {
+func WaitGroupFetchExample() {
 	ch := make(chan string)
 	var wg sync.WaitGroup
 	cities := []string{"New York", "Paris", "Tokyo", "London", "Berlin"}
