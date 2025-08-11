@@ -1,8 +1,9 @@
 package main
 
 import (
-	error_examples "github.com/WolfieLeader/go-basics/16_concurrency/errors"
+	// error_examples "github.com/WolfieLeader/go-basics/16_concurrency/errors"
 	// sync_examples "github.com/WolfieLeader/go-basics/16_concurrency/sync"
+	patterns_examples "github.com/WolfieLeader/go-basics/16_concurrency/patterns"
 )
 
 func main() {
@@ -27,5 +28,10 @@ func main() {
 	// contextValuesExample()
 	// error_examples.DeadlockExample()
 	// error_examples.RaceConditionExample()
-	error_examples.GoroutineLeakExample()
+	// error_examples.GoroutineLeakExample()
+	// patterns_examples.FanOutFanInExample()
+	// patterns_examples.GeneratorExample()
+	// patterns_examples.PipelineExample()
+	// patterns_examples.WorkerPoolExample()
+	patterns_examples.SemaphoreExample()
 }

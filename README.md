@@ -175,9 +175,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
   - Pipeline
   - Worker Pool
   - Semaphore
-  - Pub/Sub
-  - Timeout and Cancellation
-  - Rate Limiting and Throttling
 
 ---
 
