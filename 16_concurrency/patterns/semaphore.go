@@ -16,7 +16,8 @@ func doWork(id int, sem <-chan struct{}, wg *sync.WaitGroup) {
 	time.Sleep(750 * time.Millisecond)
 }
 
-// SemaphoreExample demonstrates the use of a semaphore to limit concurrency.
+// Semaphore pattern is a concurrency pattern that restricts the number of goroutines
+// that can access a resource or perform a task simultaneously.
 func SemaphoreExample() {
 	fmt.Println("\nSemaphore Example:")
 
