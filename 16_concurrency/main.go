@@ -16,5 +16,8 @@ func main() {
 	// onceExample()
 	// poolExample()
 	// condExample()
-	atomicExample()
+	// atomicExample()
+	// contextTimeoutExample()
+	// contextCancellationExample()
+	contextValuesExample()
 }
