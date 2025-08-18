@@ -1,4 +1,4 @@
-package sync_examples
+package syncexamples
 
 import (
 	"fmt"

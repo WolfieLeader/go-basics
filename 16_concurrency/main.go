@@ -1,9 +1,9 @@
 package main
 
 import (
-	// error_examples "github.com/WolfieLeader/go-basics/16_concurrency/errors"
-	// sync_examples "github.com/WolfieLeader/go-basics/16_concurrency/sync"
-	patterns_examples "github.com/WolfieLeader/go-basics/16_concurrency/patterns"
+	// errorexamples "github.com/WolfieLeader/go-basics/16_concurrency/errors"
+	// syncexamples "github.com/WolfieLeader/go-basics/16_concurrency/sync"
+	"github.com/WolfieLeader/go-basics/16_concurrency/patterns"
 )
 
 func main() {
@@ -14,24 +14,24 @@ func main() {
 	// channelDirectionExample()
 	// selectExample()
 	// selectSendExample()
-	// sync_examples.WaitGroupExample()
-	// sync_examples.ModernWaitGroupExample()
-	// sync_examples.WaitGroupFetchExample()
-	// sync_examples.MutexExample()
-	// sync_examples.RWMutexExample()
-	// sync_examples.OnceExample()
-	// sync_examples.PoolExample()
-	// sync_examples.CondExample()
-	// sync_examples.AtomicExample()
+	// syncexamples.WaitGroupExample()
+	// syncexamples.ModernWaitGroupExample()
+	// syncexamples.WaitGroupFetchExample()
+	// syncexamples.MutexExample()
+	// syncexamples.RWMutexExample()
+	// syncexamples.OnceExample()
+	// syncexamples.PoolExample()
+	// syncexamples.CondExample()
+	// syncexamples.AtomicExample()
 	// contextTimeoutExample()
 	// contextCancellationExample()
 	// contextValuesExample()
-	// error_examples.DeadlockExample()
-	// error_examples.RaceConditionExample()
-	// error_examples.GoroutineLeakExample()
-	// patterns_examples.FanOutFanInExample()
-	// patterns_examples.GeneratorExample()
-	// patterns_examples.PipelineExample()
-	// patterns_examples.WorkerPoolExample()
-	patterns_examples.SemaphoreExample()
+	// errorexamples.DeadlockExample()
+	// errorexamples.RaceConditionExample()
+	// errorexamples.GoroutineLeakExample()
+	// patterns.FanOutFanInExample()
+	// patterns.GeneratorExample()
+	// patterns.PipelineExample()
+	// patterns.WorkerPoolExample()
+	patterns.SemaphoreExample()
 }

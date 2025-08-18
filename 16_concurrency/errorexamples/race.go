@@ -1,4 +1,4 @@
-package error_examples
+package errorexamples
 
 import (
 	"fmt"

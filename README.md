@@ -180,21 +180,22 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### TODO:
 
-17. Input and Output - fmt.Scanln, bufio.NewReader, os.Args, flag package
+17. io.Reader and io.Writer
+18. Input and Output - fmt.Scanln, bufio.NewReader, os.Args, flag package
     - Reading Input
     - Writing Output
     - File Handling
     - Command Line Arguments
-18. HTTP Servers
+19. HTTP Servers
     - JSON and XML Handling
     - Data Fetching
     - HTTP Server
     - TCP Server
-19. Testing
-20. Cryptography
+20. Testing
+21. Cryptography
 
+- Operations
 - Bitwise Operations
-- Reflection
 - Environment Variables
 - OuterLoop label break
 - init() function
@@ -202,5 +203,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Assembly
 - gRPC
 - HTMX
+- Reflection
 
 - Install new version using Go: e.g. `go install golang.org/dl/go1.25rc2@latest`
