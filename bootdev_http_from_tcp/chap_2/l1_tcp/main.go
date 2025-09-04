@@ -10,6 +10,9 @@ import (
 	"strings"
 )
 
+// Shell 1: go run . | tee /tmp/out.txt
+// Shell 2: nc -v localhost 42069
+
 func getLinesChannel(f io.ReadCloser) <-chan string {
 	out := make(chan string)
 	go func() {

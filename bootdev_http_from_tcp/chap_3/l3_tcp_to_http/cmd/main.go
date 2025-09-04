@@ -1,19 +1,17 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"errors"
 	"fmt"
 	"io"
 	"log"
 	"net"
-	"os"
 	"strings"
 )
 
-// Shell 1: go run . | tee /tmp/out.txt
-// Shell 2: nc -u -l 42069
+// Shell 1: go run . | tee /tmp/out.http
+// Shell 2: curl http://localhost:42069
 
 func getLinesChannel(f io.ReadCloser) <-chan string {
 	out := make(chan string)
@@ -51,32 +49,19 @@ func getLinesChannel(f io.ReadCloser) <-chan string {
 }
 
 func main() {
-	udpAddr, err := net.ResolveUDPAddr("udp", "localhost:42069")
+	listener, err := net.Listen("tcp", ":42069")
 	if err != nil {
 		log.Fatalf("Error starting server: %v", err)
 	}
+	defer listener.Close()
 
-	conn, err := net.DialUDP("udp", nil, udpAddr)
-	if err != nil {
-		log.Fatalf("Error connecting to UDP: %v", err)
-	}
-	defer conn.Close()
-
-	r := bufio.NewReader(os.Stdin)
 	for {
-		fmt.Print("> ")
-		input, err := r.ReadString('\n')
-		if len(input) > 0 {
-			_, writeErr := conn.Write([]byte(input))
-			if writeErr != nil {
-				log.Fatalf("Error writing to UDP: %v", writeErr)
-			}
-		}
-		if errors.Is(err, io.EOF) {
-			break
-		}
+		conn, err := listener.Accept()
 		if err != nil {
-			log.Fatalf("Error reading from stdin: %v", err)
+			log.Fatalf("Error accepting connection: %v", err)
+		}
+		for line := range getLinesChannel(conn) {
+			fmt.Printf("read: %s\n", line)
 		}
 	}
 }
