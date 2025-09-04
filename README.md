@@ -204,5 +204,3 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - gRPC
 - HTMX
 - Reflection
-
-- Install new version using Go: e.g. `go install golang.org/dl/go1.25rc2@latest`

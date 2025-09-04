@@ -55,7 +55,7 @@ func customErrorExample() {
 	if errors.Is(err, ErrNotFound) {
 		fmt.Printf("Not found wrapped error: %s\n", err)
 		fmt.Printf("Original not found error: %v\n", errors.Unwrap(err))
-	// Here we check if there is another type of error
+		// Here we check if there is another type of error
 	} else if err != nil {
 		fmt.Println("Error occurred:", err)
 	} else {
@@ -67,7 +67,7 @@ func customErrorExample() {
 	// errors.As is used to check if the error is of type UnauthorizedError and to extract it to unauthorizedErr
 	if errors.As(err, &unauthorizedErr) {
 		fmt.Println("Unauthorized access:", unauthorizedErr.Error())
-	// Here we check if there is another type of error
+		// Here we check if there is another type of error
 	} else if err != nil {
 		fmt.Println("Error occurred:", err)
 	} else {

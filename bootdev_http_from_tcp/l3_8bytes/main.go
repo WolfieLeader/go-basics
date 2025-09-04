@@ -9,21 +9,23 @@ import (
 )
 
 func main() {
-	reader, err := os.Open("messages.txt")
+	f, err := os.Open("messages.txt")
 	if err != nil {
 		log.Fatalf("Error opening file: %v", err)
 	}
-	defer reader.Close()
+	defer f.Close()
 
+	buf := make([]byte, 8)
 	for {
-		buf := make([]byte, 8)
-		n, err := reader.Read(buf)
+		n, err := f.Read(buf)
+		if n > 0 {
+			fmt.Printf("read: %s\n", buf[:n])
+		}
 		if errors.Is(err, io.EOF) {
 			break
 		}
 		if err != nil {
 			log.Fatalf("Error reading file: %v", err)
 		}
-		fmt.Printf("read: %s\n", buf[:n])
 	}
 }
