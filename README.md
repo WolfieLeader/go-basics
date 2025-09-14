@@ -191,12 +191,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### TODO:
 
-17. io.Reader and io.Writer
-18. Input and Output - fmt.Scanln, bufio.NewReader, os.Args, flag package
-    - Reading Input
-    - Writing Output
-    - File Handling
-    - Command Line Arguments
 19. HTTP Servers
     - JSON and XML Handling
     - Data Fetching
@@ -205,8 +199,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 20. Testing
 21. Cryptography
 
-- Operations
-- Bitwise Operations
 - Environment Variables
 - OuterLoop label break
 - init() function
