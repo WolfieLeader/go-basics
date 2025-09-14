@@ -60,11 +60,12 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### 7. String Manipulation
 
-- Common String Functions
+- Common String Functions (`strings` package)
 - String Formatting
-- Type Conversion (String ↔ Number)
+- Type Conversion (String ↔ Number) (`strconv` package)
 - Regular Expressions (`regexp`)
 - Iterating Over Bytes and Runes
+- Byte Slice Manipulation (`bytes` package)
 
 ---
 

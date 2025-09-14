@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"regexp"
 	"strconv"
@@ -69,10 +70,25 @@ func regexExample() {
 	fmt.Printf("- Replaced emails with '[EMAIL]': %s\n", emailRegex.ReplaceAllString(text, "[EMAIL]"))
 }
 
+func bytesExample() {
+	fmt.Println("\nByte Slice Example:")
+	buf := []byte("Hello Gophers") // String is like a read-only byte slice
+	fmt.Printf("- Original byte slice: %v\n", string(buf))
+	fmt.Printf("- Uppercase byte slice: %v\n", string(bytes.ToUpper(buf)))
+	fmt.Printf("- Lowercase byte slice: %v\n", string(bytes.ToLower(buf)))
+	fmt.Printf("- Does it contain 'Gophers'? %t\n", bytes.Contains(buf, []byte("Gophers")))
+	fmt.Printf("- Index of 'Gophers': %d\n", bytes.Index(buf, []byte("Gophers")))
+	fmt.Printf("- Replace O's with *'s: %v\n", string(bytes.ReplaceAll(buf, []byte("o"), []byte("*"))))
+	fmt.Printf("- Split by space (unicode): %v\n", bytes.Split(buf, []byte(" ")))
+	fmt.Printf("- Join with hyphen: %v\n", string(bytes.Join(bytes.Split(buf, []byte(" ")), []byte("-"))))
+	fmt.Printf("- Equal to 'Hello GopheRs'? %t\n", bytes.Equal(buf, []byte("Hello GopheRs")))
+	fmt.Printf("- EqualFold to 'hello gophers'? %t\n", bytes.EqualFold(buf, []byte("hello gophers")))
+}
+
 func iterationExample() {
 	fmt.Println("\nByte and Rune Iteration Examples:")
 	str := "Go 🚀!"
-	
+
 	// Iterating over bytes not safe
 	for i := range len(str) {
 		fmt.Printf("Byte %d: %c, Unicode: %U\n", i, str[i], str[i])
@@ -82,7 +98,6 @@ func iterationExample() {
 	for i, r := range str {
 		fmt.Printf("Rune %d: %c, Unicode: %U\n", i, r, r)
 	}
-
 }
 
 func main() {
@@ -90,4 +105,5 @@ func main() {
 	convertExample()
 	regexExample()
 	iterationExample()
+	bytesExample()
 }

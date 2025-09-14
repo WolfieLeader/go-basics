@@ -1,6 +1,6 @@
 package main
 
-import "github.com/WolfieLeader/go-basics/13_packages/utils"
+import "github.com/WolfieLeader/go-basics/14_packages/utils"
 
 func main() {
 	// Using the Reverse function from the utils package

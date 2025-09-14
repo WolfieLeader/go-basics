@@ -1,9 +1,9 @@
 package main
 
 import (
-	// errorexamples "github.com/WolfieLeader/go-basics/16_concurrency/errors"
-	// syncexamples "github.com/WolfieLeader/go-basics/16_concurrency/sync"
-	"github.com/WolfieLeader/go-basics/16_concurrency/patterns"
+	// errorexamples "github.com/WolfieLeader/go-basics/17_concurrency/errors"
+	// syncexamples "github.com/WolfieLeader/go-basics/17_concurrency/sync"
+	"github.com/WolfieLeader/go-basics/17_concurrency/patterns"
 )
 
 func main() {
