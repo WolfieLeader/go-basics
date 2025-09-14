@@ -55,6 +55,8 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Simulate `while` Loops
 - Infinite Loops
 - `break` and `continue`
+- Loop Labels
+- `goto` Statement
 
 ---
 
@@ -142,6 +144,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Create Custom Packages
 - Import Packages
 - Package Visibility and Capitalization Rules
+- `init()` Function
 
 ---
 
@@ -201,8 +204,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 21. Cryptography
 
 - Environment Variables
-- OuterLoop label break
-- init() function
 - C
 - Assembly
 - gRPC
