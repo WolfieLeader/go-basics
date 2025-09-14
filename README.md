@@ -37,7 +37,18 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 5. Loops
+### 5. Operators
+
+- Arithmetic Operators
+- Comparison Operators
+- Logical Operators
+- Bitwise Operators
+- Assignment Operators
+- Increment/Decrement Operators
+
+---
+
+### 6. Loops
 
 - Basic `for` Loops
 - Range Loops (`for range`)
@@ -47,7 +58,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 6. String Manipulation
+### 7. String Manipulation
 
 - Common String Functions
 - String Formatting
@@ -57,7 +68,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 7. Arrays and Slices
+### 8. Arrays and Slices
 
 - Arrays and Fixed-Length Arrays
 - Size Inference with `[...]T`
@@ -67,7 +78,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 8. Maps
+### 9. Maps
 
 - Declare and Initialize Maps
 - Map Literals
@@ -78,7 +89,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 9. Advanced Functions
+### 10. Advanced Functions
 
 - Function Values (First-Class Functions)
 - Assign Functions to Variables
@@ -91,7 +102,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 10. Pointers
+### 11. Pointers
 
 - Declare and Use Pointers (`*T`)
 - Get the Address of a Variable (`&`)
@@ -102,7 +113,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 11. Structs
+### 12. Structs
 
 - Declare Struct Types
 - Access and Modify Struct Fields
@@ -113,7 +124,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 12. Interfaces
+### 13. Interfaces
 
 - Declare Interfaces
 - Implicit Interface Implementation
@@ -125,7 +136,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 13. Packages
+### 14. Packages
 
 - Create Custom Packages
 - Import Packages
@@ -133,7 +144,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 14. Error Handling
+### 15. Error Handling
 
 - Return and Handle `error` Values
 - Must Idiom (Short-Circuit Failures)
@@ -144,7 +155,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 15. Generics
+### 16. Generics
 
 - Generic Function Syntax
 - Define Generic Struct Types
@@ -155,7 +166,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 16. Concurrency
+### 17. Concurrency
 
 - Goroutines (`go` Keyword)
 - Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
