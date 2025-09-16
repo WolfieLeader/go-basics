@@ -32,9 +32,9 @@ var (
 // Constants
 const pi = 3.14159265358979323846
 const (
-	maxInt64  int64  = (1 << 32)
-	minInt64  int64  = -(1 << 32)
-	maxUint64 uint64 = (1 << 64) - 1
+	maxInt64  int64  = (1 << 32)     // 2^32
+	minInt64  int64  = -(1 << 32)    // -2^32
+	maxUint64 uint64 = (1 << 64) - 1 // 2^64 - 1
 	minUint64 uint64 = 0
 )
 
@@ -52,10 +52,10 @@ const (
 const (
 	// `iota` can be used to create constants with a pattern
 	_  = iota             // 0, ignored
-	KB = 1 << (10 * iota) // 1 << 10 = 1024
-	MB                    // 1 << 20 = 1048576
-	GB                    // 1 << 30 = 1073741824
-	TB                    // 1 << 40 = 1099511627776
+	KB = 1 << (10 * iota) // 1 * 2^10 = 1024
+	MB                    // 1 * 2^20 = 1048576
+	GB                    // 1 * 2^30 = 1073741824
+	TB                    // 1 * 2^40 = 1099511627776
 )
 
 func main() {

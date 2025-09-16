@@ -29,15 +29,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 4. Conditionals
-
-- `if` / `else` Statements
-- `switch` Statements
-- `switch true` Pattern (Conditional Cases)
-
----
-
-### 5. Operators
+### 4. Operators
 
 - Arithmetic Operators
 - Comparison Operators
@@ -45,6 +37,14 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Bitwise Operators
 - Assignment Operators
 - Increment/Decrement Operators
+
+---
+
+### 5. Conditionals
+
+- `if` / `else` Statements
+- `switch` Statements
+- `switch true` Pattern (Conditional Cases)
 
 ---
 
