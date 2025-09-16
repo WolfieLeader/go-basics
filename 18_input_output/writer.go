@@ -2,39 +2,75 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"os"
+	"strings"
 )
 
-func writerExample() {
-	fmt.Println("\nWriter Example:")
-	// Writer is an interface with one method: Write(p []byte) (n int, err error)
-	// It is implemented by many types, including *os.File, bytes.Buffer, strings.Builder, etc.
-	// Here we use os.Create to get a *os.File which implements Writer
-	file, err := os.Create("out.txt")
+// Writer is an interface with one method: Write(p []byte) (n int, err error)
+// It is implemented by many types, including *os.File, strings.Builder, http.ResponseWriter, bytes.Buffer, etc.
+// if n < len(p), err MUST be non-nil
+func write(w io.Writer, data string) error {
+	n, err := w.Write([]byte(data))
+	if err != nil {
+		return err
+	}
+	fmt.Printf("- Wrote %d bytes\n", n)
+	return nil
+}
+
+func osFileWriterExample() {
+	file, err := os.Create("texts/out.txt")
 	if err != nil {
 		log.Fatalf("Failed to create file: %s", err)
 	}
-	// The *os.File implements Writer as well as Closer (Close() error)
-	// We use defer to ensure the file is closed when we're done
 	defer func() {
 		if err := file.Close(); err != nil {
 			log.Fatalf("Failed to close file: %s", err)
 		}
 	}()
 
-	// Data to write
-	data := []byte("Go was designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson.\n")
-	written := 0
-
-	for written < len(data) {
-		n, err := file.Write(data[written:])
-		if err != nil {
-			log.Fatalf("Write error: %s", err)
-		}
-		written += n
+	if err := write(file, "Go was designed at Google, "); err != nil {
+		log.Fatalf("Write error: %s", err)
 	}
 
-	fmt.Printf("Wrote %d bytes to out.txt\n", written)
-	fmt.Println("Finished writing to file.")
+	if err := write(file, "by Robert Griesemer, Rob Pike, and Ken Thompson."); err != nil {
+		log.Fatalf("Write error: %s", err)
+	}
+}
+
+func stringsBuilderExample() {
+	var sb strings.Builder
+	if err := write(&sb, "Hello "); err != nil {
+		log.Fatalf("Write error: %s", err)
+	}
+	if err := write(&sb, "World!"); err != nil {
+		log.Fatalf("Write error: %s", err)
+	}
+	fmt.Printf("Final string: %q\n", sb.String())
+}
+
+func osStdoutExample() {
+	if err := write(os.Stdout, "- Hey "); err != nil {
+		log.Fatalf("Write error: %s", err)
+	}
+
+	if err := write(os.Stdout, "- Console "); err != nil {
+		log.Fatalf("Write error: %s", err)
+	}
+}
+
+func writerExample() {
+	fmt.Println("os.File Write:")
+	osFileWriterExample()
+	fmt.Println()
+
+	fmt.Println("strings.Builder Write:")
+	stringsBuilderExample()
+	fmt.Println()
+
+	fmt.Println("os.Stdout Write:")
+	osStdoutExample()
+	fmt.Println()
 }
