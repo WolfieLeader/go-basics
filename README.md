@@ -170,7 +170,16 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 17. Concurrency
+### 17. Input and Output
+
+- `io` package (Readers, Writers, Copying)
+- File Operations (`os` package)
+- Stdin, Stdout
+- HTTP Requests (`net/http` package)
+
+---
+
+### 18. Concurrency
 
 - Goroutines (`go` Keyword)
 - Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
