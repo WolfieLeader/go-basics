@@ -35,6 +35,7 @@ func stringsBuilderExample() {
 	var sb strings.Builder
 	write(&sb, "Hello ")
 	write(&sb, "World!")
+	sb.WriteString(" Added with WriteString method.")
 	fmt.Printf("Final string: %q\n", sb.String())
 }
 

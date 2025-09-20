@@ -76,6 +76,14 @@ func seekExample() {
 	fmt.Printf("- Final read (%d bytes): %q\n", n, buf[:n])
 }
 
+func discardExample() {
+	str1 := strings.NewReader(strings.Repeat("a", 42))
+
+	// Discard: count bytes cheaply without storing output
+	n, _ := io.Copy(io.Discard, str1)
+	fmt.Printf("- Discarded %d bytes\n", n)
+}
+
 func extraExample() {
 	fmt.Println("\nExtra example:")
 
@@ -87,4 +95,7 @@ func extraExample() {
 
 	fmt.Println("\nSeek:")
 	seekExample()
+
+	fmt.Println("\nDiscard:")
+	discardExample()
 }
