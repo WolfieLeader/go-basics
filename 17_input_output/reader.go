@@ -12,7 +12,7 @@ import (
 
 // Reader is an interface with one method: Read(p []byte) (n int, err error)
 // It is implemented by many types, including os.File, os.Stdin, bytes.Buffer, strings.Reader, http.Request.Body etc.
-func read(r io.Reader) error {
+func read(r io.Reader) {
 	// Create a buffer to hold the read bytes
 	// Here we limit it to 16 bytes for demonstration
 	buf := make([]byte, 16)
@@ -27,11 +27,10 @@ func read(r io.Reader) error {
 			break // End of file reached
 		}
 		if err != nil {
-			return err
+			log.Fatalf("Read error: %s", err)
 		}
 	}
 	fmt.Println("Finished reading.")
-	return nil
 }
 
 func osFileReaderExample() {
@@ -47,16 +46,12 @@ func osFileReaderExample() {
 		}
 	}()
 
-	if err := read(file); err != nil {
-		log.Fatalf("Read error: %s", err)
-	}
+	read(file)
 }
 
 func stringsReaderExample() {
 	str := strings.NewReader("Hello World! I'm using a Reader!")
-	if err := read(str); err != nil {
-		log.Fatalf("Read error: %s", err)
-	}
+	read(str)
 }
 
 func httpResponseBodyExample() {
@@ -64,17 +59,9 @@ func httpResponseBodyExample() {
 	if err != nil {
 		log.Fatalf("HTTP GET error: %s", err)
 	}
+	defer resp.Body.Close()
 
-	defer func() {
-		// type *http.Response.Body implements Closer as well
-		if err := resp.Body.Close(); err != nil {
-			log.Fatalf("Failed to close response body: %s", err)
-		}
-	}()
-
-	if err := read(resp.Body); err != nil {
-		log.Fatalf("Read error: %s", err)
-	}
+	read(resp.Body)
 }
 
 func readerExample() {

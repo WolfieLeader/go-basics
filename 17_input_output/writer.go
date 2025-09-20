@@ -11,13 +11,12 @@ import (
 // Writer is an interface with one method: Write(p []byte) (n int, err error)
 // It is implemented by many types, including *os.File, strings.Builder, http.ResponseWriter, bytes.Buffer, etc.
 // if n < len(p), err MUST be non-nil
-func write(w io.Writer, data string) error {
+func write(w io.Writer, data string) {
 	n, err := w.Write([]byte(data))
 	if err != nil {
-		return err
+		log.Fatalf("Write error: %s", err)
 	}
 	fmt.Printf("- Wrote %d bytes\n", n)
-	return nil
 }
 
 func osFileWriterExample() {
@@ -25,45 +24,43 @@ func osFileWriterExample() {
 	if err != nil {
 		log.Fatalf("Failed to create file: %s", err)
 	}
-	defer func() {
-		if err := file.Close(); err != nil {
-			log.Fatalf("Failed to close file: %s", err)
-		}
-	}()
+	// type *os.File implements Closer as well
+	defer file.Close()
 
-	if err := write(file, "Go was designed at Google, "); err != nil {
-		log.Fatalf("Write error: %s", err)
-	}
-
-	if err := write(file, "by Robert Griesemer, Rob Pike, and Ken Thompson."); err != nil {
-		log.Fatalf("Write error: %s", err)
-	}
+	write(file, "Go was designed at Google, ")
+	write(file, "by Robert Griesemer, Rob Pike, and Ken Thompson.")
 }
 
 func stringsBuilderExample() {
 	var sb strings.Builder
-	if err := write(&sb, "Hello "); err != nil {
-		log.Fatalf("Write error: %s", err)
-	}
-	if err := write(&sb, "World!"); err != nil {
-		log.Fatalf("Write error: %s", err)
-	}
+	write(&sb, "Hello ")
+	write(&sb, "World!")
 	fmt.Printf("Final string: %q\n", sb.String())
 }
 
 func osStdoutExample() {
-	if err := write(os.Stdout, "- Hey "); err != nil {
-		log.Fatalf("Write error: %s", err)
-	}
+	write(os.Stdout, "- Hey ")
+	write(os.Stdout, "- Console ")
+}
 
-	if err := write(os.Stdout, "- Console "); err != nil {
-		log.Fatalf("Write error: %s", err)
+func multiWriterExample() {
+	file, err := os.Create("texts/multiout.txt")
+	if err != nil {
+		log.Fatalf("Failed to create file: %s", err)
 	}
+	defer file.Close()
+
+	var sb strings.Builder
+	mw := io.MultiWriter(os.Stdout, file, &sb)
+
+	for i := range 3 {
+		write(mw, fmt.Sprintf("- Line %d\n", i+1))
+	}
+	fmt.Printf("Final string in Builder: %q\n", sb.String())
 }
 
 func writerExample() {
 	fmt.Println("\nWriter Example:")
-
 	fmt.Println("\nos.File Write:")
 	osFileWriterExample()
 
@@ -72,4 +69,7 @@ func writerExample() {
 
 	fmt.Println("\nos.Stdout Write:")
 	osStdoutExample()
+
+	fmt.Println("\nMultiWriter Write:")
+	multiWriterExample()
 }
