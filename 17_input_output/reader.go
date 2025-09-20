@@ -64,6 +64,48 @@ func httpResponseBodyExample() {
 	read(resp.Body)
 }
 
+func multiReaderExample() {
+	var str1 = strings.NewReader("Foo ")
+	var str2 = strings.NewReader("Bar ")
+	var str3 = strings.NewReader("Baz")
+	mr := io.MultiReader(str1, str2, str3)
+	read(mr)
+}
+
+func readAllExample() {
+	str := strings.NewReader("Hello World! I'm using a Reader!")
+	// ReadAll reads from r until EOF and returns the data it read.
+	// If you encounter large streams, consider using a buffer instead to avoid high memory usage.
+	data, err := io.ReadAll(str)
+	if err != nil {
+		log.Fatalf("ReadAll error: %s", err)
+	}
+	fmt.Printf("- ReadAll data: %q\n", data)
+}
+
+func teeReaderExample() {
+	str := strings.NewReader("- Hello os.Stdout, I'm using a TeeReader!\n")
+	tr := io.TeeReader(str, os.Stdout)
+	if _, err := io.ReadAll(tr); err != nil {
+		log.Fatalf("TeeReader ReadAll error: %s", err)
+	}
+}
+
+func limitReaderExample() {
+	str := strings.NewReader("LimitReader Example: Lorem ipsum dolor sit amet.")
+	lr := io.LimitReader(str, 17) // Reads till EOF or 17 bytes, whichever comes first
+	read(lr)
+}
+
+func readAtExample() {
+	str := strings.NewReader("I'm using a Reader!")
+	buf := make([]byte, 6)
+	n, err := str.ReadAt(buf, 10)
+	if err != nil && !errors.Is(err, io.EOF) {
+		log.Fatalf("ReadAt error: %s", err)
+	}
+	fmt.Printf("- ReadAt %d bytes: %q\n", n, buf[:n])
+}
 func readerExample() {
 	fmt.Println("\nReader example:")
 
@@ -75,4 +117,19 @@ func readerExample() {
 
 	fmt.Println("\nhttp.Response.Body Read:")
 	httpResponseBodyExample()
+
+	fmt.Println("\nio.MultiReader Read:")
+	multiReaderExample()
+
+	fmt.Println("\nio.ReadAll Read:")
+	readAllExample()
+
+	fmt.Println("\nio.TeeReader Read:")
+	teeReaderExample()
+
+	fmt.Println("\nio.LimitReader Read:")
+	limitReaderExample()
+
+	fmt.Println("\nio.ReaderAt Read:")
+	readAtExample()
 }

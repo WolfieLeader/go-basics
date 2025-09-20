@@ -44,19 +44,18 @@ func osStdoutExample() {
 }
 
 func multiWriterExample() {
-	file, err := os.Create("texts/multiout.txt")
-	if err != nil {
-		log.Fatalf("Failed to create file: %s", err)
-	}
-	defer file.Close()
-
-	var sb strings.Builder
-	mw := io.MultiWriter(os.Stdout, file, &sb)
+	var sb1, sb2, sb3 strings.Builder
+	mw := io.MultiWriter(&sb1, &sb2, &sb3)
 
 	for i := range 3 {
-		write(mw, fmt.Sprintf("- Line %d\n", i+1))
+		write(mw, fmt.Sprintf(" %d", i+1))
 	}
-	fmt.Printf("Final string in Builder: %q\n", sb.String())
+	write(mw, " ")
+
+	fmt.Printf("Final strings:\n")
+	for i, sb := range []*strings.Builder{&sb1, &sb2, &sb3} {
+		fmt.Printf("- sb%d: %q\n", i+1, sb.String())
+	}
 }
 
 func writerExample() {
