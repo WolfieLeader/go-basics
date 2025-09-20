@@ -1,7 +1,8 @@
 package main
 
 func main() {
-	readerExample()
-	writerExample()
-	extraExample()
+	// readerExample()
+	// writerExample()
+	// extraExample()
+	bufioExample()
 }

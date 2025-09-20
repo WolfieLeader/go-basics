@@ -176,6 +176,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - File Operations (`os` package)
 - Stdin, Stdout
 - HTTP Requests (`net/http` package)
+- `bufio` package (Buffered I/O, Scanner, Reader, Writer)
 
 ---
 
@@ -204,17 +205,25 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### TODO:
 
-19. HTTP Servers
-    - JSON and XML Handling
-    - Data Fetching
-    - HTTP Server
-    - TCP Server
-20. Testing
-21. Cryptography
-
-- Environment Variables
-- C
-- Assembly
+- JSON
+- XML
+- HTTP Client Requests
+- HTTP Server
+- TCP
+- UDP
+- Websockets
+- Testing & Benchmarking & `testify` & httptest
 - gRPC
 - HTMX
+- SLog
+- Environment Variables
 - Reflection
+- Cryptography & Hashing & Compression
+- C
+- Assembly
+- `slices` and `maps` Packages
+- `sort` Package
+- `unique` Package
+- DBs (SQL, NoSQL) & ORM
+- `flag` Package
+- `unsafe` Package
