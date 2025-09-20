@@ -62,15 +62,14 @@ func osStdoutExample() {
 }
 
 func writerExample() {
-	fmt.Println("os.File Write:")
+	fmt.Println("\nWriter Example:")
+
+	fmt.Println("\nos.File Write:")
 	osFileWriterExample()
-	fmt.Println()
 
-	fmt.Println("strings.Builder Write:")
+	fmt.Println("\nstrings.Builder Write:")
 	stringsBuilderExample()
-	fmt.Println()
 
-	fmt.Println("os.Stdout Write:")
+	fmt.Println("\nos.Stdout Write:")
 	osStdoutExample()
-	fmt.Println()
 }

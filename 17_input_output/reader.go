@@ -78,15 +78,14 @@ func httpResponseBodyExample() {
 }
 
 func readerExample() {
-	fmt.Println("os.File Read:")
+	fmt.Println("\nReader example:")
+
+	fmt.Println("\nos.File Read:")
 	osFileReaderExample()
-	fmt.Println()
 
-	fmt.Println("strings.Reader Read:")
+	fmt.Println("\nstrings.Reader Read:")
 	stringsReaderExample()
-	fmt.Println()
 
-	fmt.Println("http.Response.Body Read:")
+	fmt.Println("\nhttp.Response.Body Read:")
 	httpResponseBodyExample()
-	fmt.Println()
 }
