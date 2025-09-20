@@ -1,11 +1,5 @@
 package main
 
-import (
-	// errorexamples "github.com/WolfieLeader/go-basics/18_concurrency/errors"
-	// syncexamples "github.com/WolfieLeader/go-basics/18_concurrency/sync"
-	"github.com/WolfieLeader/go-basics/18_concurrency/patterns"
-)
-
 func main() {
 	// goroutineExample()
 	// ignoredGoroutineExample()
@@ -14,6 +8,7 @@ func main() {
 	// channelDirectionExample()
 	// selectExample()
 	// selectSendExample()
+	ioPipeExample()
 	// syncexamples.WaitGroupExample()
 	// syncexamples.ModernWaitGroupExample()
 	// syncexamples.WaitGroupFetchExample()
@@ -33,5 +28,5 @@ func main() {
 	// patterns.GeneratorExample()
 	// patterns.PipelineExample()
 	// patterns.WorkerPoolExample()
-	patterns.SemaphoreExample()
+	// patterns.SemaphoreExample()
 }
