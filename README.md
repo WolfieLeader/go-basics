@@ -205,8 +205,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### TODO:
 
-- JSON
-- XML
+- JSON & XML
 - HTTP Client Requests
 - HTTP Server
 - TCP
