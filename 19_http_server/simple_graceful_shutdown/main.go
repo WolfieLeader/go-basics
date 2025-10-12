@@ -18,11 +18,11 @@ func main() {
 		fmt.Fprint(w, "Hello World")
 	})
 
-	server := &http.Server{
-		Addr:    ":8080",
-		Handler: mux,
-	}
+	server := &http.Server{Addr: ":8080", Handler: mux}
+	serveWithGracefulShutdown(server)
+}
 
+func serveWithGracefulShutdown(server *http.Server) {
 	go func() {
 		fmt.Println("Server runs on: http://localhost:8080")
 		err := server.ListenAndServe()
