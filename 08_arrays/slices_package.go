@@ -5,6 +5,8 @@ import (
 	"slices"
 )
 
+// "slices" package provides many utility functions for slices
+// "sort" package simply calls "slices" package functions
 func slicesPackageExample() {
 	src := make([]uint8, 10, 12) // len 10, cap 12
 	copy(src, []uint8{0, 0, 2, 3, 5, 5, 5, 8, 12, 13})

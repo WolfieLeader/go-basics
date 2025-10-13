@@ -78,9 +78,8 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Slices and Slice Literals
 - Iteration with `range`
 - Copying and Appending Slices
-- `slice` Package Functions
+- `slices` Package Functions (note: you should use `slices` instead of `sort`)
 - `cmp` Package Functions
-- `sort` Package Functions
 
 ---
 
