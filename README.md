@@ -78,6 +78,9 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Slices and Slice Literals
 - Iteration with `range`
 - Copying and Appending Slices
+- `slice` Package Functions
+- `sort` Package Functions
+- `unique` Package Functions
 
 ---
 
@@ -89,6 +92,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Iterate Over Maps
 - Delete Keys from Map (`delete()` function)
 - Comma-ok Idiom
+- `maps` Package Functions
 
 ---
 
@@ -205,24 +209,13 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ### TODO:
 
-- JSON & XML
-- HTTP Client Requests
-- HTTP Server
-- TCP
-- UDP
-- Websockets
-- Testing & Benchmarking & `testify` & httptest
-- gRPC
-- HTMX
-- SLog
-- Environment Variables
-- Reflection
-- Cryptography & Hashing & Compression
-- C
-- Assembly
-- `slices` and `maps` Packages
-- `sort` Package
-- `unique` Package
-- DBs (SQL, NoSQL) & ORM
-- `flag` Package
-- `unsafe` Package
+19. Encoding & Decoding ( Base64, Binary, Gob, Hex, CSV, and JSON), Cryptography, Hashing, and Compression
+20. Reflection & Schema Validation
+21. Testing, Benchmarking and `testify`
+22. HTTP Requests and HTTP Clients
+23. HTTP Server, Frameworks (Chi, Gin, Fiber, and Echo), HTMX, Logging, and Environment Variables
+24. Networking - TCP and UDP
+25. Websockets
+26. gRPC and Protobufs
+27. C and Assembly in Go
+28. Databases - SQL, NoSQL, and ORM
