@@ -3,64 +3,52 @@ package main
 import "fmt"
 
 func sliceExample1() {
-	fmt.Println("\nSlice Example 1:")
+	floatSlice := []float64{1.1, 2.2} // Slice is a dynamically-sized array
 
-	// Slice is a dynamically-sized array
-	floatSlice := []float64{1.1, 2.2}
+	// `len` gives the current number of elements,
+	// `cap` gives the max elements the slice can hold without reallocating
+	floatSlice[0] = 0.1 // [0.1, 2.2]
+	fmt.Printf("- Slice: %v, Length: %d, Capacity: %d\n", floatSlice, len(floatSlice), cap(floatSlice))
 
-	floatSlice[0] = 0.1                       // Modify first element
-	floatSlice = append(floatSlice, 3.3)      // Append to slice
-	floatSlice = append(floatSlice, 4.4, 5.5) // Append multiple values
-	fmt.Println("- Slice:", floatSlice)
+	// When capacity is exceeded, the capacity is doubled in size
+	floatSlice = append(floatSlice, 3.3) // [0.1, 2.2, 3.3]
+	fmt.Printf("- Slice: %v, Length: %d, Capacity: %d\n", floatSlice, len(floatSlice), cap(floatSlice))
 
-	// Length is the current number of elements in the slice
-	// Capacity is the maximum number of elements the slice can hold without reallocating
-
-	// If capacity is exceeded, a new underlying array is created with double the capacity
-	fmt.Printf("- Length: %d, Capacity: %d\n", len(floatSlice), cap(floatSlice))
-
-	// Going through the slice values using a for loop
-	var prt string
-	for _, value := range floatSlice {
-		prt += fmt.Sprintf("%.1f, ", value)
-	}
-	fmt.Println("- Slice values:", prt[:len(prt)-2]) // Remove trailing comma and space
+	floatSlice = append(floatSlice, 4.4, 5.5) // [0.1, 2.2, 3.3, 4.4, 5.5]
+	fmt.Printf("- Slice: %v, Length: %d, Capacity: %d\n", floatSlice, len(floatSlice), cap(floatSlice))
 }
 
 func sliceExample2() {
-	fmt.Println("\nSlice Example 2:")
-	namesArr := [4]string{"John", "Paul", "George", "Ringo"}
+	fixedArray := [4]string{"John", "Paul", "George", "Ringo"}
 
-	// Rule on thumb: `make` keyword creates a dynamic type
-	strSlice1 := make([]string, 2)    // Create a slice with length 2 and capacity 2
-	strSlice2 := make([]string, 0, 2) // Create a slice with length 0 and capacity 2
+	//`make` keyword creates a dynamic type
+	slice1 := make([]string, 2)    // len 2 and cap 2
+	slice2 := make([]string, 0, 2) // len 0 and cap 2
 
-	strSlice1 = namesArr[0:2] // Slice from array, includes elements 0 and 1
-	strSlice2 = namesArr[1:4] // Slice from array, includes elements 1, 2, and 3
+	slice1 = fixedArray[0:2] // Take first two elements
+	slice2 = fixedArray[1:4] // Take from index 1 to 3 (4 is excluded)
 
 	// Slices are references to underlying arrays
-	strSlice2[0] = "X" // This will change the original array and the slices that reference it
+	// Modifying a slice modifies the underlying array
+	slice2[0] = "X"
 
-	fmt.Printf("- Names array: %v, Names length: %d\n", namesArr, len(namesArr))
-	fmt.Printf("- Slice 1: %v, Length: %d, Capacity: %d\n", strSlice1, len(strSlice1), cap(strSlice1))
-	fmt.Printf("- Slice 2: %v, Length: %d, Capacity: %d\n", strSlice2, len(strSlice2), cap(strSlice2))
+	fmt.Printf("- Fixed array: %v, Length: %d\n", fixedArray, len(fixedArray))
+	fmt.Printf("- Slice 1 (0 and 1): %v, Length: %d, Capacity: %d\n", slice1, len(slice1), cap(slice1))
+	fmt.Printf("- Slice 2 (1, 2 and 3): %v, Length: %d, Capacity: %d\n", slice2, len(slice2), cap(slice2))
 }
 
 func sliceCopyExample() {
-	fmt.Println("\nSlice Copy Example:")
-	src := []string{"A", "B", "C"}
-	dst := make([]string, len(src))        // Allocate new slice of same length
-	smallDst := make([]string, len(src)-1) // Allocate smaller slice
+	src := []byte{'A', 'B', 'C'}
 
-	n := copy(dst, src)
-	nSmall := copy(smallDst, src) // Copy to smaller slice
+	dst := make([]byte, len(src))        // Allocate new slice of same length
+	smallDst := make([]byte, len(src)-1) // Allocate smaller slice
 
-	// Modify target to show independence from source
-	dst[0] = "Y"
+	n1 := copy(dst, src) // n is number of elements copied
+	n2 := copy(smallDst, src)
+
+	dst[0] = 'Y' // Modify target to show independence from source
 
 	fmt.Printf("- Source slice: %v\n", src)
-	fmt.Printf("- Target slice (copied): %v\n", dst)
-	fmt.Printf("- Smaller target slice (copied): %v\n", smallDst)
-	fmt.Printf("- Number of elements copied: %d\n", n)
-	fmt.Printf("- Number of elements copied to smaller slice: %d\n", nSmall)
+	fmt.Printf("- Destination slice: %v, copied %d elements\n", dst, n1)
+	fmt.Printf("- Smaller destination slice: %v, copied %d elements\n", smallDst, n2)
 }

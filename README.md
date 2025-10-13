@@ -79,8 +79,8 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Iteration with `range`
 - Copying and Appending Slices
 - `slice` Package Functions
+- `cmp` Package Functions
 - `sort` Package Functions
-- `unique` Package Functions
 
 ---
 
@@ -93,6 +93,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Delete Keys from Map (`delete()` function)
 - Comma-ok Idiom
 - `maps` Package Functions
+- `unique` Package Functions
 
 ---
 
@@ -217,5 +218,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 24. Networking - TCP and UDP
 25. Websockets
 26. gRPC and Protobufs
-27. C and Assembly in Go
-28. Databases - SQL, NoSQL, and ORM
+27. Databases - SQL, NoSQL, and ORM
+28. Built-in advanced data structures - Heap, Linked List, and Ring
+29. C and Assembly in Go

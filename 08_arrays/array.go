@@ -3,29 +3,22 @@ package main
 import "fmt"
 
 func arrayExample1() {
-	fmt.Println("\nArray Example:")
+	fixedStrArray := [3]string{"ABC", "DEF", "GHI"}
+	fmt.Println("- Fixed array of 3 string elements:", fixedStrArray)
 
-	// Fixed string array with length 3
-	strArr := [3]string{"Hello", "World", "!"}
-	fmt.Println("- Fixed array:", strArr)
-
-	// Fixed integer array with length 5
-	var intArr [5]int // [0 0 0 0 0]
-	intArr[0] = 1     // [1 0 0 0 0]
-	intArr[2] = 3     // [1 0 3 0 0]
-	intArr[4] = 5     // [1 0 3 0 5]
-	fmt.Println("- Fixed integer array:", intArr)
+	var fixedUintArray [5]uint8 // [0 0 0 0 0]
+	fixedUintArray[0] = 1       // [1 0 0 0 0]
+	fixedUintArray[2] = 3       // [1 0 3 0 0]
+	fixedUintArray[4] = 5       // [1 0 3 0 5]
+	fmt.Println("- Fixed array of 5 uint8 elements:", fixedUintArray)
 }
 
 func arrayExample2() {
-	fmt.Println("\nArray Example 2:")
-	// `[...]T` is a shorthand for array with length inferred from the number of elements
-	intArr := [...]int{100, 200, 300, 400, 500}
+	inferredIntArray := [...]int{10, 8, 6, 4, 2} // `...` infers the length
 
-	// Going through the array using a for loop
-	var prt string
-	for index, value := range intArr {
-		prt += fmt.Sprintf("intArr[%d] = %d, ", index, value)
+	totalWithIndex := 0
+	for index, value := range inferredIntArray {
+		totalWithIndex += value * (index + 1) // Just to use the index in some way
 	}
-	fmt.Println("- ", prt[:len(prt)-2]) // Remove trailing comma and space
+	fmt.Printf("- Inferred array: %v, Total with index: %d\n", inferredIntArray, totalWithIndex)
 }
