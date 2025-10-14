@@ -11,11 +11,11 @@ func slicesPackageExample() {
 	src := make([]uint8, 10, 12) // len 10, cap 12
 	copy(src, []uint8{0, 0, 2, 3, 5, 5, 5, 8, 12, 13})
 
-	// returns a cloned copy, instead of using `copy()` to existing slice
+	// Returns a cloned copy, instead of using `copy()` and pre-allocating
 	cloned := slices.Clone(src)
 	fmt.Printf("\n- Cloned: %v, Src: %v, Are Equal? %t\n", cloned, src, slices.Equal(src, cloned))
 
-	// returns a clipped copy with cap == len
+	// Returns a clipped copy with cap == len
 	clipped := slices.Clip(src)
 	fmt.Printf("- Clipped capacity: %d, Src capacity: %d\n", cap(clipped), cap(src))
 
