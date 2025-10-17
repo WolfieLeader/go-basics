@@ -18,9 +18,9 @@ func main() {
 	fmt.Println("\nSlice Copy Example:")
 	sliceCopyExample()
 
-	fmt.Println("\nCmp Package Example:")
-	cmpPackageExample()
-
 	fmt.Println("\nSlices Package Example:")
 	slicesPackageExample()
+
+	fmt.Println("\nUnique Package Example:")
+	uniquePackageExample()
 }

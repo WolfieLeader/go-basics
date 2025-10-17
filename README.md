@@ -79,7 +79,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Iteration with `range`
 - Copying and Appending Slices
 - `slices` Package Functions (note: you should use `slices` instead of `sort`)
-- `cmp` Package Functions
+- `unique` Package Functions
 
 ---
 
@@ -92,7 +92,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Delete Keys from Map (`delete()` function)
 - Comma-ok Idiom
 - `maps` Package Functions
-- `unique` Package Functions
 
 ---
 
@@ -171,6 +170,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Union Types and Type Sets
 - Generics with Interfaces
 - Type Aliases with Generics
+- `cmp` Package Functions
 
 ---
 
