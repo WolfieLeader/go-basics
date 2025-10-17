@@ -5,7 +5,7 @@ import (
 	"maps"
 )
 
-func main() {
+func mapExample() {
 	// Maps are unordered collections of key-value pairs
 	// They are similar to dictionaries in Python or hash tables in other languages
 	mathGrades := map[string]int{
@@ -14,62 +14,75 @@ func main() {
 		"Charlie": 92,
 	}
 
+	mathGrades["David"] = 88 // Add a new key-value pair
+	mathGrades["Alice"] = 95 // Update Alice's grade
+
 	// Alternatively, you can create an empty map and add key-value pairs later
-	versions := make(map[string]float64)
+	scienceGrades := make(map[string]int)
+	scienceGrades["Bob"], scienceGrades["Charlie"] = 72, 89
 
-	// Adding key-value pairs to the map
-	versions["Go"] = 1.24
-	versions["Python"] = 3.14
-
-	//Changing a value in the map
-	mathGrades["Alice"] = 95
-
-	// Accessing values using keys
-	fmt.Printf("Alice's grade: %d\n", mathGrades["Alice"])
+	// Accessing values using keys (returns zero value if key does not exist)
+	fmt.Printf("Alice's math grade: %d, science grade (not available): %d\n", mathGrades["Alice"], scienceGrades["Alice"])
 
 	name, ok := mathGrades["NonExistent"]
-	fmt.Printf("NonExistent's grade: %d, exists: %t\n", name, ok)
+	fmt.Printf("NonExistent's math grade: %d, exists: %t\n", name, ok)
 
 	// Iterating over the map
 	for key, value := range mathGrades {
-		fmt.Printf("- %s has a grade of %d\n", key, value)
+		fmt.Printf("- %s has a math grade of %d\n", key, value)
 	}
 
-	// Deleting a key-value pair
-	delete(mathGrades, "Bob")
+	delete(mathGrades, "Bob") // Deleting a key-value pair
+
 	fmt.Println("After deleting Bob, the map contains:")
 	for student, grade := range mathGrades {
-		fmt.Printf("- %s has a grade of %d\n", student, grade)
+		fmt.Printf("- %s has a math grade of %d\n", student, grade)
+	}
+}
+
+func mapsPackageExample() {
+	langVersions := map[string]string{
+		"Zig":    "0.15.2",
+		"Go":     "1.25.3",
+		"Python": "3.14.0",
 	}
 
-	// Returns a cloned copy, instead of using `copy()` and pre-allocating
-	cloned := maps.Clone(mathGrades)
-	fmt.Printf("- Cloned: %v, Src: %v, Are Equal? %t\n", cloned, mathGrades, maps.Equal(mathGrades, cloned))
+	cloned := maps.Clone(langVersions) // Returns a cloned copy
+	fmt.Printf("- Cloned: %v, Src: %v, Are Equal? %t\n", cloned, langVersions, maps.Equal(langVersions, cloned))
 
-	sportGrades := map[string]int{
-		"Alice": 25,
-		"David": 30,
+	delete(cloned, "Python")
+	fmt.Printf("- After deleting Python from cloned map: %v, Are Equal? %t\n", cloned, maps.Equal(langVersions, cloned))
+
+	lowLevelLangs := map[string]string{
+		"Go":   "1.18.0", // Old version
+		"Rust": "1.90.0",
 	}
 
-	newSportGrades := maps.Clone(sportGrades)
+	// Copies key-value pairs from source to destination
+	// If a key exists in both maps, the value from the source overwrites the value in the destination
+	maps.Copy(lowLevelLangs, cloned)
+	fmt.Printf("- Low-level languages after copy: %v\n", lowLevelLangs)
 
-	// Copies key-value pairs from source map to destination map
-	// If a key exists in both maps, the value from the source map overwrites the value in the destination map
-	maps.Copy(newSportGrades, mathGrades)
-	fmt.Printf("- Old Sport Grades: %v, New: %v, Are Equal? %t\n", sportGrades, newSportGrades, maps.Equal(sportGrades, newSportGrades))
-
-	// `maps.Keys()` and `maps.Values()` return iterators
-	// Iterators will be covered later in detail
-
-	fmt.Print("- Iterating over keys using maps.Keys():")
-	for key := range maps.Keys(mathGrades) {
+	// `maps.Keys()` and `maps.Values()` return iterators which can be used in `for range` loops
+	fmt.Print("- Keys from lowLevelLangs:")
+	for key := range maps.Keys(lowLevelLangs) {
 		fmt.Printf(" %s,", key)
 	}
 	fmt.Println()
 
-	fmt.Print("- Iterating over values using maps.Values():")
-	for value := range maps.Values(mathGrades) {
-		fmt.Printf(" %d,", value)
+	fmt.Print("- Values from lowLevelLangs:")
+	for value := range maps.Values(lowLevelLangs) {
+		fmt.Printf(" %s,", value)
 	}
+	fmt.Println()
+}
+
+func main() {
+	fmt.Println("Map Example:")
+	mapExample()
+	fmt.Println()
+
+	fmt.Println("Maps Package Example:")
+	mapsPackageExample()
 	fmt.Println()
 }
