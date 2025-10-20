@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/WolfieLeader/go-basics/19_data_manipulation/encoding"
+	"github.com/WolfieLeader/go-basics/19_data_manipulation/format"
 )
 
 func main() {
@@ -29,5 +30,21 @@ func main() {
 
 	fmt.Println("Base32 Encoder Example:")
 	encoding.Base32EncoderExample()
+	fmt.Println()
+
+	fmt.Println("JSON V1 Write Example:")
+	format.JsonV1WriteExample()
+	fmt.Println()
+
+	fmt.Println("JSON V1 Read Example:")
+	format.JsonV1ReadExample()
+	fmt.Println()
+
+	fmt.Println("JSON V1 Encoder Write Example:")
+	format.JsonV1EncoderExample()
+	fmt.Println()
+
+	fmt.Println("JSON V1 Decoder Read Example:")
+	format.JsonV1DecoderExample()
 	fmt.Println()
 }

@@ -1,0 +1,14 @@
+{
+  "id": "b1c2d3e4-f5a6-7890-b1c2-d3e4f5a67890",
+  "title": "The Go Programming Language",
+  "authors": [
+    "Alan Donovan",
+    "Brian Kernighan"
+  ],
+  "publishedAt": "2015-11-20T00:00:00Z",
+  "genres": [
+    "Programming",
+    "Technology"
+  ],
+  "isOnline": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "fad07fb3-784c-406c-adb9-b9e765e5b380",
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "age": 30,
+  "isAdmin": false,
+  "interests": [
+    "tech",
+    "podcast",
+    "beautiful models"
+  ],
+  "preferences": {
+    "notifications": true,
+    "theme": "dark"
+  },
+  "network": {
+    "1a2b3c4d-5e6f-7081-9201-112131415161": "pet",
+    "a4f5c6d7-e8f9-1011-1213-141516171819": "family",
+    "ce10b4dd-384f-4644-b084-42f5c5efe045": "friend"
+  }
+}
