@@ -53,7 +53,6 @@ func closureFunctionExample() {
 	fmt.Println()
 }
 
-// recursiveFactorial calculates the factorial of n recursively.
 // Recursion is a function calling itself with a smaller value until it reaches the base case.
 // Base case: if n is 0 or 1, return 1.
 // Note: For large n, this can lead to stack overflow.
@@ -67,4 +66,18 @@ func recursiveFactorial(n int) int {
 func recursiveFactorialExample() {
 	fmt.Println("- Factorial of 5:", recursiveFactorial(5))
 	fmt.Println("- Factorial of 0:", recursiveFactorial(0))
+}
+
+// This is a higher-order function that takes another function as an argument (can be called a callback).
+func doN(n int, fn func()) {
+	for range n {
+		fn()
+	}
+}
+
+func higherOrderFunctionExample() {
+	count := 0
+	incrementFn := func() { count++ }
+	doN(5, incrementFn)
+	fmt.Println("- Count after incrementing 5 times:", count)
 }
