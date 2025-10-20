@@ -1,25 +1,8 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
-
-// This only modifies the local copy of x
-func incorrectModify(x int) {
-	x = 100
-}
-
-// This modifies the value at the address x points to
-// The zero value of a pointer is nil, make sure to check for nil before doing anything with it!!!
-func correctModify(x *int) error {
-	if x == nil {
-		return errors.New("nil pointer dereference")
-	}
-
-	*x = 100
-	return nil
-}
 
 func main() {
 	x := 42
@@ -40,9 +23,15 @@ func main() {
 	a := 23
 	fmt.Println("Original value of a:", a)
 
-	incorrectModify(a)
-	fmt.Println("After incorrectModify, value of a:", a)
+	localModify := func(x int) { x = 100 } // This won't modify a
+	localModify(a)
+	fmt.Println("After localModify, value of a:", a)
 
+	correctModify := func(x *int) { // This will modify a
+		if x != nil { // Always good to check for nil pointers
+			*x = 100
+		}
+	}
 	correctModify(&a)
 	fmt.Println("After correctModify, value of a:", a)
 
