@@ -15,7 +15,8 @@ type UserV1 struct {
 	Interests   []string          `json:"interests"`
 	Preferences PreferencesV1     `json:"preferences"`
 	Network     map[string]string `json:"network"`
-	Password    string            `json:"-"` // Exclude from JSON
+	Password    string            `json:"-"`                  // Exclude from JSON
+	IsActive    string            `json:"isActive,omitempty"` // Omit if empty when marshaling
 }
 
 type PreferencesV1 struct {

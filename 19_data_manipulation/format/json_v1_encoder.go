@@ -57,9 +57,7 @@ func JsonV1DecoderExample() {
 		log.Fatalf("JSON Decode error: %v", err)
 	}
 
-	if decoder.More() { // Check for multiple JSON objects
-		log.Fatalf("JSON Decode error: multiple JSON objects in file")
-	}
+	// You can also check if there is more data with decoder.More() but to keep it simple, we assume single object here
 
 	fmt.Printf("- Book Struct from JSON file %s using Decoder: %+v\n", BOOK_V1_FILE, book)
 }
