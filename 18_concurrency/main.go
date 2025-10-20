@@ -1,9 +1,9 @@
 package main
 
 import (
-	errorexamples "github.com/WolfieLeader/go-basics/18_concurrency/errors"
+	"github.com/WolfieLeader/go-basics/18_concurrency/errors"
 	"github.com/WolfieLeader/go-basics/18_concurrency/patterns"
-	syncexamples "github.com/WolfieLeader/go-basics/18_concurrency/sync"
+	"github.com/WolfieLeader/go-basics/18_concurrency/sync"
 )
 
 func main() {
@@ -15,21 +15,21 @@ func main() {
 	selectExample()
 	selectSendExample()
 	ioPipeExample()
-	syncexamples.WaitGroupExample()
-	syncexamples.ModernWaitGroupExample()
-	syncexamples.WaitGroupFetchExample()
-	syncexamples.MutexExample()
-	syncexamples.RWMutexExample()
-	syncexamples.OnceExample()
-	syncexamples.PoolExample()
-	syncexamples.CondExample()
-	syncexamples.AtomicExample()
+	sync.WaitGroupExample()
+	sync.ModernWaitGroupExample()
+	sync.WaitGroupFetchExample()
+	sync.MutexExample()
+	sync.RWMutexExample()
+	sync.OnceExample()
+	sync.PoolExample()
+	sync.CondExample()
+	sync.AtomicExample()
 	contextTimeoutExample()
 	contextCancellationExample()
 	contextValuesExample()
-	errorexamples.DeadlockExample()
-	errorexamples.RaceConditionExample()
-	errorexamples.GoroutineLeakExample()
+	errors.DeadlockExample()
+	errors.RaceConditionExample()
+	errors.GoroutineLeakExample()
 	patterns.FanOutFanInExample()
 	patterns.GeneratorExample()
 	patterns.PipelineExample()

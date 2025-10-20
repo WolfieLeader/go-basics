@@ -1,21 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/WolfieLeader/go-basics/19_data_manipulation/encoding"
+)
 
 func main() {
 	fmt.Println("Base64 Simple Example:")
-	base64SimpleExample()
+	encoding.Base64Example()
 	fmt.Println()
 
 	fmt.Println("Base64 Encoder Example:")
-	base64EncoderExample()
+	encoding.Base64EncoderExample()
 	fmt.Println()
 
 	fmt.Println("Hex Simple Example:")
-	hexSimpleExample()
+	encoding.HexExample()
 	fmt.Println()
 
 	fmt.Println("Hex Encoder Example:")
-	hexEncoderExample()
+	encoding.HexEncoderExample()
+	fmt.Println()
+
+	fmt.Println("Base32 Simple Example:")
+	encoding.Base32Example()
+	fmt.Println()
+
+	fmt.Println("Base32 Encoder Example:")
+	encoding.Base32EncoderExample()
 	fmt.Println()
 }

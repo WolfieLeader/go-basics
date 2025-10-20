@@ -1,4 +1,4 @@
-package syncexamples
+package sync
 
 import (
 	cryptoRand "crypto/rand"
