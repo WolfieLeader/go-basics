@@ -6,35 +6,35 @@ import (
 	"log"
 )
 
-type UserV1 struct {
+type User struct {
 	Id          string            `json:"id"`
 	Name        string            `json:"name"`
 	Email       string            `json:"email"`
 	Age         int               `json:"age"`
 	IsAdmin     bool              `json:"isAdmin"`
 	Interests   []string          `json:"interests"`
-	Preferences PreferencesV1     `json:"preferences"`
+	Preferences Preferences       `json:"preferences"`
 	Network     map[string]string `json:"network"`
 	Password    string            `json:"-"`                  // Exclude from JSON
 	IsActive    string            `json:"isActive,omitempty"` // Omit if empty when marshaling
 }
 
-type PreferencesV1 struct {
+type Preferences struct {
 	Notifications bool   `json:"notifications"`
 	Theme         string `json:"theme"`
 }
 
-const USER_V1_FILE = "user_v1.json"
+const USER_FILE = "user.json"
 
 func JsonV1WriteExample() {
-	var user = UserV1{
+	var user = User{
 		Id:          "fad07fb3-784c-406c-adb9-b9e765e5b380",
 		Name:        "John Doe",
 		Email:       "john.doe@example.com",
 		Age:         30,
 		IsAdmin:     false,
 		Interests:   []string{"tech", "podcast", "beautiful models"},
-		Preferences: PreferencesV1{Notifications: true, Theme: "dark"},
+		Preferences: Preferences{Notifications: true, Theme: "dark"},
 		Network: map[string]string{
 			"ce10b4dd-384f-4644-b084-42f5c5efe045": "friend",
 			"a4f5c6d7-e8f9-1011-1213-141516171819": "family",
@@ -56,13 +56,13 @@ func JsonV1WriteExample() {
 	}
 	fmt.Printf("- JSON (pretty):\n%s\n\n", pretty)
 
-	writeBytesToFile(USER_V1_FILE, pretty)
+	writeBytesToFile(USER_FILE, pretty)
 }
 
 func JsonV1ReadExample() {
-	data := readBytesFromFile(USER_V1_FILE)
+	data := readBytesFromFile(USER_FILE)
 
-	var user UserV1
+	var user User
 	if err := json.Unmarshal(data, &user); err != nil {
 		log.Fatalf("Unmarshal error: %v", err)
 	}

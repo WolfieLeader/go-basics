@@ -47,4 +47,6 @@ func main() {
 	fmt.Println("JSON V1 Decoder Read Example:")
 	format.JsonV1DecoderExample()
 	fmt.Println()
+
+	// JSON v2 examples will be added in 1.26
 }
