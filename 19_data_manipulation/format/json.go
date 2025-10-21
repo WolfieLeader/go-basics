@@ -87,7 +87,7 @@ func JsonV1ReadExample() {
 }
 
 func JsonV1EncoderExample() {
-	now := time.Date(2025, time.January, 15, 0, 0, 0, 0, time.UTC)
+	date := time.Date(2025, time.January, 15, 0, 0, 0, 0, time.UTC)
 	user := User{
 		Name:       "Jane Doe",
 		Email:      "jane.doe@example.com",
@@ -97,7 +97,7 @@ func JsonV1EncoderExample() {
 		Contact:    Contact{Phone: "+1-555-5678", Address: "123 Main St, Anytown, USA"},
 		Games:      map[string]int{"vs Miami": 20, "vs Boston": 25},
 		CreatedAt:  time.Date(2022, time.December, 1, 0, 0, 0, 0, time.UTC),
-		UpdatedAt:  &now,
+		UpdatedAt:  &date,
 		Password:   "anothersecret",
 	}
 	fmt.Printf("- User Struct: %+v\n\n", user)

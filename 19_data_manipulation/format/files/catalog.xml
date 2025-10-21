@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog>
-  <product>
-    <id>1</id>
-    <name>Laptop</name>
-    <price>1299.99</price>
-    <in_stock>true</in_stock>
+  <author>
+    <first_name>Alice</first_name>
+    <last_name>Smith</last_name>
+  </author>
+  <course id="course-101" is_available="false">
+    <is_online>false</is_online>
+    <buyers>150</buyers>
+    <title>Introduction to Go</title>
+    <price>49.99</price>
     <categories>
-      <category>Computers</category>
-      <category>Electronics</category>
+      <category>Web</category>
+      <category>Go</category>
+      <category>Backend Development</category>
     </categories>
-  </product>
-  <product>
-    <id>2</id>
-    <name>Headphones</name>
-    <price>199.5</price>
-    <in_stock>false</in_stock>
+    <created_at>2023-03-10T00:00:00Z</created_at>
+    <updated_at>2023-04-05T00:00:00Z</updated_at>
+  </course>
+  <course id="course-252" is_available="false">
+    <is_online>false</is_online>
+    <buyers>85</buyers>
+    <title>Advanced Go Concurrency</title>
+    <price>79.99</price>
     <categories>
-      <category>Audio</category>
-      <category>Accessories</category>
+      <category>Programming</category>
+      <category>Go</category>
+      <category>Concurrency</category>
     </categories>
-  </product>
-  <product>
-    <id>3</id>
-    <name>Coffee Maker</name>
-    <price>89.99</price>
-    <in_stock>true</in_stock>
+    <created_at>2023-03-15T00:00:00Z</created_at>
+  </course>
+  <course id="course-087" is_available="true">
+    <is_online>true</is_online>
+    <buyers>0</buyers>
+    <title>Embedded Systems with Go</title>
+    <description>Learn how to build embedded systems using Go programming language.</description>
+    <price>499.99</price>
     <categories>
-      <category>Home Appliances</category>
-      <category>Kitchen</category>
+      <category>Go</category>
+      <category>Embedded Systems</category>
     </categories>
-  </product>
+    <created_at>2023-05-01T00:00:00Z</created_at>
+  </course>
 </catalog>
