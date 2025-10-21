@@ -1,0 +1,23 @@
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "role": "Shooting Guard",
+  "jerseyNumber": 0,
+  "age": 28,
+  "isVerified": true,
+  "interests": [
+    "basketball",
+    "coding",
+    "beautiful models"
+  ],
+  "contact": {
+    "phone": "+1-555-1234"
+  },
+  "games": {
+    "vs Chicago": 35,
+    "vs Los Angeles": 15,
+    "vs New York": 12
+  },
+  "createdAt": "2025-01-15T00:00:00Z",
+  "updatedAt": null
+}

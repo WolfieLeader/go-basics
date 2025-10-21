@@ -32,6 +32,7 @@ func main() {
 	encoding.Base32EncoderExample()
 	fmt.Println()
 
+	// JSON v2 examples will be added in 1.26
 	fmt.Println("JSON V1 Write Example:")
 	format.JsonV1WriteExample()
 	fmt.Println()
@@ -48,5 +49,11 @@ func main() {
 	format.JsonV1DecoderExample()
 	fmt.Println()
 
-	// JSON v2 examples will be added in 1.26
+	fmt.Println("CSV Write Example:")
+	format.CsvWriteExample()
+	fmt.Println()
+
+	fmt.Println("CSV Read Example:")
+	format.CsvReadExample()
+	fmt.Println()
 }

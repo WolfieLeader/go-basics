@@ -1,0 +1,18 @@
+{
+  "name": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "role": "Small Forward",
+  "age": 27,
+  "isVerified": false,
+  "interests": null,
+  "contact": {
+    "phone": "+1-555-5678",
+    "address": "123 Main St, Anytown, USA"
+  },
+  "games": {
+    "vs Boston": 25,
+    "vs Miami": 20
+  },
+  "createdAt": "2022-12-01T00:00:00Z",
+  "updatedAt": "2025-01-15T00:00:00Z"
+}
