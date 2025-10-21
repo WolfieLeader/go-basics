@@ -1,4 +1,4 @@
-package format
+package main
 
 import (
 	"encoding/csv"
@@ -9,8 +9,6 @@ import (
 	"strconv"
 )
 
-const BOOKS_FILE = "books.csv"
-
 type BookCSV struct {
 	Title  string
 	Author string
@@ -18,14 +16,14 @@ type BookCSV struct {
 	Price  float64
 }
 
-func CsvWriteExample() {
+func csvWriteExample() {
 	records := []BookCSV{
 		{Title: "Go in Action", Author: "William Kennedy", Year: 2015, Price: 39.99},
 		{Title: "The Go Programming Language", Author: "Donovan & Kernighan", Year: 2015, Price: 44.95},
 		{Title: "Concurrency in Go", Author: "Katherine Cox-Buday", Year: 2017, Price: 49.99},
 	}
 
-	file := writerToFile(BOOKS_FILE)
+	file := fileWriter(BOOKS_FILE)
 	defer file.Close()
 
 	csvWriter := csv.NewWriter(file)
@@ -50,8 +48,8 @@ func CsvWriteExample() {
 	fmt.Printf("- Wrote %d records to CSV file %s\n", len(records), BOOKS_FILE)
 }
 
-func CsvReadExample() {
-	file := readerFromFile(BOOKS_FILE)
+func csvReadExample() {
+	file := fileReader(BOOKS_FILE)
 	defer file.Close()
 
 	csvReader := csv.NewReader(file)

@@ -1,11 +1,9 @@
-package format
+package main
 
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
-	"os"
 	"time"
 )
 
@@ -39,12 +37,7 @@ type User struct {
 	Password     string         `json:"-"` // Exclude from JSON
 }
 
-const (
-	JOHN_DOE_FILE = "user_john_doe.json"
-	JANE_DOE_FILE = "user_jane_doe.json"
-)
-
-func JsonV1WriteExample() {
+func jsonWriteExample() {
 	jerseyNumber := 0
 	var user = User{
 		Name:         "John Doe",
@@ -73,62 +66,15 @@ func JsonV1WriteExample() {
 	}
 	fmt.Printf("- JSON (pretty):\n%s\n\n", pretty)
 
-	writeBytesToFile(JOHN_DOE_FILE, pretty)
+	writeToFile(USER1_FILE, pretty)
 }
 
-func JsonV1ReadExample() {
-	data := readBytesFromFile(JOHN_DOE_FILE)
+func jsonReadExample() {
+	data := readFromFile(USER1_FILE)
 
 	var user User
 	if err := json.Unmarshal(data, &user); err != nil {
 		log.Fatalf("Unmarshal error: %v", err)
 	}
 	fmt.Printf("- User Struct from JSON: %+v\n", user)
-}
-
-func JsonV1EncoderExample() {
-	date := time.Date(2025, time.January, 15, 0, 0, 0, 0, time.UTC)
-	user := User{
-		Name:       "Jane Doe",
-		Email:      "jane.doe@example.com",
-		Role:       RoleSF,
-		Age:        27,
-		IsVerified: false,
-		Contact:    Contact{Phone: "+1-555-5678", Address: "123 Main St, Anytown, USA"},
-		Games:      map[string]int{"vs Miami": 20, "vs Boston": 25},
-		CreatedAt:  time.Date(2022, time.December, 1, 0, 0, 0, 0, time.UTC),
-		UpdatedAt:  &date,
-		Password:   "anothersecret",
-	}
-	fmt.Printf("- User Struct: %+v\n\n", user)
-
-	file := writerToFile(JANE_DOE_FILE)
-	defer file.Close()
-
-	fmt.Println("- JSON:")
-	encoder := json.NewEncoder(io.MultiWriter(file, os.Stdout))
-	encoder.SetIndent("", "  ")  // Similar to MarshalIndent, can be omitted for compact
-	encoder.SetEscapeHTML(false) // Disable HTML escaping
-
-	if err := encoder.Encode(user); err != nil {
-		log.Fatalf("JSON Encode error: %v", err)
-	}
-	fmt.Printf("- JSON written to file %s using Encoder\n", JANE_DOE_FILE)
-}
-
-func JsonV1DecoderExample() {
-	file := readerFromFile(JANE_DOE_FILE)
-	defer file.Close()
-
-	decoder := json.NewDecoder(file)
-	decoder.DisallowUnknownFields() // Strict mode for unknown fields
-
-	var user User
-	if err := decoder.Decode(&user); err != nil {
-		log.Fatalf("JSON Decode error: %v", err)
-	}
-
-	// You can also check if there is more data with decoder.More() but to keep it simple, we assume single object here
-
-	fmt.Printf("- User Struct from JSON file %s using Decoder: %+v\n", JANE_DOE_FILE, user)
 }

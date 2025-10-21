@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 
 // Goroutines are lightweight threads managed by the Go runtime.
 // They are used to perform concurrent (asynchronous) tasks in Go.
-func goroutineExample() {
+func GoroutineExample() {
 	fmt.Println("\nGoroutine Example:")
 
 	// `go` keyword is used to start a new goroutine.
@@ -21,11 +21,11 @@ func goroutineExample() {
 }
 
 func sayBaz() {
-	time.Sleep(100 * time.Millisecond) // Sleep for 100 milliseconds.
+	time.Sleep(100 * time.Millisecond)
 	fmt.Println("Baz")
 }
 
-func ignoredGoroutineExample() {
+func IgnoredGoroutineExample() {
 	fmt.Println("\nIgnored Goroutine Example:")
 	go fmt.Println("Hello")
 

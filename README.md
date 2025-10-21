@@ -189,6 +189,8 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - Goroutines (`go` Keyword)
 - Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
 - `select` Statement
+- `context` Package (Timeouts, Cancellation, Passing Values)
+- `io.Pipe` for In-Memory Streaming
 - `sync` Package
   - WaitGroups
   - Mutual Exclusion (Mutexes, RWMutexes - Read/Write Locks)
@@ -196,7 +198,6 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
   - Pool
   - Cond
   - Atomic Operations (`sync/atomic` Package)
-- `context` Package (Timeouts, Cancellation, Passing Values)
 - Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
 - Concurrency Patterns
   - Fan-out, Fan-in
@@ -207,16 +208,22 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
+###
+
 ### TODO:
 
-19. Encoding & Decoding ( Base64, Binary, Gob, Hex, CSV, and JSON), Cryptography, Hashing, and Compression
-20. Reflection & Schema Validation
-21. Testing, Benchmarking and `testify`
-22. HTTP Requests and HTTP Clients
-23. HTTP Server, Frameworks (Chi, Gin, Fiber, and Echo), HTMX, Logging, and Environment Variables
-24. Networking - TCP and UDP
-25. Websockets
-26. gRPC and Protobufs
-27. Databases - SQL, NoSQL, and ORM
-28. Built-in advanced data structures - Heap, Linked List, and Ring
-29. C and Assembly in Go
+19. Formats (XML, JSON, and CSV)
+20. Encoding & Decoding (Base64, Base32, and Hex)
+21. Compression (Gzip, Zlib, and Flate)
+22. Hashing (SHA256, SHA512, MD5, and SHA3)
+23. Cryptography
+24. Reflection & Schema Validation
+25. Testing, Benchmarking and `testify`
+26. HTTP Requests and HTTP Clients
+27. HTTP Server, HTMX, Logging, and Environment Variables
+28. Networking - TCP and UDP
+29. Websockets
+30. gRPC and Protobufs
+31. Databases - SQL, NoSQL, and ORM
+32. Built-in advanced data structures - Heap, Linked List, and Ring
+33. C and Assembly in Go

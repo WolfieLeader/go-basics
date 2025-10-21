@@ -1,20 +1,24 @@
 package main
 
 import (
+	basic "github.com/WolfieLeader/go-basics/18_concurrency/basics"
 	"github.com/WolfieLeader/go-basics/18_concurrency/errors"
 	"github.com/WolfieLeader/go-basics/18_concurrency/patterns"
 	"github.com/WolfieLeader/go-basics/18_concurrency/sync"
 )
 
 func main() {
-	goroutineExample()
-	ignoredGoroutineExample()
-	channelExample()
-	channelIterationExample()
-	channelDirectionExample()
-	selectExample()
-	selectSendExample()
-	ioPipeExample()
+	basic.GoroutineExample()
+	basic.IgnoredGoroutineExample()
+	basic.ChannelExample()
+	basic.ChannelIterationExample()
+	basic.ChannelDirectionExample()
+	basic.SelectExample()
+	basic.SelectSendExample()
+	basic.ContextTimeoutExample()
+	basic.ContextCancellationExample()
+	basic.ContextValuesExample()
+	basic.IoPipeExample()
 	sync.WaitGroupExample()
 	sync.ModernWaitGroupExample()
 	sync.WaitGroupFetchExample()
@@ -24,9 +28,6 @@ func main() {
 	sync.PoolExample()
 	sync.CondExample()
 	sync.AtomicExample()
-	contextTimeoutExample()
-	contextCancellationExample()
-	contextValuesExample()
 	errors.DeadlockExample()
 	errors.RaceConditionExample()
 	errors.GoroutineLeakExample()

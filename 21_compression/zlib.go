@@ -1,4 +1,4 @@
-package compress
+package main
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"log"
 )
 
-func ZLibExample() {
+func zLibExample() {
 	data := []byte(LOREM_IPSUM)
 	fmt.Printf("- Original Text Size: %d bytes\n", len(data))
 

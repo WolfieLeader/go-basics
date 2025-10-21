@@ -1,11 +1,11 @@
-package main
+package basic
 
 import (
 	"fmt"
 	"time"
 )
 
-func channelExample() {
+func ChannelExample() {
 	fmt.Println("\nChannel Example:")
 	// To create a channel, use the `make` function with `chan` keyword.
 
@@ -64,7 +64,7 @@ func channelExample() {
 	fmt.Printf("- ch3: %s (ok: %t)\n", v, ok)
 }
 
-func channelIterationExample() {
+func ChannelIterationExample() {
 	fmt.Println("\nChannel Iteration Example:")
 	ch := make(chan int)
 
@@ -80,7 +80,7 @@ func channelIterationExample() {
 	}
 }
 
-func channelDirectionExample() {
+func ChannelDirectionExample() {
 	fmt.Println("\nChannel Direction Example:")
 	ch1, ch2 := make(chan int), make(chan int)
 

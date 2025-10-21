@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"errors"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func ioPipeExample() {
+func IoPipeExample() {
 	fmt.Println("\nio.Pipe (producer/consumer):")
 	r, w := io.Pipe()
 	defer r.Close()

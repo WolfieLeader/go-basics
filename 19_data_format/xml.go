@@ -1,4 +1,4 @@
-package format
+package main
 
 import (
 	"encoding/xml"
@@ -6,8 +6,6 @@ import (
 	"log"
 	"time"
 )
-
-const CATALOG_FILE = "catalog.xml"
 
 type Course struct {
 	XMLName     xml.Name   `xml:"course"`
@@ -30,7 +28,7 @@ type Catalog struct {
 	Courses   []Course `xml:"course"`
 }
 
-func XmlWriteExample() {
+func xmlWriteExample() {
 	date := time.Date(2023, time.April, 5, 0, 0, 0, 0, time.UTC)
 	catalog := Catalog{
 		FirstName: "Alice",
@@ -81,7 +79,7 @@ func XmlWriteExample() {
 	fmt.Printf("- XML (pretty):\n%s\n\n", pretty)
 	out := append([]byte(xml.Header), pretty...)
 
-	file := writerToFile(CATALOG_FILE) // from your helpers
+	file := fileWriter(CATALOG_FILE) // from your helpers
 	defer file.Close()
 
 	if _, err := file.Write(out); err != nil {
@@ -90,8 +88,8 @@ func XmlWriteExample() {
 	fmt.Printf("- Wrote XML file %s (%d bytes)\n", CATALOG_FILE, len(out))
 }
 
-func XmlReadExample() {
-	data := readBytesFromFile(CATALOG_FILE)
+func xmlReadExample() {
+	data := readFromFile(CATALOG_FILE)
 
 	var catalog Catalog
 	if err := xml.Unmarshal(data, &catalog); err != nil {

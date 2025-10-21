@@ -1,11 +1,11 @@
-package main
+package basic
 
 import (
 	"fmt"
 	"time"
 )
 
-func selectExample() {
+func SelectExample() {
 	fmt.Println("\nSelect Example:")
 	tickChan, tackChan := make(chan time.Duration), make(chan time.Duration)
 
@@ -58,7 +58,7 @@ func selectExample() {
 	}
 }
 
-func selectSendExample() {
+func SelectSendExample() {
 	fmt.Println("\nSelect Sending Example:")
 
 	// Using a done channel to signal when all messages have been processed.

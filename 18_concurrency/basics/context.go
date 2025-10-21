@@ -1,4 +1,4 @@
-package main
+package basic
 
 import (
 	"context"
@@ -27,7 +27,7 @@ func slow(ctx context.Context) error {
 	}
 }
 
-func contextTimeoutExample() {
+func ContextTimeoutExample() {
 	fmt.Println("\nContext Timeout Example:")
 
 	// Create a context that cancels automatically after 300ms.
@@ -72,7 +72,7 @@ func worker(ctx context.Context, id int, wg *sync.WaitGroup) {
 	}
 }
 
-func contextCancellationExample() {
+func ContextCancellationExample() {
 	fmt.Println("\nContext Cancellation Example:")
 
 	ctx, cancel := context.WithCancel(context.Background())
@@ -111,7 +111,7 @@ func doWork(ctx context.Context) {
 	reqLog(ctx, "done")
 }
 
-func contextValuesExample() {
+func ContextValuesExample() {
 	fmt.Println("\nContext Values Example:")
 
 	// Attach a request ID to the context.
