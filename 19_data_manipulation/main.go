@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/WolfieLeader/go-basics/19_data_manipulation/compress"
 	"github.com/WolfieLeader/go-basics/19_data_manipulation/encoding"
 	"github.com/WolfieLeader/go-basics/19_data_manipulation/format"
 )
@@ -63,5 +64,17 @@ func main() {
 
 	fmt.Println("XML Read Example:")
 	format.XmlReadExample()
+	fmt.Println()
+
+	fmt.Println("Gzip Compress Example:")
+	compress.GzipExample()
+	fmt.Println()
+
+	fmt.Println("ZLib Compress Example:")
+	compress.ZLibExample()
+	fmt.Println()
+
+	fmt.Println("Flate Compress Example:")
+	compress.FlateExample()
 	fmt.Println()
 }
