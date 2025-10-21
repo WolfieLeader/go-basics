@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <product>
+    <id>1</id>
+    <name>Laptop</name>
+    <price>1299.99</price>
+    <in_stock>true</in_stock>
+    <categories>
+      <category>Computers</category>
+      <category>Electronics</category>
+    </categories>
+  </product>
+  <product>
+    <id>2</id>
+    <name>Headphones</name>
+    <price>199.5</price>
+    <in_stock>false</in_stock>
+    <categories>
+      <category>Audio</category>
+      <category>Accessories</category>
+    </categories>
+  </product>
+  <product>
+    <id>3</id>
+    <name>Coffee Maker</name>
+    <price>89.99</price>
+    <in_stock>true</in_stock>
+    <categories>
+      <category>Home Appliances</category>
+      <category>Kitchen</category>
+    </categories>
+  </product>
+</catalog>

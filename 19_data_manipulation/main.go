@@ -56,4 +56,12 @@ func main() {
 	fmt.Println("CSV Read Example:")
 	format.CsvReadExample()
 	fmt.Println()
+
+	fmt.Println("XML Write Example:")
+	format.XmlWriteExample()
+	fmt.Println()
+
+	fmt.Println("XML Read Example:")
+	format.XmlReadExample()
+	fmt.Println()
 }
