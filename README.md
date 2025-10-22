@@ -130,7 +130,18 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 13. Interfaces
+### 13. Error Handling
+
+- Return and Handle `error` Values
+- Must Idiom (Short-Circuit Failures)
+- Use `panic`, `recover`, and `defer`
+- Define Custom Error Types
+- Wrap Errors with `%w` and `errors.New`
+- Use `errors.Is` and `errors.As`
+
+---
+
+### 14. Interfaces
 
 - Declare Interfaces
 - Implicit Interface Implementation
@@ -142,23 +153,12 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 14. Packages
+### 15. Packages
 
 - Create Custom Packages
 - Import Packages
 - Package Visibility and Capitalization Rules
 - `init()` Function
-
----
-
-### 15. Error Handling
-
-- Return and Handle `error` Values
-- Must Idiom (Short-Circuit Failures)
-- Use `panic`, `recover`, and `defer`
-- Define Custom Error Types
-- Wrap Errors with `%w` and `errors.New`
-- Use `errors.Is` and `errors.As`
 
 ---
 
