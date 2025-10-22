@@ -107,29 +107,35 @@ func readAtExample() {
 	fmt.Printf("- ReadAt %d bytes: %q\n", n, buf[:n])
 }
 func readerExample() {
-	fmt.Println("\nReader example:")
-
-	fmt.Println("\nos.File Read:")
+	fmt.Println("os.File Read:")
 	osFileReaderExample()
+	fmt.Println()
 
-	fmt.Println("\nstrings.Reader Read:")
+	fmt.Println("strings.Reader Read:")
 	stringsReaderExample()
+	fmt.Println()
 
-	fmt.Println("\nhttp.Response.Body Read:")
+	fmt.Println("http.Response.Body Read:")
 	httpResponseBodyExample()
+	fmt.Println()
 
-	fmt.Println("\nio.MultiReader Read:")
+	fmt.Println("io.MultiReader Read:")
 	multiReaderExample()
+	fmt.Println()
 
-	fmt.Println("\nio.ReadAll Read:")
+	fmt.Println("io.ReadAll Read:")
 	readAllExample()
+	fmt.Println()
 
-	fmt.Println("\nio.TeeReader Read:")
+	fmt.Println("io.TeeReader Read:")
 	teeReaderExample()
+	fmt.Println()
 
-	fmt.Println("\nio.LimitReader Read:")
+	fmt.Println("io.LimitReader Read:")
 	limitReaderExample()
+	fmt.Println()
 
-	fmt.Println("\nio.ReaderAt Read:")
+	fmt.Println("io.ReaderAt Read:")
 	readAtExample()
+	fmt.Println()
 }

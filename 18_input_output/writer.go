@@ -60,16 +60,19 @@ func multiWriterExample() {
 }
 
 func writerExample() {
-	fmt.Println("\nWriter Example:")
-	fmt.Println("\nos.File Write:")
+	fmt.Println("os.File Write:")
 	osFileWriterExample()
+	fmt.Println()
 
-	fmt.Println("\nstrings.Builder Write:")
+	fmt.Println("strings.Builder Write:")
 	stringsBuilderExample()
+	fmt.Println()
 
-	fmt.Println("\nos.Stdout Write:")
+	fmt.Println("os.Stdout Write:")
 	osStdoutExample()
+	fmt.Println()
 
-	fmt.Println("\nMultiWriter Write:")
+	fmt.Println("MultiWriter Write:")
 	multiWriterExample()
+	fmt.Println()
 }

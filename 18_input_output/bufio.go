@@ -93,14 +93,15 @@ func bufioScannerExample() {
 }
 
 func bufioExample() {
-	fmt.Println("\nBufio Example:")
-
-	fmt.Println("\nBufio Reader Example:")
+	fmt.Println("Bufio Reader Example:")
 	bufioReaderExample()
+	fmt.Println()
 
-	fmt.Println("\nBufio Writer Example:")
+	fmt.Println("Bufio Writer Example:")
 	bufioWriterExample()
+	fmt.Println()
 
-	fmt.Println("\nBufio Scanner Example:")
+	fmt.Println("Bufio Scanner Example:")
 	bufioScannerExample()
+	fmt.Println()
 }

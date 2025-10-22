@@ -85,17 +85,19 @@ func discardExample() {
 }
 
 func extraExample() {
-	fmt.Println("\nExtra example:")
-
-	fmt.Println("\nCopy:")
+	fmt.Println("Copy:")
 	copyExample()
+	fmt.Println()
 
-	fmt.Println("\nCopyN (8 bytes):")
+	fmt.Println("CopyN (8 bytes):")
 	copyNExample()
+	fmt.Println()
 
-	fmt.Println("\nSeek:")
+	fmt.Println("Seek:")
 	seekExample()
+	fmt.Println()
 
-	fmt.Println("\nDiscard:")
+	fmt.Println("Discard:")
 	discardExample()
+	fmt.Println()
 }
