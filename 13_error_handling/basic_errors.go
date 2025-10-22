@@ -22,8 +22,8 @@ func mustDivide(a, b int) int {
 	return result
 }
 
-func deferCount(){
-	// The defer keyword means that the function will be executed after the surrounding function returns
+func deferCount() {
+	// The `defer` keyword means that the function will be executed after the surrounding function returns
 	defer func() { fmt.Println("5 (defer)") }()
 
 	// Defer function that recovers from panic, it MUST be defined before the panic occurs
@@ -42,36 +42,33 @@ func deferCount(){
 }
 
 func basicErrorsExample() {
-	fmt.Println("\nBasic Errors Example:")
-	
 	deferCount()
 
 	result, err := divide(10, 0)
 	// This is how you handle errors in Go
 	// If err is not nil, it means an error occurred
 	if err != nil {
-		fmt.Println("Tried to divide by zero")
+		fmt.Println("- Tried to divide by zero")
 		// Usually you would return, but here we want to continue
 	} else {
-		fmt.Printf("10 / 0 = %d\n", result)
+		fmt.Printf("- 10 / 0 = %d\n", result)
 	}
 
 	result, err = divide(9, 3)
 	if err != nil {
-		fmt.Println("Tried to divide by zero")
+		fmt.Println("- Tried to divide by zero")
 	} else {
-		fmt.Printf("9 / 3 = %d\n", result)
+		fmt.Printf("- 9 / 3 = %d\n", result)
 	}
 
-	
 	result = mustDivide(8, 2)
 	fmt.Printf("8 / 2 = %d\n", result)
-	
+
 	defer func() {
-		if r:=recover(); r!=nil {
-			fmt.Println("Recovered from panic in main:", r)
+		if r := recover(); r != nil {
+			fmt.Println("- Recovered from panic in main:", r)
 		}
-		}()
-		result = mustDivide(8, 0)
-		fmt.Printf("8 / 0 = %d\n", result) // This will not be executed due to panic
+	}()
+	result = mustDivide(8, 0)
+	fmt.Printf("- 8 / 0 = %d\n", result) // This will not be executed due to panic
 }

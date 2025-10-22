@@ -10,19 +10,16 @@ type User struct {
 	Role string
 }
 
-var ErrNotFound = errors.New("not found")
+var users = []User{{Name: "Alice", Role: "user"}, {Name: "Bob", Role: "admin"}}
 
-type UnauthorizedError struct {
+var ErrorNotFound = errors.New("not found")
+
+type ErrorUnauthorized struct {
 	Role string
 }
 
-func (e *UnauthorizedError) Error() string {
+func (e *ErrorUnauthorized) Error() string {
 	return fmt.Sprintf("Unauthorized access for role: %s", e.Role)
-}
-
-var users = []User{
-	{Name: "Alice", Role: "user"},
-	{Name: "Bob", Role: "admin"},
 }
 
 func watchInfo(userName string) (string, error) {
@@ -31,53 +28,49 @@ func watchInfo(userName string) (string, error) {
 			return fmt.Sprintf("User %s has role %s", user.Name, user.Role), nil
 		}
 	}
-	// Error wrapping example:
 	// Error wrapping is used to provide more context about the error without losing the original error
-	return "", fmt.Errorf("%s user is %w", userName, ErrNotFound)
+	return "", fmt.Errorf("%s user is %w", userName, ErrorNotFound)
 }
 
 func watchAdminInfo(userName string) (string, error) {
 	for _, user := range users {
 		if user.Name == userName {
 			if user.Role != "admin" {
-				return "", &UnauthorizedError{Role: user.Role}
+				return "", &ErrorUnauthorized{Role: user.Role}
 			}
 			return fmt.Sprintf("Admin user %s has full access", user.Name), nil
 		}
 	}
-	return "", ErrNotFound
+	return "", ErrorNotFound
 }
 
 func customErrorExample() {
-	fmt.Println("\nCustom Error Example:")
 	charlie, err := watchInfo("Ghost")
-	// errors.Is is used to check if the error is exactly ErrNotFound by value comparison
-	if errors.Is(err, ErrNotFound) {
-		fmt.Printf("Not found wrapped error: %s\n", err)
-		fmt.Printf("Original not found error: %v\n", errors.Unwrap(err))
-		// Here we check if there is another type of error
-	} else if err != nil {
-		fmt.Println("Error occurred:", err)
-	} else {
-		fmt.Println("Found user:", charlie)
+
+	if errors.Is(err, ErrorNotFound) { // Check if error is exactly ErrorNotFound
+		fmt.Printf("- Not found wrapped error: %s\n", err)
+		fmt.Printf("- Original not found error: %v\n", errors.Unwrap(err))
+	} else if err != nil { // Check for other errors
+		fmt.Println("- Error occurred:", err)
+	} else { // No error
+		fmt.Println("- Found user:", charlie)
 	}
 
 	alice, err := watchAdminInfo("Alice")
-	var unauthorizedErr *UnauthorizedError
-	// errors.As is used to check if the error is of type UnauthorizedError and to extract it to unauthorizedErr
-	if errors.As(err, &unauthorizedErr) {
-		fmt.Println("Unauthorized access:", unauthorizedErr.Error())
-		// Here we check if there is another type of error
-	} else if err != nil {
-		fmt.Println("Error occurred:", err)
-	} else {
-		fmt.Println("Admin info for Alice:", alice)
+	var errorUnauthorized *ErrorUnauthorized
+
+	if errors.As(err, &errorUnauthorized) { // Check and extract if error is of type *ErrorUnauthorized
+		fmt.Println("- Unauthorized access:", errorUnauthorized.Error())
+	} else if err != nil { // Other errors
+		fmt.Println("- Error occurred:", err)
+	} else { // No error
+		fmt.Println("- Admin info for Alice:", alice)
 	}
 
 	bob, err := watchAdminInfo("Bob")
 	if err != nil {
-		fmt.Println("Error occurred:", err)
+		fmt.Println("- Error occurred:", err)
 	} else {
-		fmt.Println("Admin info for Bob:", bob)
+		fmt.Println("- Admin info for Bob:", bob)
 	}
 }
