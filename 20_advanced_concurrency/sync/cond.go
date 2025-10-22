@@ -18,15 +18,14 @@ type queue struct {
 	cond  *sync.Cond
 }
 
+// `sync.Cond` is used to wait for and signal conditions between goroutines.
+// It requires a mutex to protect shared state.
 func newQueue() *queue {
 	var mutex sync.Mutex
 	return &queue{
-		// Sets cap to avoid reallocations
-		data:  make([]string, 0, maxCapacity),
+		data:  make([]string, 0, maxCapacity), // Preallocate slice with capacity
 		mutex: &mutex,
-		// `sync.Cond` is used to wait for and signal conditions between goroutines.
-		// It requires a mutex to protect shared state.
-		cond: sync.NewCond(&mutex),
+		cond:  sync.NewCond(&mutex),
 	}
 }
 

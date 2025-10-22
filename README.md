@@ -174,7 +174,16 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 17. Input and Output
+### 17. Concurrency
+
+- Goroutines (`go` Keyword)
+- Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
+- `select` Statement
+- `sync.WaitGroup` for Goroutine Synchronization
+- `sync.Mutex` for Mutual Exclusion
+- `context` Package (Timeouts, Cancellation, Passing Values)
+
+### 18. Input and Output
 
 - `io` package (Readers, Writers, Copying)
 - File Operations (`os` package)
@@ -184,16 +193,19 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 18. Concurrency
+### 19. Data Serialization
 
-- Goroutines (`go` Keyword)
-- Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
-- `select` Statement
-- `context` Package (Timeouts, Cancellation, Passing Values)
+- JSON (`encoding/json` package) and Encoder examples
+- XML (`encoding/xml` package)
+- CSV (`encoding/csv` package)
+
+---
+
+### 20. Advanced Concurrency
+
 - `io.Pipe` for In-Memory Streaming
 - `sync` Package
-  - WaitGroups
-  - Mutual Exclusion (Mutexes, RWMutexes - Read/Write Locks)
+  - RWMutexes - Read/Write Locks
   - Once
   - Pool
   - Cond
@@ -208,15 +220,26 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-###
+### 21. Encoding
+
+- Base64 (`encoding/base64` package)
+- Base32 (`encoding/base32` package)
+- Hexadecimal (`encoding/hex` package)
+
+---
+
+### 22. Compression
+
+- Gzip (`compress/gzip` package)
+- Zlib (`compress/zlib` package)
+- Flate (`compress/flate` package)
+
+---
+
+### 23. Cryptography
 
 ### TODO:
 
-19. Formats (XML, JSON, and CSV)
-20. Encoding & Decoding (Base64, Base32, and Hex)
-21. Compression (Gzip, Zlib, and Flate)
-22. Hashing (SHA256, SHA512, MD5, and SHA3)
-23. Cryptography
 24. Reflection & Schema Validation
 25. Testing, Benchmarking and `testify`
 26. HTTP Requests and HTTP Clients

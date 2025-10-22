@@ -16,7 +16,6 @@ func evenNumbersGenerator(start, count int) <-chan int {
 }
 
 func GeneratorExample() {
-	fmt.Println("\nGenerator Example:")
 	for v := range evenNumbersGenerator(10, 5) {
 		fmt.Println("-", v)
 	}

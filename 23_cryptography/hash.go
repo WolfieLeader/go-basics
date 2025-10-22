@@ -13,7 +13,7 @@ import (
 	"os"
 )
 
-func main() {
+func hashExample() {
 	helloWorld := []byte("ĤèlĬϴ ₩órł⫒🌍")
 	fmt.Printf("- Original: %s\n\n", helloWorld)
 

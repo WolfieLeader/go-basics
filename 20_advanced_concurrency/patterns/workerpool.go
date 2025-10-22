@@ -25,8 +25,6 @@ func worker(id int, jobs <-chan job, results chan<- result, wg *sync.WaitGroup) 
 }
 
 func WorkerPoolExample() {
-	fmt.Println("\nWorker Pool Example:")
-
 	jobs := make(chan job)
 	results := make(chan result)
 

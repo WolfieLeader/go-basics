@@ -19,11 +19,10 @@ func doWork(id int, sem <-chan struct{}, wg *sync.WaitGroup) {
 // Semaphore pattern is a concurrency pattern that restricts the number of goroutines
 // that can access a resource or perform a task simultaneously.
 func SemaphoreExample() {
-	fmt.Println("\nSemaphore Example:")
-
 	var wg sync.WaitGroup
 	const maxConcurrent = 3
 	const totalTasks = 15
+
 	sem := make(chan struct{}, maxConcurrent) // capacity = permits
 
 	for i := range totalTasks {

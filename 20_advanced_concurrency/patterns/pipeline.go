@@ -42,7 +42,6 @@ func addOne(in <-chan int) <-chan int {
 
 // Pipeline pattern takes a series of stages and connects them
 func PipelineExample() {
-	fmt.Println("\nPipeline Example:")
 	for v := range addOne(square(gen(1, 2, 3, 4))) {
 		fmt.Println("-", v)
 	}
