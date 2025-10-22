@@ -96,25 +96,31 @@ func sqrt(x float64) (float64, int) {
 }
 
 func main() {
-	fmt.Println("\nBackward For Loop Example:")
+	fmt.Println("Backward For Loop Example:")
 	backwardForExample()
+	fmt.Println()
 
-	fmt.Println("\nForward For Loop Example:")
+	fmt.Println("Forward For Loop Example:")
 	forwardForExample()
+	fmt.Println()
 
-	fmt.Println("\nEven For Loop Example:")
+	fmt.Println("Even For Loop Example:")
 	loopOverEvenNumbers()
+	fmt.Println()
 
-	fmt.Println("\nWhile Loop Example:")
+	fmt.Println("While Loop Example:")
 	whileLoopExample()
+	fmt.Println()
 
-	fmt.Println("\nLabels Example:")
+	fmt.Println("Labels Example:")
 	labelsExample()
+	fmt.Println()
 
-	fmt.Println("\nGoto Example:")
+	fmt.Println("Goto Example:")
 	gotoExample()
+	fmt.Println()
 
-	fmt.Println("\nSquare root calculation using Newton's method:")
+	fmt.Println("Square root calculation using Newton's method:")
 	result, iterations := sqrt(11)
 	fmt.Printf("Square root of 11: %.2f (found in %d iterations)\n", result, iterations)
 }

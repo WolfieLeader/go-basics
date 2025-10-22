@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/WolfieLeader/go-basics/14_packages/utils"
+	"github.com/WolfieLeader/go-basics/15_packages/utils"
 )
 
 func main() {

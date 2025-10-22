@@ -1,78 +1,71 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"runtime"
 	"strconv"
 )
 
-// Common pattern for error handling in Go
-func divide(a, b int) (float64, error) {
-	// No parentheses() are needed
-	if b == 0 {
-		return 0, errors.New("division by zero is not allowed")
-	}
-	return float64(a) / float64(b), nil
-}
-
-func convertToInt(str string) (int, error) {
-	// You can declare and initialize a var inside an if statement, it's good for short-lived variables
-	if num, err := strconv.Atoi(str); err == nil {
-		return num, nil
+func ifExample() {
+	age := 20
+	if age >= 18 {
+		fmt.Println("- You are an adult.")
 	} else {
-		return 0, err
+		fmt.Println("- You are a minor.")
 	}
 }
 
-func printOS() {
-	// Switch statements are like if statements
-	switch os := runtime.GOOS; os {
+func switchExample() {
+	switch runtime.GOOS {
 	case "darwin":
-		fmt.Println("You are running on macOS")
+		fmt.Println("- You are running on macOS")
 	case "linux":
-		fmt.Println("You are running on Linux")
+		fmt.Println("- You are running on Linux")
 	case "windows":
-		fmt.Println("You are running on Windows")
+		fmt.Println("- You are running on Windows")
 	default: // If no case matches, the default case is executed
-		fmt.Println("You are running on an unknown OS: ", os)
+		fmt.Println("- You are running on an unknown OS")
 	}
 }
 
-// switch without an expression is like a series of if statements.
-func levelByScore(x int) string {
+func ifWithStatementExample() {
+	if num, err := strconv.Atoi("123"); err == nil {
+		fmt.Printf("- Converted string to int: %d\n", num)
+	} else {
+		fmt.Println("- Error converting string to int:", err)
+	}
+}
+
+func switchTrueExample() {
+	score := 750
 	switch {
-	case x <= 0:
-		return "New"
-	case x <= 100:
-		return "Bronze"
-	case x <= 500:
-		return "Silver"
-	case x <= 1000:
-		return "Gold"
-	case x <= 5000:
-		return "Platinum"
-	case x <= 10000:
-		return "Diamond"
-	default:
-		return "Master"
+	case score <= 0: // 0 or below
+		fmt.Println("- Level: New")
+	case score <= 100: // 1 - 100
+		fmt.Println("- Level: Bronze")
+	case score <= 500: // 101 - 500
+		fmt.Println("- Level: Silver")
+	case score <= 1000: // 501 - 1000
+		fmt.Println("- Level: Gold")
+	case score <= 5000: // 1001 - 5000
+		fmt.Println("- Level: Diamond")
 	}
 }
 
 func main() {
-	result, err := divide(10, 2)
-	if err != nil {
-		return
-	}
-	fmt.Printf("10 divided by 2 is: %.2f\n", result)
+	fmt.Println("If Example:")
+	ifExample()
+	fmt.Println()
 
-	num, err := convertToInt("42")
-	if err != nil {
-		return
-	}
-	fmt.Printf("Converted string to int: %d\n", num)
+	fmt.Println("Switch Example:")
+	switchExample()
+	fmt.Println()
 
-	printOS()
-	fmt.Println("Your level based on score 1500 is:", levelByScore(1500))
-	fmt.Println("Your level based on score 5000 is:", levelByScore(5000))
+	fmt.Println("If with Statement Example:")
+	ifWithStatementExample()
+	fmt.Println()
+
+	fmt.Println("Switch True Example:")
+	switchTrueExample()
+	fmt.Println()
 }
