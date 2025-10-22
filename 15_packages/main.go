@@ -15,5 +15,5 @@ func main() {
 
 // Init function executes before main
 func init() {
-	fmt.Println("Init function in main.go 🪙")
+	fmt.Println("- Init function in main.go 🪙")
 }

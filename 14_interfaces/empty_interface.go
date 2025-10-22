@@ -19,24 +19,21 @@ func typeAssertion(x interface{}) string {
 }
 
 func emptyInterfaceExample() {
-	fmt.Println("\nEmpty Interface Example:")
-
-	// Empty interface can hold any type
-	var anything interface{}
+	var anything interface{} // Empty interface can hold any type
 
 	anything = struct{ X string }{"Some String"}
-	fmt.Printf("Type of anything: %T, Value: %v\n", anything, anything)
+	fmt.Printf("- Type of anything: %T, Value: %v\n", anything, anything)
 
 	anything = 10
 
 	// Type assertion to convert interface{} back to int
 	i := anything.(int) // This will panic if anything is not an int
-	fmt.Printf("Type of i: %T, Value: %d\n", i, i)
+	fmt.Printf("- Type of i: %T, Value: %d\n", i, i)
 
 	f, ok := anything.(float64) // This will not panic, ok will be false
-	fmt.Printf("Type of f: %T, Value: %.2f(zero value), Ok: %t\n", f, f, ok)
+	fmt.Printf("- Type of f: %T, Value: %.2f(zero value), Ok: %t\n", f, f, ok)
 
 	anything = 3 + 4i // complex number
 	t := typeAssertion(anything)
-	fmt.Printf("Type of anything: %T, Value: %v, Type Assertion Result: %s\n", anything, anything, t)
+	fmt.Printf("- Type of anything: %T, Value: %v, Type Assertion Result: %s\n", anything, anything, t)
 }

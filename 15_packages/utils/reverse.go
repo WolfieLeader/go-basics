@@ -17,5 +17,5 @@ func privateFunction() string {
 // Init function executes when the package is imported
 // It is often used for setup tasks.
 func init() {
-	fmt.Println("Init function in utils package 🧪")
+	fmt.Println("- Init function in utils package 🧪")
 }

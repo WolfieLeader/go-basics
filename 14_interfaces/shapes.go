@@ -51,9 +51,8 @@ func printShape(s Shape) {
 }
 
 func shapeExample() {
-	fmt.Println("\nShape Example:")
 	var sPtr Shape
-	fmt.Printf("Type of sPtr: %T\n", sPtr) // p is nil, so it doesn't hold any value
+	fmt.Printf("- Type of sPtr: %T\n", sPtr) // p is nil, so it doesn't hold any value
 
 	c, r, l := Circle{5.0}, Rectangle{3.0, 4.0}, Line(10.0)
 

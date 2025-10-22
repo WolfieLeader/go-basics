@@ -6,8 +6,8 @@ import (
 )
 
 // Basic generic function to print `any“ type
-func genericPrint[T any](value T) {
-	fmt.Println(value)
+func print[T any](value T) {
+	fmt.Printf("- %v\n", value)
 }
 
 // Generic function that can get any `comparable` type and check for equality
@@ -76,20 +76,20 @@ func cmpPackageExample() {
 }
 
 func main() {
-	genericPrint("Hello, Generics!")
-	genericPrint(42)
+	print("Hello, Generics!")
+	print(42)
 
-	fmt.Println("Is 5 equal to 3?", isEqual(5, 3))
-	fmt.Println("Is Struct{A: 1} equal to Struct{A: 1}?", isEqual(struct{ A int }{A: 1}, struct{ A int }{A: 1}))
+	fmt.Println("- Is 5 equal to 3?", isEqual(5, 3))
+	fmt.Println("- Is Struct{A: 1} equal to Struct{A: 1}?", isEqual(struct{ A int }{A: 1}, struct{ A int }{A: 1}))
 
-	fmt.Println("Min of 3 and 5:", min(3, 5))
-	fmt.Println("Min of 3.5 and -2.1:", min(3.5, -2.1))
+	fmt.Println("- Min of 3 and 5:", min(3, 5))
+	fmt.Println("- Min of 3.5 and -2.1:", min(3.5, -2.1))
 
-	fmt.Println("Is 4 even?", isEven(4))
-	fmt.Println("Is 11 even?", isEven(11))
+	fmt.Println("- Is 4 even?", isEven(4))
+	fmt.Println("- Is 11 even?", isEven(11))
 
 	mySet := newSet(1, 2, 3, 4, 5)
-	fmt.Println("My Set:", mySet)
+	fmt.Println("- My Set:", mySet)
 
 	cmpPackageExample()
 }

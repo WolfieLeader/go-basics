@@ -89,26 +89,32 @@ func iterationExample() {
 	for i := range len(str) { // Iterating over bytes (not safe for multi-byte characters)
 		fmt.Printf("- Byte %d: %c, Unicode: %U\n", i, str[i], str[i])
 	}
+	fmt.Println()
 
-	fmt.Println("\n- Iterating over string runes:")
+	fmt.Println("- Iterating over string runes:")
 	for i, r := range str { // Iterating over runes is safe and handles multi-byte characters
 		fmt.Printf("- Rune %d: %c, Unicode: %U\n", i, r, r)
 	}
 }
 
 func main() {
-	fmt.Println("\nString Manipulation Examples:")
+	fmt.Println("String Manipulation Examples:")
 	stringsExample()
+	fmt.Println()
 
-	fmt.Println("\nConversion Examples:")
+	fmt.Println("Conversion Examples:")
 	convertExample()
+	fmt.Println()
 
-	fmt.Println("\nRegular Expression Examples:")
+	fmt.Println("Regular Expression Examples:")
 	regexExample()
+	fmt.Println()
 
-	fmt.Println("\nByte and Rune Iteration Examples:")
+	fmt.Println("Byte and Rune Iteration Examples:")
 	iterationExample()
+	fmt.Println()
 
-	fmt.Println("\nByte Slice Manipulation Examples:")
+	fmt.Println("Byte Slice Manipulation Examples:")
 	bytesExample()
+	fmt.Println()
 }

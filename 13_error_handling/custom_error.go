@@ -14,11 +14,11 @@ var users = []User{{Name: "Alice", Role: "user"}, {Name: "Bob", Role: "admin"}}
 
 var ErrorNotFound = errors.New("not found")
 
-type ErrorUnauthorized struct {
+type UnauthorizedError struct {
 	Role string
 }
 
-func (e *ErrorUnauthorized) Error() string {
+func (e *UnauthorizedError) Error() string {
 	return fmt.Sprintf("Unauthorized access for role: %s", e.Role)
 }
 
@@ -36,7 +36,7 @@ func watchAdminInfo(userName string) (string, error) {
 	for _, user := range users {
 		if user.Name == userName {
 			if user.Role != "admin" {
-				return "", &ErrorUnauthorized{Role: user.Role}
+				return "", &UnauthorizedError{Role: user.Role}
 			}
 			return fmt.Sprintf("Admin user %s has full access", user.Name), nil
 		}
@@ -57,10 +57,10 @@ func customErrorExample() {
 	}
 
 	alice, err := watchAdminInfo("Alice")
-	var errorUnauthorized *ErrorUnauthorized
+	var unauthorizedError *UnauthorizedError
 
-	if errors.As(err, &errorUnauthorized) { // Check and extract if error is of type *ErrorUnauthorized
-		fmt.Println("- Unauthorized access:", errorUnauthorized.Error())
+	if errors.As(err, &unauthorizedError) { // Check and extract if error is of type *UnauthorizedError
+		fmt.Println("- Unauthorized access:", unauthorizedError.Error())
 	} else if err != nil { // Other errors
 		fmt.Println("- Error occurred:", err)
 	} else { // No error
