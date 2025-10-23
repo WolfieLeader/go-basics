@@ -3,24 +3,31 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("\nArray Example:")
+	fmt.Println("Array Example:")
 	arrayExample1()
+	fmt.Println()
 
-	fmt.Println("\nArray Example 2:")
+	fmt.Println("Array Example 2:")
 	arrayExample2()
+	fmt.Println()
 
-	fmt.Println("\nSlice Example 1:")
+	fmt.Println("Slice Example 1:")
 	sliceExample1()
+	fmt.Println()
 
-	fmt.Println("\nSlice Example 2:")
+	fmt.Println("Slice Example 2:")
 	sliceExample2()
+	fmt.Println()
 
-	fmt.Println("\nSlice Copy Example:")
+	fmt.Println("Slice Copy Example:")
 	sliceCopyExample()
+	fmt.Println()
 
-	fmt.Println("\nSlices Package Example:")
+	fmt.Println("Slices Package Example:")
 	slicesPackageExample()
+	fmt.Println()
 
-	fmt.Println("\nUnique Package Example:")
+	fmt.Println("Unique Package Example:")
 	uniquePackageExample()
+	fmt.Println()
 }

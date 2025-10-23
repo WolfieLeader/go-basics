@@ -8,8 +8,6 @@ import (
 
 // Fan-Out / Fan-In splits work across workers (fan-out) and merges outputs (fan-in).
 func FanOutFanInExample() {
-	fmt.Println("\nFan-out / Fan-in Example:")
-
 	const totalWorkers = 3
 	const totalJobs = 6
 

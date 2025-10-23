@@ -68,7 +68,6 @@ func regexExample() {
 }
 
 func bytesExample() {
-	fmt.Println("\nByte Slice Example:")
 	buf := []byte("Hello Gophers") // String is like a read-only byte slice
 	fmt.Printf("- Original byte slice: %q\n", string(buf))
 	fmt.Printf("- Uppercase byte slice: %q\n", string(bytes.ToUpper(buf)))

@@ -14,81 +14,72 @@ import (
 )
 
 func hashExample() {
-	helloWorld := []byte("ĤèlĬϴ ₩órł⫒🌍")
-	fmt.Printf("- Original: %s\n\n", helloWorld)
+	data := []byte(helloWorld)
+	fmt.Printf("- Original: %s\n\n", data)
 
-	sha2_224 := sha256.Sum224(helloWorld)
+	sha2_224 := sha256.Sum224(data)
 	fmt.Printf("- SHA2-224 Hash: %x\n\n", sha2_224)
 
-	sha2_256 := sha256.Sum256(helloWorld)
+	sha2_256 := sha256.Sum256(data)
 	fmt.Printf("- SHA2-256 Hash: %x\n\n", sha2_256)
 
-	sha2_384 := sha512.Sum384(helloWorld)
+	sha2_384 := sha512.Sum384(data)
 	fmt.Printf("- SHA2-384 Hash: %x\n\n", sha2_384)
 
-	sha2_512 := sha512.Sum512(helloWorld)
+	sha2_512 := sha512.Sum512(data)
 	fmt.Printf("- SHA2-512 Hash: %x\n\n", sha2_512)
 
-	sha3_224 := sha3.Sum224(helloWorld)
+	sha3_224 := sha3.Sum224(data)
 	fmt.Printf("- SHA3-224 Hash: %x\n", sha3_224)
 	fmt.Printf("- Is SHA3-224 equal to SHA2-224? %v\n\n", bytes.Equal(sha3_224[:], sha2_224[:]))
 
-	sha3_256 := sha3.Sum256(helloWorld)
+	sha3_256 := sha3.Sum256(data)
 	fmt.Printf("- SHA3-256 Hash: %x\n", sha3_256)
 	fmt.Printf("- Is SHA3-256 equal to SHA2-256? %v\n\n", bytes.Equal(sha3_256[:], sha2_256[:]))
 
-	sha3_384 := sha3.Sum384(helloWorld)
+	sha3_384 := sha3.Sum384(data)
 	fmt.Printf("- SHA3-384 Hash: %x\n", sha3_384)
 	fmt.Printf("- Is SHA3-384 equal to SHA2-384? %v\n\n", bytes.Equal(sha3_384[:], sha2_384[:]))
 
-	sha3_512 := sha3.Sum512(helloWorld)
+	sha3_512 := sha3.Sum512(data)
 	fmt.Printf("- SHA3-512 Hash: %x\n", sha3_512)
 	fmt.Printf("- Is SHA3-512 equal to SHA2-512? %v\n\n", bytes.Equal(sha3_512[:], sha2_512[:]))
 
-	md5Hash := md5.Sum(helloWorld)
+	md5Hash := md5.Sum(data)
 	fmt.Printf("- MD5 Hash (vulnerable): %x\n", md5Hash)
 
+	sha1Hash := sha1.Sum(data)
+	fmt.Printf("- SHA1 Hash (vulnerable): %x\n", sha1Hash)
+
+}
+
+func md5CollisionExample() {
 	firstPart, secondPart := "TEXTCOLLBYfGiJUETHQ4h", "cKSMd5zYpgqf1YRDhkmxHkhPWptrkoyz28wnI9V0aHeAuaKnak"
 	collision1 := md5.Sum([]byte(firstPart + "A" + secondPart))
 	collision2 := md5.Sum([]byte(firstPart + "E" + secondPart))
+
 	fmt.Printf("- Hashed MD5 (A): %x\n", collision1)
 	fmt.Printf("- Hashed MD5 (E): %x\n", collision2)
 	fmt.Printf("- Do the hashes collide? %t\n\n", bytes.Equal(collision1[:], collision2[:]))
+}
 
-	sha1Hash := sha1.Sum(helloWorld)
-	fmt.Printf("- SHA1 Hash (vulnerable): %x\n", sha1Hash)
-
-	file1, err := os.Open("./files/shattered-1.pdf")
+func sha1File(fileName string) []byte {
+	file, err := os.Open("./files/" + fileName)
 	if err != nil {
-		log.Fatalf("Error opening file 1: %v", err)
+		log.Fatalf("Error opening file: %v", err)
 	}
-	defer file1.Close()
+	defer file.Close()
 
-	file2, err := os.Open("./files/shattered-2.pdf")
-	if err != nil {
-		log.Fatalf("Error opening file 2: %v", err)
+	hash := sha1.New()
+	if _, err := io.Copy(hash, file); err != nil {
+		log.Fatalf("Error hashing file: %v", err)
 	}
-	defer file2.Close()
+	return hash.Sum(nil)
+}
 
-	hash1 := sha1.New()
-	hash2 := sha1.New()
-
-	if _, err := io.Copy(hash1, file1); err != nil {
-		log.Fatalf("Error hashing file 1: %v", err)
-	}
-	if _, err := file1.Seek(0, io.SeekStart); err != nil {
-		log.Fatalf("Error resetting file 1 pointer: %v", err)
-	}
-
-	if _, err := io.Copy(hash2, file2); err != nil {
-		log.Fatalf("Error hashing file 2: %v", err)
-	}
-	if _, err := file2.Seek(0, io.SeekStart); err != nil {
-		log.Fatalf("Error resetting file 2 pointer: %v", err)
-	}
-
-	sha1a := hash1.Sum(nil)
-	sha1b := hash2.Sum(nil)
+func sha1CollisionExample() {
+	sha1a := sha1File("shattered-1.pdf")
+	sha1b := sha1File("shattered-2.pdf")
 
 	fmt.Printf("- SHA1 of shattered-1.pdf: %x\n", sha1a)
 	fmt.Printf("- SHA1 of shattered-2.pdf: %x\n", sha1b)

@@ -18,25 +18,28 @@ func main() {
 	b--
 	fmt.Printf("After decrement, b = %d\n", b)
 	fmt.Printf("%.2f / %.2f = %.2f\n", float64(a), float64(b), float64(a)/float64(b))
+	fmt.Println()
 
 	// Comparison Operators: ==, !=, <, <=, >, >=
-	fmt.Println("\nComparison Operators:")
+	fmt.Println("Comparison Operators:")
 	fmt.Printf("%d == %d = %t\n", a, b, a == b)
 	fmt.Printf("%d != %d = %t\n", a, b, a != b)
 	fmt.Printf("%d < %d = %t\n", a, b, a < b)
 	fmt.Printf("%d <= %d = %t\n", a, b, a <= b)
 	fmt.Printf("%d > %d = %t\n", a, b, a > b)
 	fmt.Printf("%d >= %d = %t\n", a, b, a >= b)
+	fmt.Println()
 
 	// Logical Operators: &&, ||, !
-	fmt.Println("\nLogical Operators:")
+	fmt.Println("Logical Operators:")
 	x, y := true, false
 	fmt.Printf("%t && %t = %t\n", x, y, x && y)
 	fmt.Printf("%t || %t = %t\n", x, y, x || y)
 	fmt.Printf("!%t = %t\n", x, !x)
+	fmt.Println()
 
 	// Bitwise Operators: &(AND), |(OR), ^(XOR), &^(AND NOT), ^X(NOT) <<(LEFT SHIFT), >>(RIGHT SHIFT)
-	fmt.Println("\nBitwise Operators:")
+	fmt.Println("Bitwise Operators:")
 
 	var c, d uint8 = 92, 45 // 01011100 and 00101101 in binary
 
