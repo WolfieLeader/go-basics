@@ -4,7 +4,10 @@ import (
 	"fmt"
 )
 
-const helloWorld = "ĤèlĬϴ ₩órł⫒🌍"
+const (
+	HELLO_WORLD = "ĤèlĬϴ ₩órł⫒🌍"
+	FORCE       = "May the Force be with you⭐"
+)
 
 func main() {
 	fmt.Println("Hashing Example")
@@ -25,5 +28,9 @@ func main() {
 
 	fmt.Println("HMAC JWT Example")
 	hmacJwtExample()
+	fmt.Println()
+
+	fmt.Println("Symmetric Encryption Example")
+	symmetricEncryptExample()
 	fmt.Println()
 }

@@ -12,30 +12,32 @@ import (
 	"time"
 )
 
+func hmacSha256(data, key []byte) []byte {
+	h := hmac.New(sha256.New, key)
+	h.Write(data)
+	return h.Sum(nil)
+}
+
 func hmacExample() {
 	secret := []byte("mysecretkey")
-	data := []byte(helloWorld)
-
-	hmacSha256 := hmac.New(sha256.New, secret)
-	hmacSha256.Write(data)
-	tag := hmacSha256.Sum(nil)
+	data := []byte(HELLO_WORLD)
+	tag := hmacSha256(data, secret)
 
 	fmt.Printf("- Message: %s\n", data)
 	fmt.Printf("- HMAC Tag: %x\n", tag)
 
-	verify := hmac.New(sha256.New, secret)
-	verify.Write(data)
-	expectedTag := verify.Sum(nil)
-	fmt.Printf("- HMAC Verified with correct key: %v\n", hmac.Equal(tag, expectedTag)) // Constant time comparison
+	normalHash := sha256.Sum256(data)
+	fmt.Printf("- SHA256 Hash (no key): %x\n", normalHash)
 
-	verifyWrong := hmac.New(sha256.New, []byte("wrongkey"))
-	verifyWrong.Write(data)
-	wrongTag := verifyWrong.Sum(nil)
+	expectedTag := hmacSha256(data, secret)
+	isValid := hmac.Equal(tag, expectedTag) // Constant time comparison
+	fmt.Printf("- HMAC Verified with correct key: %v\n", isValid)
+
+	wrongTag := hmacSha256(data, []byte("wrongkey"))
 	fmt.Printf("- HMAC Verified with wrong key: %v\n", hmac.Equal(tag, wrongTag))
 }
 
 var now = time.Date(2025, 10, 23, 12, 0, 0, 0, time.UTC)
-var past = now.Add(-2 * time.Hour)
 
 func hmacJwtExample() {
 	secret := []byte("myjwtsecretkey")
@@ -56,7 +58,7 @@ func hmacJwtExample() {
 	_, err = verifyJwt(jwtToken[2:], secret)
 	fmt.Printf("- JWT Verification with tampered token error: %v\n", err)
 
-	expiredPayload := jwtPayload{Sub: "id-12345", Iat: past.Unix(), Exp: past.Add(time.Hour).Unix(), Name: "John Doe"}
+	expiredPayload := jwtPayload{Sub: "id-12345", Iat: now.Add(-2 * time.Hour).Unix(), Exp: now.Add(-1 * time.Hour).Unix(), Name: "John Doe"}
 	expiredToken, err := signJwt(expiredPayload, secret)
 	if err != nil {
 		log.Fatalf("Error signing expired JWT: %v", err)
@@ -90,9 +92,7 @@ func signJwt(payload jwtPayload, secret []byte) (string, error) {
 	encodedHeader := base64.RawURLEncoding.EncodeToString(headerJson)
 	encodedPayload := base64.RawURLEncoding.EncodeToString(payloadJson)
 
-	hmacSha256 := hmac.New(sha256.New, secret)
-	hmacSha256.Write([]byte(encodedHeader + "." + encodedPayload))
-	signature := hmacSha256.Sum(nil)
+	signature := hmacSha256([]byte(encodedHeader+"."+encodedPayload), secret)
 	encodedSignature := base64.RawURLEncoding.EncodeToString(signature)
 
 	jwtToken := encodedHeader + "." + encodedPayload + "." + encodedSignature
@@ -132,9 +132,7 @@ func verifyJwt(jwtToken string, secret []byte) (jwtPayload, error) {
 	if err != nil {
 		return payload, err
 	}
-	hmacSha256 := hmac.New(sha256.New, secret)
-	hmacSha256.Write([]byte(parts[0] + "." + parts[1]))
-	expectedSignature := hmacSha256.Sum(nil)
+	expectedSignature := hmacSha256([]byte(parts[0]+"."+parts[1]), secret)
 
 	if !hmac.Equal(decodedSignature, expectedSignature) {
 		return payload, errors.New("invalid JWT signature")

@@ -14,7 +14,7 @@ import (
 )
 
 func hashExample() {
-	data := []byte(helloWorld)
+	data := []byte(HELLO_WORLD)
 	fmt.Printf("- Original: %s\n\n", data)
 
 	sha2_224 := sha256.Sum224(data)
