@@ -2,50 +2,48 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/WolfieLeader/go-basics/17_concurrency/basic"
 )
 
 func main() {
 	fmt.Println("Goroutine Example:")
-	goroutineExample()
-	fmt.Println()
-
-	fmt.Println("Goroutine Without Wait Example:")
-	goroutineWithoutWaitExample()
+	basic.GoroutineExample()
 	fmt.Println()
 
 	fmt.Println("Unbuffered Channel Example:")
-	unbufferedChannelExample()
+	basic.UnbufferedChannelExample()
 	fmt.Println()
 
 	fmt.Println("Buffered Channel Example:")
-	bufferedChannelExample()
+	basic.BufferedChannelExample()
 	fmt.Println()
 
 	fmt.Println("Comma-Ok Channel Example:")
-	commaOkChannelExample()
+	basic.CommaOkChannelExample()
 	fmt.Println()
 
 	fmt.Println("Channel Directions Example:")
-	channelDirectionsExample()
+	basic.ChannelDirectionsExample()
 	fmt.Println()
 
 	fmt.Println("Select Example:")
-	selectExample()
+	basic.SelectExample()
 	fmt.Println()
 
 	fmt.Println("Send Select Example:")
-	sendSelectExample()
+	basic.SelectSendExample()
 	fmt.Println()
 
 	fmt.Println("Sync Wait Group Example:")
-	syncWaitGroupExample()
+	basic.SyncWaitGroupExample()
 	fmt.Println()
 
 	fmt.Println("Modern Sync Wait Group Example:")
-	modernSyncWaitGroupExample()
+	basic.ModernSyncWaitGroupExample()
 	fmt.Println()
 
 	fmt.Println("Sync Mutex Example:")
-	syncMutexExample()
+	basic.SyncMutexExample()
 	fmt.Println()
 }
