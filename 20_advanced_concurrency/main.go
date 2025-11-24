@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 
-	"github.com/WolfieLeader/go-basics/20_advanced_concurrency/errors"
 	"github.com/WolfieLeader/go-basics/20_advanced_concurrency/patterns"
 	"github.com/WolfieLeader/go-basics/20_advanced_concurrency/sync"
 )
@@ -51,17 +50,5 @@ func main() {
 
 	fmt.Println("Sync Atomic Example")
 	sync.AtomicExample()
-	fmt.Println()
-
-	fmt.Println("Race Condition Example")
-	errors.RaceConditionExample()
-	fmt.Println()
-
-	fmt.Println("Goroutine Leak Example")
-	errors.GoroutineLeakExample()
-	fmt.Println()
-
-	fmt.Println("Deadlock Example")
-	errors.DeadlockExample()
 	fmt.Println()
 }
