@@ -2,13 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
-
-func sleepFromTo(from int, to int) {
-	time.Sleep(time.Duration(from+rand.Intn(to-from+1)) * time.Millisecond)
-}
 
 func main() {
 	fmt.Println("Goroutine Example:")
@@ -53,17 +47,5 @@ func main() {
 
 	fmt.Println("Sync Mutex Example:")
 	syncMutexExample()
-	fmt.Println()
-
-	fmt.Println("Context Timeout Example:")
-	contextTimeoutExample()
-	fmt.Println()
-
-	fmt.Println("Context Cancellation Example:")
-	contextCancellationExample()
-	fmt.Println()
-
-	fmt.Println("Context Value Example:")
-	contextValueExample()
 	fmt.Println()
 }

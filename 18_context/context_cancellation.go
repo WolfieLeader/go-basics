@@ -3,7 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
+	"math/rand"
 	"sync"
+	"time"
 )
 
 func worker(ctx context.Context, id int, wg *sync.WaitGroup) {
@@ -18,7 +20,7 @@ func worker(ctx context.Context, id int, wg *sync.WaitGroup) {
 		default:
 			fmt.Printf("- worker %d: working for the %d time...\n", id, count)
 			count++
-			sleepFromTo(100, 200)
+			time.Sleep(time.Duration(100+rand.Intn(100)) * time.Millisecond)
 		}
 	}
 }
@@ -34,8 +36,8 @@ func contextCancellationExample() {
 	for id := 1; id <= WORKERS; id++ {
 		go worker(ctx, id, &wg)
 	}
-
-	sleepFromTo(200, 600)
+	
+	time.Sleep(time.Duration(200+rand.Intn(400)) * time.Millisecond)
 	cancel() // Cancel the context to stop all workers
 
 	wg.Wait()
