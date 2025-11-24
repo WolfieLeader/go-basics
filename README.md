@@ -181,9 +181,30 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 - `select` Statement
 - `sync.WaitGroup` for Goroutine Synchronization
 - `sync.Mutex` for Mutual Exclusion
-- `context` Package (Timeouts, Cancellation, Passing Values)
+- Advanced:
+  - `io.Pipe` for In-Memory Streaming
+  - `sync.RWMutex`, `sync.Once`, `sync.Pool`, `sync.Cond`
+  - Concurrency Patterns
+    - Fan-out Fan-in
+    - Generator & Pipeline
+    - Worker Pool
+    - Semaphore
+  - Atomic Operations (`sync/atomic` Package)
+  - TODO: Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
 
-### 18. Input and Output
+---
+
+### 18. Context
+
+- `context.Background()`, `context.TODO()`
+- Parent and Child Contexts
+- Cancellation
+- Timeouts and Deadlines
+- Passing Values with Context
+
+---
+
+### 19. Input and Output
 
 - `io` package (Readers, Writers, Copying)
 - File Operations (`os` package)
@@ -193,30 +214,11 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 19. Data Serialization
+### 20. Data Serialization
 
 - JSON (`encoding/json` package) and Encoder examples
 - XML (`encoding/xml` package)
 - CSV (`encoding/csv` package)
-
----
-
-### 20. Advanced Concurrency
-
-- `io.Pipe` for In-Memory Streaming
-- `sync` Package
-  - RWMutexes - Read/Write Locks
-  - Once
-  - Pool
-  - Cond
-  - Atomic Operations (`sync/atomic` Package)
-- Deadlocks, Race Conditions (`-race` flag), and Goroutine Leaks
-- Concurrency Patterns
-  - Fan-out, Fan-in
-  - Generator
-  - Pipeline
-  - Worker Pool
-  - Semaphore
 
 ---
 
