@@ -1,4 +1,4 @@
-package sync
+package old
 
 import (
 	cryptoRand "crypto/rand"
