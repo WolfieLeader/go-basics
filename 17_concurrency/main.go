@@ -48,6 +48,10 @@ func main() {
 	basic.SyncMutexExample()
 	fmt.Println()
 
+	fmt.Println("Patterns: Generator")
+	patterns.GeneratorExample()
+	fmt.Println()
+
 	fmt.Println("Patterns: Fan-Out Fan-In")
 	patterns.FanOutFanInExample()
 	fmt.Println()
