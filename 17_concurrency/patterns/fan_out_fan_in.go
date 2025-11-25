@@ -9,26 +9,17 @@ import (
 
 func FanOutFanInExample() {
 	const workers = 3
-	nums := []float64{0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400}
-
-	jobs := make(chan float64)
-	results := make(chan float64)
-
+	results := make(chan int)
 	var wg sync.WaitGroup
+
+	// Spread out work (via channel) with generator pattern to produce perfect squares
+	tasks := squareGenerator(20)
 
 	// Fan-Out - Start workers to split work across multiple goroutines
 	wg.Add(workers)
 	for w := 1; w <= workers; w++ {
-		go worker(&wg, jobs, results)
+		go sqrtWorker(&wg, tasks, results)
 	}
-
-	// Spread the work
-	go func() {
-		for _, n := range nums {
-			jobs <- n
-		}
-		close(jobs)
-	}()
 
 	// Wait for workers to finish and close channel
 	go func() {
@@ -37,17 +28,28 @@ func FanOutFanInExample() {
 	}()
 
 	// Fan-In - Collect all computed results
-	roots := make([]float64, 0, len(nums))
+	roots := make([]int, 0)
 	for r := range results {
 		roots = append(roots, r)
 	}
 	fmt.Printf("- %v", roots)
 }
 
-func worker(wg *sync.WaitGroup, jobs <-chan float64, results chan<- float64) {
+func squareGenerator(max int) <-chan float64 {
+	ch := make(chan float64)
+	go func() {
+		defer close(ch)
+		for i := 0; i <= max; i++ {
+			ch <- float64(i * i)
+		}
+	}()
+	return ch
+}
+
+func sqrtWorker(wg *sync.WaitGroup, tasks <-chan float64, results chan<- int) {
 	defer wg.Done()
-	for num := range jobs {
+	for num := range tasks {
 		time.Sleep(50 * time.Millisecond) // Simulate work
-		results <- math.Sqrt(num)
+		results <- int(math.Sqrt(num))
 	}
 }
