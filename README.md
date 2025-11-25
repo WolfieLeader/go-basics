@@ -174,7 +174,17 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 17. Concurrency
+### 17. Input and Output
+
+- `io` package (Readers, Writers, Copying)
+- File Operations (`os` package)
+- Stdin, Stdout
+- HTTP Requests (`net/http` package)
+- `bufio` package (Buffered I/O, Scanner, Reader, Writer)
+
+---
+
+### 18. Concurrency
 
 - Goroutines (`go` Keyword)
 - Channels (Buffered and Unbuffered, Comma-ok Idiom, Direction Types, Iteration)
@@ -194,23 +204,13 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 18. Context
+### 19. Context
 
 - `context.Background()`, `context.TODO()`
 - Parent and Child Contexts
 - Cancellation
 - Timeouts and Deadlines
 - Passing Values with Context
-
----
-
-### 19. Input and Output
-
-- `io` package (Readers, Writers, Copying)
-- File Operations (`os` package)
-- Stdin, Stdout
-- HTTP Requests (`net/http` package)
-- `bufio` package (Buffered I/O, Scanner, Reader, Writer)
 
 ---
 

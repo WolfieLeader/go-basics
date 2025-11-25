@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/WolfieLeader/go-basics/17_concurrency/advanced"
-	"github.com/WolfieLeader/go-basics/17_concurrency/basic"
-	"github.com/WolfieLeader/go-basics/17_concurrency/patterns"
+	"github.com/WolfieLeader/go-basics/18_concurrency/advanced"
+	"github.com/WolfieLeader/go-basics/18_concurrency/basic"
+	"github.com/WolfieLeader/go-basics/18_concurrency/patterns"
 )
 
 func main() {
