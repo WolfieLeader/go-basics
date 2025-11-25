@@ -52,6 +52,10 @@ func main() {
 	patterns.GeneratorExample()
 	fmt.Println()
 
+	fmt.Println("Patterns: Pipeline")
+	patterns.PipelineExample()
+	fmt.Println()
+
 	fmt.Println("Patterns: Fan-Out Fan-In")
 	patterns.FanOutFanInExample()
 	fmt.Println()

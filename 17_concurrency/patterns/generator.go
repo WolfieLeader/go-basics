@@ -22,9 +22,9 @@ func fibGenerator(count int) <-chan int {
 }
 
 func GeneratorExample() {
-	out := make([]int, 0)
+	ch := make([]int, 0)
 	for v := range fibGenerator(23) {
-		out = append(out, v)
+		ch = append(ch, v)
 	}
-	fmt.Printf("- %v\n", out)
+	fmt.Printf("- Fibonacci numbers: %v\n", ch)
 }

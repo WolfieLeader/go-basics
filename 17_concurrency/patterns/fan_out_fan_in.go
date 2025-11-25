@@ -32,7 +32,7 @@ func FanOutFanInExample() {
 	for r := range results {
 		roots = append(roots, r)
 	}
-	fmt.Printf("- %v", roots)
+	fmt.Printf("-Root of numbers: %v", roots)
 }
 
 func squareGenerator(max int) <-chan float64 {
