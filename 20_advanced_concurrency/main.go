@@ -8,10 +8,6 @@ import (
 )
 
 func main() {
-	fmt.Println("io.Pipe Example:")
-	ioPipeExample()
-	fmt.Println()
-
 	fmt.Println("Worker Pool Example:")
 	patterns.WorkerPoolExample()
 	fmt.Println()
