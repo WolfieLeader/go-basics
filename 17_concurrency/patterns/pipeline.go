@@ -42,5 +42,5 @@ func PipelineExample() {
 	for v := range square(double(generator(1, 2, 3, 4, 5))) {
 		nums = append(nums, v)
 	}
-	fmt.Printf("- Numbers after doubling and squaring: %v", nums)
+	fmt.Printf("- Numbers after doubling and squaring: %v\n", nums)
 }

@@ -68,12 +68,13 @@ func main() {
 	fmt.Println("Name: "+name, " Age: ", age, " Employed: ", isEmployed)
 	fmt.Printf(
 		`Types:
-    - String: %s
-    - Boolean: %t
-    - Int: %d, Converted to Float: %.1f
-    - Uint: %d
-    - Float: %f, Shortened: %.2f
-    - Complex: %v
-		- Type of Complex: %T`,
-		s, b, i, float64(i), u, f, f, c, c)
+- String: %s
+- Boolean: %t
+- Int: %d, Converted to Float: %.1f
+- Uint: %d 
+- Type of variable: %T
+- Float: %f, Shortened: %.2f
+- Complex: %v
+`,
+		s, b, i, float64(i), u, u, f, f, c)
 }

@@ -12,18 +12,6 @@ func main() {
 	ioPipeExample()
 	fmt.Println()
 
-	fmt.Println("Generator Example:")
-	patterns.GeneratorExample()
-	fmt.Println()
-
-	fmt.Println("Pipeline Example:")
-	patterns.PipelineExample()
-	fmt.Println()
-
-	fmt.Println("Fan-Out / Fan-In Example:")
-	patterns.FanOutFanInExample()
-	fmt.Println()
-
 	fmt.Println("Worker Pool Example:")
 	patterns.WorkerPoolExample()
 	fmt.Println()

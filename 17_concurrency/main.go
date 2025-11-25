@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/WolfieLeader/go-basics/17_concurrency/advanced"
 	"github.com/WolfieLeader/go-basics/17_concurrency/basic"
 	"github.com/WolfieLeader/go-basics/17_concurrency/patterns"
 )
@@ -58,5 +59,9 @@ func main() {
 
 	fmt.Println("Patterns: Fan-Out Fan-In")
 	patterns.FanOutFanInExample()
+	fmt.Println()
+
+	fmt.Println("Advanced: io.Pipe")
+	advanced.IoPipeExample()
 	fmt.Println()
 }
