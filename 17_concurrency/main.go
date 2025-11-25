@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/WolfieLeader/go-basics/17_concurrency/basic"
+	"github.com/WolfieLeader/go-basics/17_concurrency/patterns"
 )
 
 func main() {
@@ -45,5 +46,9 @@ func main() {
 
 	fmt.Println("Sync Mutex Example:")
 	basic.SyncMutexExample()
+	fmt.Println()
+
+	fmt.Println("Patterns: Fan-Out Fan-In")
+	patterns.FanOutFanInExample()
 	fmt.Println()
 }
