@@ -204,7 +204,7 @@ Practical Go programming guide covering the basics and some advanced topics. Thi
 
 ---
 
-### 19. Context
+### 19. Context Package
 
 - `context.Background()`, `context.TODO()`
 - Parent and Child Contexts
