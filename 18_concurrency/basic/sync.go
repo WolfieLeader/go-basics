@@ -36,9 +36,10 @@ func ModernSyncWaitGroupExample() {
 		// `wg.Go` is a convenience method that adds 1 to the WaitGroup counter,
 		// starts a new goroutine, and decrements the counter when the goroutine finishes.
 		wg.Go(func() {
-			fmt.Printf("- Worker %d started\n", id)
-			time.Sleep(time.Duration(id) * 500 * time.Millisecond)
-			fmt.Printf("- Worker %d done\n", id)
+			fmt.Printf("- [worker %d]: Processsing...\n", id)
+			t := time.Now()
+			time.Sleep(time.Duration(id) * 300 * time.Millisecond)
+			fmt.Printf("- [worker %d]: Done! (took %v)\n", id, time.Since(t).Round(time.Millisecond))
 		})
 	}
 

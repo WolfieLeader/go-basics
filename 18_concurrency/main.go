@@ -61,6 +61,10 @@ func main() {
 	patterns.FanOutFanInExample()
 	fmt.Println()
 
+	fmt.Println("Patterns: Worker Pool")
+	patterns.WorkerPoolExample()
+	fmt.Println()
+
 	fmt.Println("Advanced: io.Pipe")
 	advanced.IoPipeExample()
 	fmt.Println()
