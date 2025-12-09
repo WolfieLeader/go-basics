@@ -2,27 +2,25 @@ package patterns
 
 import (
 	"fmt"
-	"math"
 	"sync"
 	"time"
 )
 
 func FanOutFanInExample() {
-	const taskCount = 20
-	results := make(chan float64)
+	results := make(chan int)
 	var wg sync.WaitGroup
 
-	// Spread out work (via channel) with generator pattern to produce perfect squares
-	squares := squareGenerator(taskCount)
+	// Spread out work
+	tens := generator(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
 
 	// Fan-Out - Start workers to split work across multiple goroutines
-	for sq := range squares {
+	for num := range tens {
 		wg.Add(1)
-		go func(num float64) {
+		go func(num int) {
 			defer wg.Done()
 			time.Sleep(50 * time.Millisecond) // Simulate work
-			results <- math.Sqrt(num)
-		}(sq)
+			results <- num / 10
+		}(num)
 	}
 
 	// Wait for workers to finish and close channel
@@ -32,20 +30,9 @@ func FanOutFanInExample() {
 	}()
 
 	// Fan-In - Collect all computed results
-	roots := make([]float64, 0)
+	nums := make([]int, 0)
 	for r := range results {
-		roots = append(roots, r)
+		nums = append(nums, r)
 	}
-	fmt.Printf("- Roots of numbers: %v\n", roots)
-}
-
-func squareGenerator(max int) <-chan float64 {
-	ch := make(chan float64)
-	go func() {
-		defer close(ch)
-		for i := 1; i <= max; i++ {
-			ch <- float64(i * i)
-		}
-	}()
-	return ch
+	fmt.Printf("- Numbers (10 gorotinues as the number of tasks): %v\n", nums)
 }

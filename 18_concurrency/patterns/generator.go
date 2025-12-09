@@ -2,19 +2,13 @@ package patterns
 
 import "fmt"
 
-func fibGenerator(count int) <-chan int {
+func generator(nums ...int) <-chan int {
 	ch := make(chan int)
 
 	go func() {
 		defer close(ch)
-		if count <= 0 {
-			return
-		}
-
-		a, b := 0, 1
-		for range count {
-			ch <- a
-			a, b = b, a+b
+		for _, v := range nums {
+			ch <- v
 		}
 	}()
 
@@ -22,9 +16,9 @@ func fibGenerator(count int) <-chan int {
 }
 
 func GeneratorExample() {
-	ch := make([]int, 0)
-	for v := range fibGenerator(23) {
-		ch = append(ch, v)
+	nums := make([]int, 0)
+	for v := range generator(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144) {
+		nums = append(nums, v)
 	}
-	fmt.Printf("- Fibonacci numbers: %v\n", ch)
+	fmt.Printf("- Fibonacci numbers: %v\n", nums)
 }

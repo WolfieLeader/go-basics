@@ -2,54 +2,38 @@ package patterns
 
 import (
 	"fmt"
+	"math"
 	"sync"
 	"time"
 )
 
 func WorkerPoolExample() {
-	const taskCount = 10
 	const workerCount = 3
-
-	results := make(chan int)
+	results := make(chan float64)
 	var wg sync.WaitGroup
 
-	// Spread out work (via channel) with generator pattern to produce doubled numbers
-	tens := tenXGenerator(taskCount)
+	squares := generator(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
 
 	// Fan-Out - Start FIXED number of workers to split work across multiple goroutines
 	for w := 1; w <= workerCount; w++ {
-		wg.Add(1)
-		go func(workerId int) {
-			defer wg.Done()
-			for t := range tens {
-				fmt.Printf("- [worker %d]: Processing %d\n", workerId, t)
-				time.Sleep(50 * time.Millisecond) // Simulate work
-				results <- t / 10
+		wg.Go(func() {
+			for num := range squares {
+				time.Sleep(50 * time.Millisecond)
+				results <- math.Sqrt(float64(num))
 			}
-		}(w)
+		})
 	}
 
-	// Wait for workers to finish and close channel
+	// Wait
 	go func() {
 		wg.Wait()
 		close(results)
 	}()
 
-	// Fan-In - Collect all computed results
-	nums := make([]int, 0)
-	for n := range results {
-		nums = append(nums, n)
+	// Fan-In
+	nums := make([]float64, 0)
+	for r := range results {
+		nums = append(nums, r)
 	}
-	fmt.Printf("- Numbers: %v\n", nums)
-}
-
-func tenXGenerator(count int) <-chan int {
-	ch := make(chan int)
-	go func() {
-		defer close(ch)
-		for i := 1; i <= count; i++ {
-			ch <- i * 10
-		}
-	}()
-	return ch
+	fmt.Printf("- Numbers (3 gorotinues): %v\n", nums)
 }

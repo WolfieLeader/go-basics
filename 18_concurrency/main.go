@@ -65,6 +65,10 @@ func main() {
 	patterns.WorkerPoolExample()
 	fmt.Println()
 
+	fmt.Println("Patterns: Semaphore")
+	patterns.SemaphoreExample()
+	fmt.Println()
+
 	fmt.Println("Advanced: io.Pipe")
 	advanced.IoPipeExample()
 	fmt.Println()
