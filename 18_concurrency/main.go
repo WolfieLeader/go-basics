@@ -72,4 +72,8 @@ func main() {
 	fmt.Println("Advanced: io.Pipe")
 	advanced.IoPipeExample()
 	fmt.Println()
+
+	fmt.Println("Advanced: RWMutex")
+	advanced.RWMutexExample()
+	fmt.Println()
 }
