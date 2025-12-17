@@ -9,6 +9,11 @@ import (
 
 func SyncWaitGroupExample() {
 	var wg sync.WaitGroup
+	downloadFn := func(item string) {
+		fmt.Printf("- Downloading %s...\n", item)
+		time.Sleep(time.Duration(rand.Intn(2000)) * time.Millisecond)
+		fmt.Printf("- %s downloaded!\n", item)
+	}
 
 	// `wg.Add` increments the WaitGroup counter by the number of goroutines to wait for
 	wg.Add(2)
@@ -21,12 +26,6 @@ func SyncWaitGroupExample() {
 	wg.Wait()
 
 	fmt.Println("- All downloads completed!")
-}
-
-func downloadFn(x string) {
-	fmt.Printf("- Downloading %s...\n", x)
-	time.Sleep(time.Duration(rand.Intn(2000)) * time.Millisecond)
-	fmt.Printf("- %s downloaded!\n", x)
 }
 
 func ModernSyncWaitGroupExample() {
@@ -45,28 +44,4 @@ func ModernSyncWaitGroupExample() {
 
 	wg.Wait()
 	fmt.Println("- All workers completed!")
-}
-
-func SyncMutexExample() {
-	// Mutex to synchronize access to the counter
-	var mu sync.Mutex
-	var wg sync.WaitGroup
-	counter, racyCounter := 0, 0
-
-	for range 1000 {
-		wg.Go(func() {
-			mu.Lock() // Lock the mutex before accessing the counter
-			counter++
-			mu.Unlock() // Unlock the mutex, can also use `defer` for safety
-		})
-
-		wg.Go(func() {
-			// Not protected, leading to race conditions
-			racyCounter++
-		})
-	}
-	wg.Wait()
-
-	fmt.Printf("- Counter with mutex:         %d\n", counter)
-	fmt.Printf("- Racy counter without mutex: %d\n", racyCounter)
 }

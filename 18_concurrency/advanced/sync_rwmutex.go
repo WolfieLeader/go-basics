@@ -7,8 +7,8 @@ import (
 )
 
 type cache struct {
-	mu   sync.RWMutex
 	data map[string]string
+	mu   sync.RWMutex
 }
 
 func (c *cache) Get(key string) (string, bool) {

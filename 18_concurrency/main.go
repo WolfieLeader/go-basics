@@ -69,11 +69,27 @@ func main() {
 	patterns.SemaphoreExample()
 	fmt.Println()
 
-	fmt.Println("Advanced: io.Pipe")
-	advanced.IoPipeExample()
+	fmt.Println("Advanced: Sync Once")
+	advanced.SyncOnceExample()
 	fmt.Println()
 
 	fmt.Println("Advanced: RWMutex")
 	advanced.RWMutexExample()
+	fmt.Println()
+
+	fmt.Println("Advanced: io.Pipe")
+	advanced.IoPipeExample()
+	fmt.Println()
+
+	fmt.Println("Advanced: Sync Pool")
+	advanced.SyncPoolExample()
+	fmt.Println()
+
+	fmt.Println("Advanced: Atomic")
+	advanced.AtomicExample()
+	fmt.Println()
+
+	fmt.Println("Advanced: Sync Cond")
+	advanced.SyncCondExample()
 	fmt.Println()
 }
