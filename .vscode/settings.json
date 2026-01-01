@@ -1,3 +1,12 @@
 {
-  "cSpell.words": ["Goroutines", "Wolfie"]
+  "cSpell.words": ["Goroutines", "Deque", "heapify", "hoare", "lomuto", "nums", "succ", "Wolfie"],
+  "material-icon-theme.folders.associations": {
+    "data_structures": "app",
+    "searching_algorithms": "target",
+    "sorting_algorithms": "functions",
+    "array": "webpack",
+    "linked_list": "pipe",
+    "hash_map": "mappings",
+    "tree": "routes"
+  }
 }
